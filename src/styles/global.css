@@ -9,6 +9,41 @@
   html {
     scroll-behavior: smooth;
   }
+
+  .theme-stone {
+    --section-bg: var(--color-stone-100);
+    --text-head: var(--color-stone-900);
+    --text-body: var(--color-stone-700);
+    --text-sub: var(--color-stone-600);
+    --text-muted: var(--color-stone-500);
+  }
+
+  .theme-white {
+    --section-bg: white;
+    --text-head: var(--color-stone-900);
+    --text-body: var(--color-stone-700);
+    --text-sub: var(--color-stone-600);
+    --text-muted: var(--color-stone-500);
+  }
+}
+
+@utility text-head {
+  @apply text-xl;
+  color: var(--text-head);
+}
+@utility text-body {
+  color: var(--text-body);
+}
+@utility text-sub {
+  @apply text-sm;
+  color: var(--text-sub);
+}
+@utility text-muted {
+  @apply text-sm;
+  color: var(--text-muted);
+}
+@utility bg-section {
+  background-color: var(--section-bg);
 }
 
 @theme {

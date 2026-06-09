@@ -3,17 +3,18 @@ import { getEntry } from "astro:content";
 
 interface Props {
   locale: string;
+  class?: string;
 }
 
-const { locale } = Astro.props;
+const { locale, class: className } = Astro.props;
 const entry = await getEntry("contact", locale);
 if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
 ---
 
-<section id="contact" class="flex min-h-[80svh] flex-col items-center justify-center px-4 py-16 text-center">
+<section id="contact" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
   <div class="mx-auto max-w-md">
-    <h2 class="mb-8 text-4xl font-normal sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
-    <address class="mb-6 not-italic text-stone-600">
+    <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+    <address class="mb-6 not-italic text-sub">
       <p class="mb-1">{entry.data.address}</p>
       <p class="mb-1">
         <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
@@ -23,7 +24,7 @@ if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
       </p>
     </address>
     {entry.data.extras && (
-      <ul class="space-y-1 text-sm text-stone-400">
+      <ul class="space-y-1 text-muted">
         {entry.data.extras.map((extra) => <li>{extra}</li>)}
       </ul>
     )}

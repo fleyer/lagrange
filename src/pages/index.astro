@@ -30,11 +30,11 @@ const locale = Astro.currentLocale ?? "fr";
     <Header />
     <main>
       <SectionHero locale={locale} />
-      <SectionRefuge locale={locale} />
-      <SectionAccommodations locale={locale} />
-      <SectionDining locale={locale} />
-      <SectionGallery />
-      <SectionContact locale={locale} />
+      <SectionRefuge locale={locale} class="theme-white" />
+      <SectionAccommodations locale={locale} class="theme-stone" />
+      <SectionDining locale={locale} class="theme-white" />
+      <SectionGallery class="theme-stone" />
+      <SectionContact locale={locale} class="theme-white" />
     </main>
   </body>
 </html>
