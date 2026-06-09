@@ -53,6 +53,19 @@ Use Astro's [Content Collections](https://docs.astro.build/en/guides/content-col
 - Use scoped `<style>` blocks inside `.astro` files; no global CSS except design tokens in `src/styles/global.css`
 - No JavaScript islands unless a feature cannot be done in HTML/CSS — this is a static, mostly informational site
 
+### Icons
+
+Use `@lucide/astro` for all icons — import named components directly:
+
+```astro
+---
+import { Menu, X, ChevronDown } from "@lucide/astro";
+---
+<Menu class="h-5 w-5" />
+```
+
+Do not inline raw `<svg>` elements for icons that exist in the Lucide library.
+
 ### Static-only
 
 `astro.config.mjs` must stay in default static output mode (`output: 'static'` or omitted). No SSR, no server endpoints.
