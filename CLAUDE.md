@@ -18,6 +18,19 @@ bun astro add    # add an official Astro integration
 bun astro check  # TypeScript diagnostics across .astro files
 ```
 
+## Installing dependencies
+
+Always pin exact versions — never use `^` or `latest` in install commands:
+
+```bash
+# Look up the current version first
+npm show <package> version
+
+# Then install pinned
+bun add <package>@<exact-version>
+bun add -d <package>@<exact-version>
+```
+
 ## Architecture
 
 ### One-page layout
