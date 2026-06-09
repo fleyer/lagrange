@@ -9,9 +9,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check && biome check .",
+    "prepare": "lefthook install"
   },
   "dependencies": {
     "astro": "^6.4.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "@biomejs/biome": "2.4.16",
+    "lefthook": "2.1.9",
+    "typescript": "6.0.3"
   }
 }
