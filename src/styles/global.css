@@ -2,6 +2,10 @@
 @plugin "daisyui";
 
 @layer base {
+  :root {
+    --header-height: 3.75rem;
+  }
+
   html {
     scroll-behavior: smooth;
   }
