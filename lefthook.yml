@@ -4,4 +4,6 @@ pre-commit:
     typecheck:
       run: bun astro check
     lint:
-      run: bun biome check . --fix
+      glob: "*.{ts,js,astro}"
+      run: bun biome check {staged_files} --fix
+      stage_fixed: true
