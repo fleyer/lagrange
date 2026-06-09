@@ -3,6 +3,7 @@ title: Restauración
 meals:
   - name: Desayuno
     note: libre servicio
+    image: ../../assets/dining/breakfast.avif
     items:
       - Pan
       - mantequilla
@@ -13,6 +14,7 @@ meals:
       - plátano
   - name: Media pensión
     note: 55 €/pers.
+    image: ../../assets/dining/halfboard.avif
     items:
       - Aperitivo local
       - Entrante (sopa o ensalada)
@@ -22,6 +24,7 @@ meals:
   - name: Media pensión terroir
     description: Especialidades del terroir con las explicaciones y el compartir de Marie-France
     note: 65 €/pers.
+    image: ../../assets/dining/terroir.avif
     items:
       - Pousse Rapière
       - Ensalada con productos locales

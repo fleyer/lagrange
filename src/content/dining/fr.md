@@ -3,6 +3,7 @@ title: À Table
 meals:
   - name: Petit déjeuner
     note: en libre service
+    image: ../../assets/dining/breakfast.avif
     items:
       - Pain
       - beurre
@@ -13,6 +14,7 @@ meals:
       - banane
   - name: Demi-pension
     note: 55 €/pers.
+    image: ../../assets/dining/halfboard.avif
     items:
       - Apéritif local
       - Entrée (potage ou salade)
@@ -22,6 +24,7 @@ meals:
   - name: Demi-pension terroir
     description: Spécialités du terroir​ avec les explications et partage de Marie-France
     note: 65 €/pers.
+    image: ../../assets/dining/terroir.avif
     items:
       - Pousse Rapière
       - Salade aux produits locaux
