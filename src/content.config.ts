@@ -18,7 +18,7 @@ const refuge = defineCollection({
 });
 
 const accommodations = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/accommodations" }),
+  loader: glob({ pattern: "??.md", base: "./src/content/accommodations" }),
   schema: z.object({
     title: z.string(),
     units: z.array(
@@ -35,6 +35,19 @@ const accommodations = defineCollection({
       }),
     ),
   }),
+});
+
+const accommodationsImages = defineCollection({
+  loader: glob({ pattern: "index.md", base: "./src/content/accommodations" }),
+  schema: ({ image }) =>
+    z.object({
+      units: z.array(
+        z.object({
+          id: z.string(),
+          images: z.array(image()),
+        }),
+      ),
+    }),
 });
 
 const dining = defineCollection({
@@ -55,4 +68,11 @@ const contact = defineCollection({
   }),
 });
 
-export const collections = { hero, refuge, accommodations, dining, contact };
+export const collections = {
+  hero,
+  refuge,
+  accommodations,
+  accommodationsImages,
+  dining,
+  contact,
+};
