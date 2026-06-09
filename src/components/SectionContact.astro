@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import avatarImage from "../assets/avatar.jpg";
 
 interface Props {
   locale: string;
@@ -9,24 +12,48 @@ interface Props {
 const { locale, class: className } = Astro.props;
 const entry = await getEntry("contact", locale);
 if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
+
+const socialsEntry = await getEntry("site", "socials");
+if (!socialsEntry) throw new Error("Missing site/socials content");
+
+const links = socialsEntry.data.links;
 ---
 
 <section id="contact" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
   <div class="mx-auto max-w-md">
+    <div class="avatar mb-6">
+      <div class="w-28 rounded-full ring ring-stone-300 ring-offset-2 ring-offset-stone-100">
+        <Image src={avatarImage} alt="Marie France" />
+      </div>
+    </div>
     <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
     <address class="mb-6 not-italic text-sub">
       <p class="mb-1">{entry.data.address}</p>
-      <p class="mb-1">
-        <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
-      </p>
+      {entry.data.phone && (
+        <p class="mb-1">
+          <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
+        </p>
+      )}
       <p>
         <a href={`mailto:${entry.data.email}`} class="hover:underline">{entry.data.email}</a>
       </p>
     </address>
     {entry.data.extras && (
-      <ul class="space-y-1 text-muted">
+      <ul class="mb-8 space-y-1 text-muted">
         {entry.data.extras.map((extra) => <li>{extra}</li>)}
       </ul>
     )}
+    <div class="flex justify-center gap-4">
+      {links.map(({ href, label, icon, color }) => (
+        <a
+          href={href}
+          class="scale-100 hover:scale-110 cursor-pointer"
+          aria-label={label}
+          style={{ color }}
+        >
+          <Icon name={icon} class="h-8 w-8" />
+        </a>
+      ))}
+    </div>
   </div>
 </section>

@@ -8,13 +8,13 @@ links:
   - type: email
     href: "mailto:lagrangedemariefrance@gmail.com"
     label: "Email"
-    icon: lucide:mail
-    color:
+    icon: simple-icons:gmail
+    color: "#EA4335"
   - type: phone
     href: "tel:+33661244804"
     label: "Phone"
     icon: lucide:phone
-    color:
+    color: "#0098FF"
   - type: whatsapp
     href: "https://wa.me/33661244804"
     label: "WhatsApp"

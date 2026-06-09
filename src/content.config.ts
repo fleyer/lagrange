@@ -7,6 +7,7 @@ const hero = defineCollection({
   schema: z.object({
     title: z.string(),
     tagline: z.string(),
+    cta: z.string(),
   }),
 });
 
@@ -74,7 +75,7 @@ const contact = defineCollection({
   schema: z.object({
     title: z.string(),
     address: z.string(),
-    phone: z.string(),
+    phone: z.string().optional(),
     email: z.string(),
     extras: z.array(z.string()).optional(),
   }),

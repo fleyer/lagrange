@@ -7,5 +7,4 @@ extras:
   - Arrêt de bus à 3 minutes
   - Garage vélos et motos
   - WiFi
-  - "Facebook : lagrangedemariefrance"
 ---

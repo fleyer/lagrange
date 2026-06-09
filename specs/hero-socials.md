@@ -1,66 +1,29 @@
-# Hero — Social Links Bar
+# Social Links & Hero CTA
 
 ## Intent
 
-Add a row of icon-only social link buttons anchored to the bottom of the hero section. Links are configurable via a content file so the owner can update them without touching component code.
+Surface the owner's social/contact links as icon buttons in the **contact section** (not the hero), where visitors naturally look for ways to reach out. The hero instead gets a single subtle call-to-action button that draws the eye downward toward the contact section.
 
-## Content structure
+## Social links — contact section
 
-A new locale-independent file `src/content/site/socials.md` holds the list of social links. Because this data is shared across all locales, it lives in a dedicated `site` collection rather than inside the `hero` locale files.
+### Content structure (unchanged)
 
-```yaml
----
-links:
-  - type: facebook
-    value: "https://www.facebook.com/lagrangedemariefrance"
-  - type: email
-    value: "lagrangedemariefrance@gmail.com"
-  - type: phone
-    value: "+33661244804"
-  - type: whatsapp
-    value: "+33661244804"
----
-```
+`src/content/site/socials.md` holds the list of links. The schema and file format are unchanged from the original implementation.
 
-`value` semantics per type:
-- `facebook` — full URL
-- `email` — address only; component prepends `mailto:`
-- `phone` — digits only, no spaces; component prepends `tel:`
-- `whatsapp` — international number without `+`; component builds `https://wa.me/<value>`
+### Placement
 
-## Collection schema (`content.config.ts`)
-
-```ts
-const site = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/site" }),
-  schema: z.object({
-    links: z.array(
-      z.object({
-        type: z.enum(["facebook", "email", "phone", "whatsapp"]),
-        value: z.string(),
-      })
-    ),
-  }),
-});
-```
-
-## Component changes (`SectionHero.astro`)
-
-- Fetch `getEntry("site", "socials")` in the frontmatter.
-- Add an `absolute bottom-6 left-0 right-0` container inside `#hero`, centered horizontally.
-- Render each link as an `<a>` with DaisyUI classes `btn btn-circle btn-ghost` and `text-white`.
-- Display **icon only** — no visible label. Each anchor gets an `aria-label` for accessibility.
+- Rendered inside `SectionContact.astro`, below the address block
+- A row of icon-only circular ghost buttons, horizontally centered
+- Same icon mapping and href construction as before (see below)
 
 ### Icon mapping
 
-Use `@lucide/astro` named imports:
-
-| type | Lucide component |
+| type | icon |
 |---|---|
 | `facebook` | `Facebook` |
 | `email` | `Mail` |
 | `phone` | `Phone` |
-| `whatsapp` | `MessageCircle` (Lucide has no WhatsApp brand icon) |
+| `whatsapp` | `MessageCircle` |
 
 ### href construction
 
@@ -71,12 +34,43 @@ Use `@lucide/astro` named imports:
 | `phone` | `tel:${value}` |
 | `whatsapp` | `https://wa.me/${value}` |
 
+## Hero CTA button
+
+### Intent
+
+A single, understated button anchored below the tagline in the hero section. It hints at reaching out / joining the journey without being transactional ("Book now"). Clicking it scrolls to `#contact`.
+
+### Content structure
+
+Each hero locale file gains a `cta` field:
+
+```yaml
+# fr.md
+---
+title: La Grange de Marie France
+tagline: Au Pousse Pèlerins — un lieu de repos et de joie sur le Chemin de Saint-Jacques
+cta: Nous rejoindre
+---
+```
+
+Translations:
+- `fr`: Nous rejoindre
+- `en`: Join us
+- `es`: Únete a nosotros
+- `de`: Begleite uns
+
+### Rendering
+
+- `<a href="#contact">` styled as a ghost outline button with white border and text to sit naturally on the hero image
+- Positioned below the tagline with some top margin
+- Subtle — no fill, no heavy shadow
+
 ## Acceptance criteria
 
-- [ ] `src/content/site/socials.md` exists with all four links
-- [ ] `site` collection is defined in `content.config.ts` with the schema above
-- [ ] Social bar is absolutely positioned at the bottom of the hero, horizontally centered
-- [ ] Each link renders as a circular ghost button containing only an icon
-- [ ] Each anchor has a descriptive `aria-label`
-- [ ] Adding or removing an entry in `socials.md` is reflected without touching any `.astro` file
+- [x] `src/content/site/socials.md` exists with all four links
+- [x] `site` collection is defined in `content.config.ts` with the schema
+- [ ] Social icons removed from `SectionHero.astro`
+- [ ] Social icons rendered in `SectionContact.astro` below the address block
+- [ ] `cta` field added to the hero schema and all four locale files
+- [ ] Hero renders a ghost outline CTA button linking to `#contact`
 - [ ] `bun astro check` passes with no errors
