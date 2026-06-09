@@ -1,5 +1,6 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "navHome": "Home",
   "navRefuge": "The Refuge",
   "navAccommodations": "Accommodations",
   "navDining": "Dining",

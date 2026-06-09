@@ -57,6 +57,10 @@ Use Astro's [Content Collections](https://docs.astro.build/en/guides/content-col
 
 `astro.config.mjs` must stay in default static output mode (`output: 'static'` or omitted). No SSR, no server endpoints.
 
+## Verification
+
+Do not take screenshots to verify UI changes. Run `bun astro check` to confirm there are no type errors, then report what was changed.
+
 ## Spec-driven development
 
 Features are driven by specs before implementation:

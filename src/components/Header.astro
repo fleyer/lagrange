@@ -10,24 +10,78 @@ const locales = [
 const currentLocale = Astro.currentLocale ?? "fr";
 ---
 
-<header class="sticky top-0 z-100 flex flex-col gap-3 border-b border-stone-100 bg-stone-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-  <a href="#hero" class="text-xl font-bold tracking-widest text-stone-900 no-underline">
-    Lagrange
-  </a>
-  <nav class="flex flex-wrap items-center gap-4 sm:gap-8">
-    <a href="#the-refuge" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navRefuge()}</a>
-    <a href="#accommodations" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navAccommodations()}</a>
-    <a href="#dining" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
-    <a href="#gallery" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
-    <a href="#contact" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
-    <span class="flex gap-2">
-      {locales.map(({ code, label, href }) =>
-        code === currentLocale ? (
-          <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
-        ) : (
-          <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
-        )
-      )}
-    </span>
-  </nav>
+<header class="sticky top-0 z-50 border-b border-stone-100 bg-stone-50">
+  <div class="flex items-center px-4 py-4 sm:px-8">
+
+    <!-- Brand -->
+    <div class="flex flex-1">
+      <a href="#hero" class="text-xl font-bold tracking-widest text-stone-900 no-underline">Lagrange</a>
+    </div>
+
+    <!-- Desktop centered nav -->
+    <nav class="hidden items-center gap-6 md:flex lg:gap-8">
+      <a href="#hero" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navHome()}</a>
+      <a href="#the-refuge" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navRefuge()}</a>
+      <a href="#accommodations" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navAccommodations()}</a>
+      <a href="#dining" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
+      <a href="#gallery" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
+      <a href="#contact" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
+    </nav>
+
+    <!-- Right: language switcher (desktop) + hamburger (mobile) -->
+    <div class="flex flex-1 items-center justify-end gap-4">
+      <span class="hidden gap-2 md:flex">
+        {locales.map(({ code, label, href }) =>
+          code === currentLocale ? (
+            <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
+          ) : (
+            <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
+          )
+        )}
+      </span>
+
+      <!-- Mobile hamburger -->
+      <details class="dropdown dropdown-end md:hidden">
+        <summary class="cursor-pointer list-none rounded p-1 text-stone-900 hover:bg-stone-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </summary>
+        <ul class="menu dropdown-content z-50 mt-2 w-52 rounded-box border border-stone-100 bg-stone-50 shadow">
+          <li><a href="#hero" class="text-sm tracking-wide text-stone-900">{m.navHome()}</a></li>
+          <li><a href="#the-refuge" class="text-sm tracking-wide text-stone-900">{m.navRefuge()}</a></li>
+          <li><a href="#accommodations" class="text-sm tracking-wide text-stone-900">{m.navAccommodations()}</a></li>
+          <li><a href="#dining" class="text-sm tracking-wide text-stone-900">{m.navDining()}</a></li>
+          <li><a href="#gallery" class="text-sm tracking-wide text-stone-900">{m.navGallery()}</a></li>
+          <li><a href="#contact" class="text-sm tracking-wide text-stone-900">{m.navContact()}</a></li>
+          <li class="mt-1 border-t border-stone-100 pt-1">
+            <div class="flex gap-3 px-3 py-1">
+              {locales.map(({ code, label, href }) =>
+                code === currentLocale ? (
+                  <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
+                ) : (
+                  <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
+                )
+              )}
+            </div>
+          </li>
+        </ul>
+      </details>
+    </div>
+
+  </div>
 </header>
+
+<script>
+  // Close drawer when tapping an anchor link (hash navigation doesn't reload the page)
+  document.querySelectorAll("header details a[href^='#']").forEach((a) => {
+    a.addEventListener("click", () => a.closest("details")?.removeAttribute("open"));
+  });
+
+  // Close drawer when tapping outside
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll<HTMLDetailsElement>("header details[open]").forEach((details) => {
+      if (!details.contains(e.target as Node)) details.removeAttribute("open");
+    });
+  });
+</script>
