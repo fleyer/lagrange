@@ -1,5 +1,7 @@
 ---
 title: Die Unterkunft
+discover: Entdecken
+gettingThere: Anreise
 ---
 
 Es liegt mir am Herzen, Ihnen eine Zeit der Ruhe, Entspannung und vor allem einen Moment der Freude zu bieten.

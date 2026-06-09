@@ -1,5 +1,7 @@
 ---
 title: The Refuge
+discover: Discover
+gettingThere: Getting there
 ---
 
 My heart's desire is to offer you a time of rest, relaxation, and above all, a moment of joy.

@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { getEntry, render } from "astro:content";
+import laGrangeLogo from "../assets/lagrange-logo.png";
 
 interface Props {
   locale: string;
@@ -14,9 +16,24 @@ const { Content } = await render(entry);
 
 <section id="the-refuge" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
   <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
-    <div class="leading-relaxed text-sub">
-      <Content />
-    </div>
+    <div class="hero rounded-lg shadow-md">
+      
+      <div class="hero-content flex flex-row lg:flex-col">
+        <figure class="p-4">
+          <Image
+            src={laGrangeLogo}
+            alt="walking man" />
+        </figure>
+        <div class="p-6">
+          <h2 class="mb-6 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+          <div class="leading-relaxed text-sub my-6">
+            <Content />
+          </div>  
+          <a href="#accommodations" class="btn">{entry.data.discover}</a>
+          <a href="#accommodations" class="btn">{entry.data.gettingThere}</a>
+        </div>
+      </div>  
+    </div>    
+    
   </div>
 </section>

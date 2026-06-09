@@ -1,5 +1,7 @@
 ---
 title: El Refugio
+discover: Descubrir
+gettingThere: Cómo llegar
 ---
 
 Mi objetivo es ofrecerle un tiempo de descanso, relajación y sobre todo un momento de alegría.

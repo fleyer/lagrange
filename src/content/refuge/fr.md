@@ -1,5 +1,7 @@
 ---
-title: Le Refuge
+title: Le Gîte
+discover: Découvrir
+gettingThere: Y aller
 ---
 
 J'ai à cœur de vous offrir un temps de repos, de détente et surtout un moment de joie.

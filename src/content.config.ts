@@ -14,6 +14,8 @@ const refuge = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/refuge" }),
   schema: z.object({
     title: z.string(),
+    discover: z.string(),
+    gettingThere: z.string(),
   }),
 });
 
