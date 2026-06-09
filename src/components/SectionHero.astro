@@ -1,8 +1,12 @@
 ---
-import * as m from "../paraglide/messages.js";
+import { getEntry } from "astro:content";
+
+const { locale } = Astro.props;
+const entry = await getEntry("hero", locale);
+if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 ---
 
 <section id="hero" class="flex min-h-svh flex-col items-center justify-center px-4 text-center">
-  <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] sm:text-8xl lg:text-9xl">{m.heroTitle()}</h1>
-  <p class="text-lg text-stone-500 sm:text-xl lg:text-2xl">{m.heroTagline()}</p>
+  <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
+  <p class="text-lg text-stone-500 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
 </section>

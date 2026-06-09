@@ -146,9 +146,9 @@ This keeps Paraglide messages for UI strings (nav labels, switcher) and Content 
 
 ## Acceptance criteria
 
-- [ ] `src/content/config.ts` defines all five collections with Zod schemas
-- [ ] Each collection has `fr.md` and `en.md` files populated with extracted content
-- [ ] `SectionHero`, `SectionRefuge`, `SectionAccommodations`, `SectionDining`, `SectionContact` each load their content via `getEntry()`
-- [ ] French page renders French content; English page renders English content
-- [ ] No hardcoded editorial text remains in `.astro` component files
-- [ ] `bun run check` passes
+- [x] `src/content/config.ts` defines all five collections with Zod schemas
+- [x] Each collection has `fr.md` and `en.md` files populated with extracted content
+- [x] `SectionHero`, `SectionRefuge`, `SectionAccommodations`, `SectionDining`, `SectionContact` each load their content via `getEntry()`
+- [x] French page renders French content; English page renders English content
+- [x] No hardcoded editorial text remains in `.astro` component files
+- [x] `bun run check` passes

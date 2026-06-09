@@ -8,6 +8,8 @@ import SectionHero from "../../components/SectionHero.astro";
 import SectionRefuge from "../../components/SectionRefuge.astro";
 import { languageTag } from "../../paraglide/runtime.js";
 import "../../styles/global.css";
+
+const locale = Astro.currentLocale ?? "en";
 ---
 
 <!doctype html>
@@ -27,12 +29,12 @@ import "../../styles/global.css";
   <body>
     <Header />
     <main>
-      <SectionHero />
-      <SectionRefuge />
-      <SectionAccommodations />
-      <SectionDining />
+      <SectionHero locale={locale} />
+      <SectionRefuge locale={locale} />
+      <SectionAccommodations locale={locale} />
+      <SectionDining locale={locale} />
       <SectionGallery />
-      <SectionContact />
+      <SectionContact locale={locale} />
     </main>
   </body>
 </html>

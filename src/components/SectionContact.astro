@@ -1,10 +1,27 @@
 ---
-import * as m from "../paraglide/messages.js";
+import { getEntry } from "astro:content";
+
+const { locale } = Astro.props;
+const entry = await getEntry("contact", locale);
+if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
 ---
 
 <section id="contact" class="flex min-h-[80svh] flex-col items-center justify-center px-4 py-16 text-center">
-  <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">{m.contactTitle()}</h2>
-    <p class="text-lg leading-relaxed text-stone-500">{m.contactPlaceholder()}</p>
+  <div class="mx-auto max-w-md">
+    <h2 class="mb-8 text-4xl font-normal sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+    <address class="mb-6 not-italic text-stone-600">
+      <p class="mb-1">{entry.data.address}</p>
+      <p class="mb-1">
+        <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
+      </p>
+      <p>
+        <a href={`mailto:${entry.data.email}`} class="hover:underline">{entry.data.email}</a>
+      </p>
+    </address>
+    {entry.data.extras && (
+      <ul class="space-y-1 text-sm text-stone-400">
+        {entry.data.extras.map((extra) => <li>{extra}</li>)}
+      </ul>
+    )}
   </div>
 </section>

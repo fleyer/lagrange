@@ -1,10 +1,33 @@
 ---
-import * as m from "../paraglide/messages.js";
+import { getEntry } from "astro:content";
+
+const { locale } = Astro.props;
+const entry = await getEntry("accommodations", locale);
+if (!entry)
+  throw new Error(`Missing accommodations content for locale: ${locale}`);
 ---
 
-<section id="accommodations" class="flex min-h-[80svh] flex-col items-center justify-center bg-stone-100 px-4 py-16 text-center">
-  <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">{m.accommodationsTitle()}</h2>
-    <p class="text-lg leading-relaxed text-stone-500">{m.accommodationsPlaceholder()}</p>
+<section id="accommodations" class="min-h-[80svh] bg-stone-100 px-4 py-16">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="mb-10 text-center text-4xl font-normal sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+
+    <div class="mb-12 grid gap-6 sm:grid-cols-3">
+      {entry.data.units.map((unit) => (
+        <div class="rounded-lg bg-white p-6">
+          <h3 class="mb-1 text-xl font-semibold">{unit.name}</h3>
+          <p class="mb-3 text-sm text-stone-400">{unit.capacity}</p>
+          <p class="text-sm leading-relaxed text-stone-500">{unit.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mx-auto max-w-sm">
+      {entry.data.pricing.map((row) => (
+        <div class="flex justify-between border-b border-stone-200 py-2 text-sm">
+          <span class="text-stone-700">{row.label}</span>
+          <span class="font-medium">{row.price}</span>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
