@@ -1,22 +1,10 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #1a1a1a;
-  background-color: #faf9f7;
-}
-
-img {
-  max-width: 100%;
-  display: block;
+@theme {
+  --font-sans: Georgia, "Times New Roman", serif;
+  --color-stone-50: #faf9f7;
+  --color-stone-100: #f0ece6;
+  --color-stone-400: #a39890;
+  --color-stone-500: #6b6560;
+  --color-stone-900: #1a1a1a;
 }

@@ -39,9 +39,9 @@ export default defineConfig({
 
 ## Acceptance criteria
 
-- [ ] `tailwindcss` and `@tailwindcss/vite` installed as dev dependencies at `4.3.0`
-- [ ] `astro.config.mjs` registers the `@tailwindcss/vite` plugin
-- [ ] `src/styles/global.css` imports Tailwind via `@import "tailwindcss"`
-- [ ] All existing component `<style>` blocks removed and replaced with utility classes
-- [ ] Site renders correctly on 375 px (mobile) and 1280 px (desktop) viewports
-- [ ] `bun run check` passes
+- [x] `tailwindcss` and `@tailwindcss/vite` installed as dev dependencies at `4.3.0`
+- [x] `astro.config.mjs` registers the `@tailwindcss/vite` plugin
+- [x] `src/styles/global.css` imports Tailwind via `@import "tailwindcss"`
+- [x] All existing component `<style>` blocks removed and replaced with utility classes
+- [x] Site renders correctly on 375 px (mobile) and 1280 px (desktop) viewports
+- [x] `bun run check` passes

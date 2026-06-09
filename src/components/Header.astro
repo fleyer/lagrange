@@ -8,61 +8,15 @@ const links = [
 ];
 ---
 
-<header>
-  <a href="#hero" class="site-name">Lagrange</a>
-  <nav>
-    {links.map(({ href, label }) => <a href={href}>{label}</a>)}
+<header class="sticky top-0 z-100 flex flex-col gap-3 border-b border-stone-100 bg-stone-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+  <a href="#hero" class="text-xl font-bold tracking-widest text-stone-900 no-underline">
+    Lagrange
+  </a>
+  <nav class="flex flex-wrap gap-4 sm:gap-8">
+    {links.map(({ href, label }) => (
+      <a href={href} class="text-sm tracking-wide text-stone-900 no-underline hover:underline">
+        {label}
+      </a>
+    ))}
   </nav>
 </header>
-
-<style>
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: #faf9f7;
-    border-bottom: 1px solid #e5e0d8;
-  }
-
-  .site-name {
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: inherit;
-    letter-spacing: 0.05em;
-  }
-
-  nav {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 1rem;
-    }
-
-    nav {
-      gap: 1rem;
-    }
-  }
-</style>
