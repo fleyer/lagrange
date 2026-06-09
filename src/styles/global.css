@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @theme {
   --font-sans: Georgia, "Times New Roman", serif;
   --color-stone-50: #faf9f7;
