@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import heroImage from "../assets/lagrange.png";
 
 interface Props {
   locale: string;
@@ -10,7 +12,19 @@ const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 ---
 
-<section id="hero" class="flex min-h-svh flex-col items-center justify-center px-4 text-center">
-  <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
-  <p class="text-lg text-stone-500 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
+<section id="hero" class="relative flex min-h-svh flex-col items-center justify-center px-4 text-center">
+  <Image
+    src={heroImage}
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover"
+    widths={[800, 1200, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative">
+    <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
+    <p class="text-lg text-white/80 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
+  </div>
 </section>
