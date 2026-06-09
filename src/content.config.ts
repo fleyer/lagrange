@@ -56,6 +56,14 @@ const dining = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/dining" }),
   schema: z.object({
     title: z.string(),
+    meals: z.array(
+      z.object({
+        name: z.string(),
+        description: z.string().optional(),
+        note: z.string().optional(),
+        items: z.array(z.string()),
+      }),
+    ),
   }),
 });
 
