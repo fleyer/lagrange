@@ -1,0 +1,10 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "navRefuge": "Die Unterkunft",
+  "navAccommodations": "Unterkünfte",
+  "navDining": "Verpflegung",
+  "navGallery": "Galerie",
+  "navContact": "Kontakt",
+  "galleryTitle": "Galerie",
+  "galleryPlaceholder": "Fotos folgen in Kürze."
+}

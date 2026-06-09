@@ -1,0 +1,40 @@
+---
+import Header from "../../components/Header.astro";
+import SectionAccommodations from "../../components/SectionAccommodations.astro";
+import SectionContact from "../../components/SectionContact.astro";
+import SectionDining from "../../components/SectionDining.astro";
+import SectionGallery from "../../components/SectionGallery.astro";
+import SectionHero from "../../components/SectionHero.astro";
+import SectionRefuge from "../../components/SectionRefuge.astro";
+import { languageTag } from "../../paraglide/runtime.js";
+import "../../styles/global.css";
+
+const locale = Astro.currentLocale ?? "de";
+---
+
+<!doctype html>
+<html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Lagrange — Eine Unterkunft auf dem Jakobsweg</title>
+    <meta
+      name="description"
+      content="Ein herzlicher Ruheort für Pilger auf dem Jakobsweg."
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <SectionHero locale={locale} />
+      <SectionRefuge locale={locale} />
+      <SectionAccommodations locale={locale} />
+      <SectionDining locale={locale} />
+      <SectionGallery />
+      <SectionContact locale={locale} />
+    </main>
+  </body>
+</html>

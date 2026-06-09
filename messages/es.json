@@ -1,0 +1,10 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "navRefuge": "El Refugio",
+  "navAccommodations": "Alojamientos",
+  "navDining": "Restauración",
+  "navGallery": "Galería",
+  "navContact": "Contacto",
+  "galleryTitle": "Galería",
+  "galleryPlaceholder": "Fotos próximamente."
+}

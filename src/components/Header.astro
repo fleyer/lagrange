@@ -1,9 +1,13 @@
 ---
 import * as m from "../paraglide/messages.js";
 
-const isEn = Astro.currentLocale === "en";
-const langSwitchHref = isEn ? "/" : "/en/";
-const langSwitchLabel = isEn ? "FR" : "EN";
+const locales = [
+  { code: "fr", label: "FR", href: "/" },
+  { code: "en", label: "EN", href: "/en/" },
+  { code: "de", label: "DE", href: "/de/" },
+  { code: "es", label: "ES", href: "/es/" },
+];
+const currentLocale = Astro.currentLocale ?? "fr";
 ---
 
 <header class="sticky top-0 z-100 flex flex-col gap-3 border-b border-stone-100 bg-stone-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
@@ -16,8 +20,14 @@ const langSwitchLabel = isEn ? "FR" : "EN";
     <a href="#dining" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
     <a href="#gallery" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
     <a href="#contact" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
-    <a href={langSwitchHref} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">
-      {langSwitchLabel}
-    </a>
+    <span class="flex gap-2">
+      {locales.map(({ code, label, href }) =>
+        code === currentLocale ? (
+          <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
+        ) : (
+          <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
+        )
+      )}
+    </span>
   </nav>
 </header>
