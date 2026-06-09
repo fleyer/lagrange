@@ -1,6 +1,10 @@
 ---
 import { getEntry, render } from "astro:content";
 
+interface Props {
+  locale: string;
+}
+
 const { locale } = Astro.props;
 const entry = await getEntry("dining", locale);
 if (!entry) throw new Error(`Missing dining content for locale: ${locale}`);

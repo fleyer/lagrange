@@ -1,6 +1,10 @@
 ---
 import { getEntry } from "astro:content";
 
+interface Props {
+  locale: string;
+}
+
 const { locale } = Astro.props;
 const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);

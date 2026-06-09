@@ -1,6 +1,10 @@
 ---
 import { getEntry } from "astro:content";
 
+interface Props {
+  locale: string;
+}
+
 const { locale } = Astro.props;
 const entry = await getEntry("contact", locale);
 if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
