@@ -4,4 +4,4 @@ pre-commit:
     typecheck:
       run: bun astro check
     lint:
-      run: bun biome check .
+      run: bun biome check . --fix
