@@ -1,9 +1,7 @@
 ---
 import * as m from "../paraglide/messages.js";
-import { languageTag } from "../paraglide/runtime.js";
 
-const lang = languageTag();
-const langSwitchHref = lang === "fr" ? "/en/" : "/";
+const langSwitchHref = Astro.currentLocale === "en" ? "/" : "/en/";
 ---
 
 <header class="sticky top-0 z-100 flex flex-col gap-3 border-b border-stone-100 bg-stone-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
