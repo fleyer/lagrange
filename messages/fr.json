@@ -1,0 +1,21 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "heroTitle": "Lagrange",
+  "heroTagline": "Un lieu de repos sur le chemin de Saint-Jacques-de-Compostelle.",
+  "refugeTitle": "Le Refuge",
+  "refugePlaceholder": "Placeholder — présentez le lieu, son esprit et les hôtes. Une description chaleureuse de ce qui fait de Lagrange une étape spéciale sur le Camino.",
+  "accommodationsTitle": "Hébergements",
+  "accommodationsPlaceholder": "Placeholder — options de séjour : dortoir, chambre privée, camping, etc.",
+  "diningTitle": "Restauration",
+  "diningPlaceholder": "Placeholder — offre de restauration : petit-déjeuner, dîner, cuisine libre, etc.",
+  "galleryTitle": "Galerie",
+  "galleryPlaceholder": "Placeholder — grille de photos du lieu.",
+  "contactTitle": "Contact",
+  "contactPlaceholder": "Placeholder — adresse, comment réserver, formulaire de contact ou e-mail.",
+  "navRefuge": "Le Refuge",
+  "navAccommodations": "Hébergements",
+  "navDining": "Restauration",
+  "navGallery": "Galerie",
+  "navContact": "Contact",
+  "langSwitchLabel": "EN"
+}

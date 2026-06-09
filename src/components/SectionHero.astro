@@ -1,9 +1,8 @@
 ---
+import * as m from "../paraglide/messages.js";
 ---
 
 <section id="hero" class="flex min-h-svh flex-col items-center justify-center px-4 text-center">
-  <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] sm:text-8xl lg:text-9xl">Lagrange</h1>
-  <p class="text-lg text-stone-500 sm:text-xl lg:text-2xl">
-    A resting place on the way to Santiago de Compostela.
-  </p>
+  <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] sm:text-8xl lg:text-9xl">{m.heroTitle()}</h1>
+  <p class="text-lg text-stone-500 sm:text-xl lg:text-2xl">{m.heroTagline()}</p>
 </section>

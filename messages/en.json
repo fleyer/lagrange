@@ -1,0 +1,21 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "heroTitle": "Lagrange",
+  "heroTagline": "A resting place on the way to Santiago de Compostela.",
+  "refugeTitle": "The Refuge",
+  "refugePlaceholder": "Placeholder — introduce the place, its spirit, and the hosts. A warm description of what makes Lagrange a special stop on the Camino.",
+  "accommodationsTitle": "Accommodations",
+  "accommodationsPlaceholder": "Placeholder — options for staying: dormitory, private room, camping, etc.",
+  "diningTitle": "Dining",
+  "diningPlaceholder": "Placeholder — food offer: breakfast, dinner, self-catering options, etc.",
+  "galleryTitle": "Gallery",
+  "galleryPlaceholder": "Placeholder — photo grid of the place.",
+  "contactTitle": "Contact",
+  "contactPlaceholder": "Placeholder — address, how to book, contact form or email.",
+  "navRefuge": "The Refuge",
+  "navAccommodations": "Accommodations",
+  "navDining": "Dining",
+  "navGallery": "Gallery",
+  "navContact": "Contact",
+  "langSwitchLabel": "FR"
+}

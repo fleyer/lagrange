@@ -6,21 +6,22 @@ import SectionDining from "../components/SectionDining.astro";
 import SectionGallery from "../components/SectionGallery.astro";
 import SectionHero from "../components/SectionHero.astro";
 import SectionRefuge from "../components/SectionRefuge.astro";
+import { languageTag } from "../paraglide/runtime.js";
 import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Lagrange — A refuge on the Camino de Santiago</title>
+    <title>Lagrange — Un refuge sur le Chemin de Saint-Jacques</title>
     <meta
       name="description"
-      content="A welcoming resting place for pilgrims walking the Camino de Santiago."
+      content="Un lieu de repos chaleureux pour les pèlerins marchant vers Saint-Jacques-de-Compostelle."
     />
   </head>
   <body>

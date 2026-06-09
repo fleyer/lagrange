@@ -1,11 +1,10 @@
 ---
+import * as m from "../paraglide/messages.js";
 ---
 
 <section id="accommodations" class="flex min-h-[80svh] flex-col items-center justify-center bg-stone-100 px-4 py-16 text-center">
   <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">Accommodations</h2>
-    <p class="text-lg leading-relaxed text-stone-500">
-      Placeholder — options for staying: dormitory, private room, camping, etc.
-    </p>
+    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">{m.accommodationsTitle()}</h2>
+    <p class="text-lg leading-relaxed text-stone-500">{m.accommodationsPlaceholder()}</p>
   </div>
 </section>

@@ -17,7 +17,7 @@
     }
   },
   "files": {
-    "includes": ["src/**"]
+    "includes": ["src/**", "!src/paraglide"]
   },
   "overrides": [
     {

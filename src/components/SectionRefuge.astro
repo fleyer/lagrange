@@ -1,12 +1,10 @@
 ---
+import * as m from "../paraglide/messages.js";
 ---
 
 <section id="the-refuge" class="flex min-h-[80svh] flex-col items-center justify-center px-4 py-16 text-center">
   <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">The Refuge</h2>
-    <p class="text-lg leading-relaxed text-stone-500">
-      Placeholder — introduce the place, its spirit, and the hosts. A warm
-      description of what makes Lagrange a special stop on the Camino.
-    </p>
+    <h2 class="mb-6 text-4xl font-normal sm:text-5xl lg:text-6xl">{m.refugeTitle()}</h2>
+    <p class="text-lg leading-relaxed text-stone-500">{m.refugePlaceholder()}</p>
   </div>
 </section>

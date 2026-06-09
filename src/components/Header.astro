@@ -1,22 +1,23 @@
 ---
-const links = [
-  { href: "#the-refuge", label: "The Refuge" },
-  { href: "#accommodations", label: "Accommodations" },
-  { href: "#dining", label: "Dining" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#contact", label: "Contact" },
-];
+import * as m from "../paraglide/messages.js";
+import { languageTag } from "../paraglide/runtime.js";
+
+const lang = languageTag();
+const langSwitchHref = lang === "fr" ? "/en/" : "/";
 ---
 
 <header class="sticky top-0 z-100 flex flex-col gap-3 border-b border-stone-100 bg-stone-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
   <a href="#hero" class="text-xl font-bold tracking-widest text-stone-900 no-underline">
     Lagrange
   </a>
-  <nav class="flex flex-wrap gap-4 sm:gap-8">
-    {links.map(({ href, label }) => (
-      <a href={href} class="text-sm tracking-wide text-stone-900 no-underline hover:underline">
-        {label}
-      </a>
-    ))}
+  <nav class="flex flex-wrap items-center gap-4 sm:gap-8">
+    <a href="#the-refuge" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navRefuge()}</a>
+    <a href="#accommodations" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navAccommodations()}</a>
+    <a href="#dining" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
+    <a href="#gallery" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
+    <a href="#contact" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
+    <a href={langSwitchHref} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">
+      {m.langSwitchLabel()}
+    </a>
   </nav>
 </header>
