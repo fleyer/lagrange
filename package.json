@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "lagrange",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -14,10 +14,14 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
+    "@iconify-json/simple-icons": "1.2.86",
+    "@iconify-json/lucide": "1.2.111",
     "@lucide/astro": "1.17.0",
     "astro": "^6.4.4",
+    "astro-icon": "1.1.5",
     "daisyui": "5.5.23",
-    "sharp": "0.34.5"
+    "sharp": "0.34.5",
+    "simple-icons": "16.23.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",

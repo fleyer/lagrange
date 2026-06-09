@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import { Mail, Phone } from "@lucide/astro";
+import { Icon } from "astro-icon/components";
 import heroImage from "../assets/lagrange.png";
 
 interface Props {
@@ -10,6 +12,11 @@ interface Props {
 const { locale } = Astro.props;
 const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
+
+const socialsEntry = await getEntry("site", "socials");
+if (!socialsEntry) throw new Error("Missing site/socials content");
+
+const links = socialsEntry.data.links;
 ---
 
 <section id="hero" class="hero">
@@ -22,13 +29,25 @@ if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
     loading="eager"
     fetchpriority="high"
   />
-  
+
   <div class="hero-content text-center">
     <div>
       <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
       <p class="text-lg text-white/80 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
     </div>
-    
+  </div>
+
+  <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
+    {links.map(({ href, label, icon, color }) => (
+      <a
+        href={href}
+        class="cursor scale-100 hover:scale-120"
+        aria-label={label}
+        style={{ color: color}}
+      >
+        <Icon name={icon} class="h-10 w-10 " />
+      </a>
+    ))}
   </div>
 </section>
 

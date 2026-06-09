@@ -70,6 +70,21 @@ const contact = defineCollection({
   }),
 });
 
+const site = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/site" }),
+  schema: z.object({
+    links: z.array(
+      z.object({
+        icon: z.string(),
+        type: z.enum(["facebook", "email", "phone", "whatsapp"]),
+        href: z.string(),
+        label: z.string(),
+        color: z.string().nullable().optional(),
+      }),
+    ),
+  }),
+});
+
 export const collections = {
   hero,
   refuge,
@@ -77,4 +92,5 @@ export const collections = {
   accommodationsImages,
   dining,
   contact,
+  site,
 };
