@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import heroImage from "../assets/lagrange.png";
 
@@ -11,10 +12,17 @@ const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 ---
 
-<section id="hero" class="hero" style={{
-  backgroundImage: `url(${heroImage.src})`
-}}>
-  <div class="hero-overlay"/>
+<section id="hero" class="hero">
+  <Image
+    src={heroImage}
+    alt=""
+    class="relative h-full object-cover opacity-70"
+    widths={[800, 1200, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
+  
   <div class="hero-content text-center">
     <div>
       <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
