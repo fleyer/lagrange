@@ -96,6 +96,15 @@ const site = defineCollection({
   }),
 });
 
+const gdpr = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/gdpr" }),
+  schema: z.object({
+    message: z.string(),
+    accept: z.string(),
+    refuse: z.string(),
+  }),
+});
+
 export const collections = {
   hero,
   refuge,
@@ -104,4 +113,5 @@ export const collections = {
   dining,
   contact,
   site,
+  gdpr,
 };

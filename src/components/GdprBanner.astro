@@ -1,0 +1,42 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const entry = await getEntry("gdpr", locale);
+if (!entry) throw new Error(`Missing gdpr content for locale: ${locale}`);
+
+const { message, accept, refuse } = entry.data;
+---
+
+<div
+  id="rgpd-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 border-t border-stone-700 bg-stone-800 px-4 py-4 shadow-lg"
+>
+  <div class="mx-auto flex max-w-4xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
+    <p class="text-center text-sm text-stone-200 sm:text-left">{message}</p>
+    <div class="flex shrink-0 gap-3">
+      <button id="rgpd-refuse" class="btn btn-ghost btn-sm border border-stone-500 text-stone-300 hover:text-white">
+        {refuse}
+      </button>
+      <button id="rgpd-accept" class="btn btn-sm bg-stone-900 text-white hover:bg-stone-700">
+        {accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById("rgpd-banner");
+
+  function dismiss(choice: string) {
+    localStorage.setItem("rgpd-consent", choice);
+    banner?.remove();
+  }
+
+  document.getElementById("rgpd-accept")?.addEventListener("click", () => dismiss("accepted"));
+  document.getElementById("rgpd-refuse")?.addEventListener("click", () => dismiss("refused"));
+</script>

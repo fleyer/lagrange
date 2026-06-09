@@ -48,6 +48,10 @@
   background-color: var(--section-bg);
 }
 
+:root[data-consent-set] #rgpd-banner {
+  display: none;
+}
+
 @theme {
   --font-sans: Georgia, "Times New Roman", serif;
   --color-stone-50: #faf9f7;

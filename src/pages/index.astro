@@ -1,4 +1,5 @@
 ---
+import GdprBanner from "../components/GdprBanner.astro";
 import Header from "../components/Header.astro";
 import SectionAccommodations from "../components/SectionAccommodations.astro";
 import SectionContact from "../components/SectionContact.astro";
@@ -20,6 +21,11 @@ const locale = Astro.currentLocale ?? "fr";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      if (localStorage.getItem("rgpd-consent")) {
+        document.documentElement.setAttribute("data-consent-set", "");
+      }
+    </script>
     <title>Lagrange — Un refuge sur le Chemin de Saint-Jacques</title>
     <meta
       name="description"
@@ -36,5 +42,6 @@ const locale = Astro.currentLocale ?? "fr";
       <SectionGallery class="theme-stone" />
       <SectionContact locale={locale} class="theme-white" />
     </main>
+    <GdprBanner locale={locale} />
   </body>
 </html>
