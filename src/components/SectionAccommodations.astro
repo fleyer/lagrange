@@ -53,7 +53,7 @@ const unitImages = imagesEntry.data.units;
                 )}
               </figure>
             )}
-            <div class="card-body">
+            <div class="card-body bg-white">
               <h3 class="card-title text-head">{unit.name}</h3>
               <p class="text-sub text-sm">{unit.capacity}</p>
               <p class="text-body">{unit.description}</p>
@@ -63,15 +63,13 @@ const unitImages = imagesEntry.data.units;
       })}
     </div>
 
-    <div class="card shadow-sm mx-auto max-w-sm">
-      <div class="card-body p-4">
-        {entry.data.pricing.map((row) => (
-          <div class="flex justify-between border-b border-base-200 py-2 text-body last:border-0">
-            <span>{row.label}</span>
-            <span class="font-medium">{row.price}</span>
-          </div>
-        ))}
-      </div>
+    <div class="list shadow-sm rounded-box mx-auto max-w-sm">
+      {entry.data.pricing.map((row) => (
+        <div class="list-row flex justify-between py-2 text-body">
+          <span>{row.label}</span>
+          <span class="font-medium">{row.price}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>

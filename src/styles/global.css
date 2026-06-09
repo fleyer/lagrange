@@ -16,6 +16,8 @@
     --text-body: var(--color-stone-700);
     --text-sub: var(--color-stone-600);
     --text-muted: var(--color-stone-500);
+
+    --color-base-content: var(--color-stone-900);
   }
 
   .theme-white {
