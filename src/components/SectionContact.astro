@@ -19,43 +19,48 @@ if (!socialsEntry) throw new Error("Missing site/socials content");
 const links = socialsEntry.data.links;
 ---
 
-<section id="contact" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
-  <div class="mx-auto max-w-md rounded-lg border-none sm:border-solid border-1 border-stone-300 p-10 sm:p-20">
-    <div class="avatar mb-6">
-      <div class="w-40 rounded-full ring ring-stone-300 ring-offset-2 ring-offset-stone-100">
-        <Image src={avatarImage} alt="Marie France" />
+<section id="contact" class:list={["flex min-h-[80svh] items-center bg-section px-4 py-16", className]}>
+  <div class="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-8 lg:flex-row lg:items-stretch">
+    <div class="w-full max-w-md rounded-lg border-none sm:border-solid border-1 border-stone-300 p-10 sm:p-20 text-center lg:shrink-0">
+      <div class="avatar mb-6">
+        <div class="w-40 rounded-full ring ring-stone-300 ring-offset-2 ring-offset-stone-100">
+          <Image src={avatarImage} alt="Marie France" />
+        </div>
+      </div>
+      <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+      <address class="mb-6 not-italic text-sub">
+        <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon name="lucide:external-link"/></Icon></a></p>
+        {entry.data.phone && (
+          <p class="mb-1">
+            <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
+          </p>
+        )}
+        <p>
+          <a href={`mailto:${entry.data.email}`} class="hover:underline">{entry.data.email}</a>
+        </p>
+      </address>
+      <div class="divider"></div>
+      {entry.data.extras && (
+        <ul class="mb-6 space-y-1 text-muted">
+          {entry.data.extras.map((extra) => <li>{extra}</li>)}
+        </ul>
+      )}
+      <div class="divider"></div>
+      <div class="flex justify-center gap-4">
+        {links.map(({ href, label, icon, color }) => (
+          <a
+            href={href}
+            class="scale-100 hover:scale-110 cursor-pointer"
+            aria-label={label}
+            style={{ color }}
+          >
+            <Icon name={icon} class="h-8 w-8" />
+          </a>
+        ))}
       </div>
     </div>
-    <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
-    <address class="mb-6 not-italic text-sub">
-      <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon name="lucide:external-link"/></Icon></a></p>
-      {entry.data.phone && (
-        <p class="mb-1">
-          <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
-        </p>
-      )}
-      <p>
-        <a href={`mailto:${entry.data.email}`} class="hover:underline">{entry.data.email}</a>
-      </p>
-    </address>
-    <div class="divider"></div>
-    {entry.data.extras && (
-      <ul class="mb-6 space-y-1 text-muted">
-        {entry.data.extras.map((extra) => <li>{extra}</li>)}
-      </ul>
-    )}
-    <div class="divider"></div>
-    <div class="flex justify-center gap-4">
-      {links.map(({ href, label, icon, color }) => (
-        <a
-          href={href}
-          class="scale-100 hover:scale-110 cursor-pointer"
-          aria-label={label}
-          style={{ color }}
-        >
-          <Icon name={icon} class="h-8 w-8" />
-        </a>
-      ))}
+    <div class="hidden lg:flex flex-1 min-h-96">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5753.494068441923!2d0.1033391!3d43.861071599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aa03859272ed2f%3A0xa6a642e54e26d96!2sGite%20La%20Grange%20%22%20Au%20Pousse%20P%C3%A8lerins%22!5e0!3m2!1sfr!2sfr!4v1781070461488!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
