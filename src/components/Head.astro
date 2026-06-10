@@ -1,0 +1,92 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const entry = await getEntry("meta", locale);
+if (!entry) throw new Error(`Missing meta content for locale: ${locale}`);
+
+const { title, description, ogLocale } = entry.data;
+
+const site = Astro.site!.toString().replace(/\/$/, "");
+
+const localePaths: Record<string, string> = {
+  fr: "/",
+  en: "/en/",
+  de: "/de/",
+  es: "/es/",
+};
+
+const ogLocales: Record<string, string> = {
+  fr: "fr_FR",
+  en: "en_US",
+  de: "de_DE",
+  es: "es_ES",
+};
+
+const canonicalUrl = `${site}${localePaths[locale] ?? "/"}`;
+const ogImageUrl = `${site}/open-graph/${locale}.png`;
+
+const alternateOgLocales = Object.entries(ogLocales)
+  .filter(([l]) => l !== locale)
+  .map(([, og]) => og);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  name: "La Grange de Marie France",
+  description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "4 avenue de la Ténarèze",
+    addressLocality: "Éauze",
+    postalCode: "32800",
+    addressCountry: "FR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 43.8610716,
+    longitude: 0.1033391,
+  },
+  telephone: "+33661244804",
+  email: "lagrangedemariefrance@gmail.com",
+  amenityFeature: ["WiFi", "Garage vélos et motos", "Arrêt de bus"],
+  url: site,
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content={ogLocale} />
+{alternateOgLocales.map((og) => (
+  <meta property="og:locale:alternate" content={og} />
+))}
+
+<!-- hreflang -->
+{Object.entries(localePaths).map(([lang, path]) => (
+  <link rel="alternate" hreflang={lang} href={`${site}${path}`} />
+))}
+<link rel="alternate" hreflang="x-default" href={`${site}/`} />
+
+<!-- Structured data -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

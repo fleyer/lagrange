@@ -14,11 +14,14 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@iconify-json/simple-icons": "1.2.86",
+    "@astrojs/sitemap": "3.7.3",
     "@iconify-json/lucide": "1.2.111",
+    "@iconify-json/simple-icons": "1.2.86",
     "@lucide/astro": "1.17.0",
     "astro": "^6.4.4",
     "astro-icon": "1.1.5",
+    "astro-og-canvas": "0.11.1",
+    "canvaskit-wasm": "0.41.1",
     "daisyui": "5.5.23",
     "sharp": "0.34.5",
     "simple-icons": "16.23.0"

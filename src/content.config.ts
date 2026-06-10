@@ -105,6 +105,15 @@ const gdpr = defineCollection({
   }),
 });
 
+const meta = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/meta" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    ogLocale: z.string(),
+  }),
+});
+
 export const collections = {
   hero,
   refuge,
@@ -114,4 +123,5 @@ export const collections = {
   contact,
   site,
   gdpr,
+  meta,
 };

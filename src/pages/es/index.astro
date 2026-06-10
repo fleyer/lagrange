@@ -1,4 +1,5 @@
 ---
+import Head from "../../components/Head.astro";
 import Header from "../../components/Header.astro";
 import SectionAccommodations from "../../components/SectionAccommodations.astro";
 import SectionContact from "../../components/SectionContact.astro";
@@ -15,16 +16,7 @@ const locale = Astro.currentLocale ?? "es";
 <!doctype html>
 <html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Lagrange — Un refugio en el Camino de Santiago</title>
-    <meta
-      name="description"
-      content="Un acogedor lugar de descanso para los peregrinos del Camino de Santiago."
-    />
+    <Head locale={locale} />
   </head>
   <body>
     <Header />
