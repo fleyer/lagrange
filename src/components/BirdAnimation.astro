@@ -1,0 +1,111 @@
+---
+interface Props {
+  bottom?: string;
+  left?: string;
+  delay?: string;
+  direction?: "left" | "up" | "right";
+}
+
+const {
+  bottom = "70%",
+  left = "30%",
+  delay = "0.4s",
+  direction = "right",
+} = Astro.props;
+---
+
+<div
+  class={`bird-wrap dir-${direction}`}
+  style={`bottom:${bottom};left:${left};--bird-delay:${delay}`}
+  aria-hidden="true"
+>
+  <span class="wing wing-l"></span>
+  <span class="wing wing-r"></span>
+</div>
+
+<style>
+  .bird-wrap {
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .wing {
+    display: block;
+    width: 14px;
+    height: 8px;
+    border-top: 2.5px solid black;
+  }
+
+  .wing-l {
+    border-radius: 50% 0 0 0;
+    transform-origin: 100% 100%;
+  }
+
+  .wing-r {
+    border-radius: 0 50% 0 0;
+    transform-origin: 0 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .dir-left {
+      animation:
+        bird-fly-left 2.8s ease-out var(--bird-delay, 0.4s) 1 forwards,
+        bird-fade     2.8s linear   var(--bird-delay, 0.4s) 1 forwards;
+    }
+
+    .dir-up {
+      animation:
+        bird-fly-up 2.8s ease-out var(--bird-delay, 0.4s) 1 forwards,
+        bird-fade   2.8s linear   var(--bird-delay, 0.4s) 1 forwards;
+    }
+
+    .dir-right {
+      animation:
+        bird-fly-right 2.8s ease-out var(--bird-delay, 0.4s) 1 forwards,
+        bird-fade      2.8s linear   var(--bird-delay, 0.4s) 1 forwards;
+    }
+
+    .wing-l {
+      animation: bird-wing-l 0.36s ease-in-out var(--bird-delay, 0.4s) infinite;
+    }
+
+    .wing-r {
+      animation: bird-wing-r 0.36s ease-in-out var(--bird-delay, 0.4s) infinite;
+    }
+
+    @keyframes bird-fly-left {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(-40vw, -50vh) scale(0.3); }
+    }
+
+    @keyframes bird-fly-up {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(2vw, -50vh) scale(0.3); }
+    }
+
+    @keyframes bird-fly-right {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(45vw, -50vh) scale(0.3); }
+    }
+
+    @keyframes bird-fade {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }
+      82%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes bird-wing-l {
+      0%, 100% { transform: rotate(-22deg); }
+      50%       { transform: rotate(16deg);  }
+    }
+
+    @keyframes bird-wing-r {
+      0%, 100% { transform: rotate(22deg);  }
+      50%       { transform: rotate(-16deg); }
+    }
+  }
+</style>
