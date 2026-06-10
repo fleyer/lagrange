@@ -12,7 +12,9 @@ if (!entry) throw new Error(`Missing meta content for locale: ${locale}`);
 
 const { title, description, ogLocale } = entry.data;
 
-const site = Astro.site!.toString().replace(/\/$/, "");
+const siteOrigin = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const siteBase = `${siteOrigin}${base}`;
 
 const localePaths: Record<string, string> = {
   fr: "/",
@@ -28,8 +30,8 @@ const ogLocales: Record<string, string> = {
   es: "es_ES",
 };
 
-const canonicalUrl = `${site}${localePaths[locale] ?? "/"}`;
-const ogImageUrl = `${site}/open-graph/${locale}.png`;
+const canonicalUrl = `${siteBase}${localePaths[locale] ?? "/"}`;
+const ogImageUrl = `${siteBase}/open-graph/${locale}.png`;
 
 const alternateOgLocales = Object.entries(ogLocales)
   .filter(([l]) => l !== locale)
@@ -55,7 +57,7 @@ const jsonLd = {
   telephone: "+33661244804",
   email: "lagrangedemariefrance@gmail.com",
   amenityFeature: ["WiFi", "Garage vélos et motos", "Arrêt de bus"],
-  url: site,
+  url: siteBase,
 };
 ---
 
@@ -84,9 +86,9 @@ const jsonLd = {
 
 <!-- hreflang -->
 {Object.entries(localePaths).map(([lang, path]) => (
-  <link rel="alternate" hreflang={lang} href={`${site}${path}`} />
+  <link rel="alternate" hreflang={lang} href={`${siteBase}${path}`} />
 ))}
-<link rel="alternate" hreflang="x-default" href={`${site}/`} />
+<link rel="alternate" hreflang="x-default" href={`${siteBase}/`} />
 
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

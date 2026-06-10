@@ -6,7 +6,8 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: "https://lagrangedemariefrance.fr",
+  site: "https://fleyer.github.io",
+  base: "/lagrange",
   i18n: {
     defaultLocale: "fr",
     locales: ["fr", "en", "de", "es"],
