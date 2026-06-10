@@ -20,4 +20,9 @@ links:
     label: "WhatsApp"
     icon: simple-icons:whatsapp
     color: "#25D366"
+  - type: maps
+    href: "https://maps.app.goo.gl/fsYUWM12849UADoC9"
+    label: Maps
+    icon: simple-icons:googlemaps
+    color: "#4285F4"
 ---

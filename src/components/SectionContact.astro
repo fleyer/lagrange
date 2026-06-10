@@ -20,7 +20,7 @@ const links = socialsEntry.data.links;
 ---
 
 <section id="contact" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
-  <div class="mx-auto max-w-md">
+  <div class="mx-auto max-w-md rounded-lg border-none sm:border-solid border-1 border-stone-300 p-10 sm:p-20">
     <div class="avatar mb-6">
       <div class="w-40 rounded-full ring ring-stone-300 ring-offset-2 ring-offset-stone-100">
         <Image src={avatarImage} alt="Marie France" />
@@ -28,7 +28,7 @@ const links = socialsEntry.data.links;
     </div>
     <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
     <address class="mb-6 not-italic text-sub">
-      <p class="mb-1">{entry.data.address}</p>
+      <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon name="lucide:external-link"/></Icon></a></p>
       {entry.data.phone && (
         <p class="mb-1">
           <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
@@ -38,11 +38,13 @@ const links = socialsEntry.data.links;
         <a href={`mailto:${entry.data.email}`} class="hover:underline">{entry.data.email}</a>
       </p>
     </address>
+    <div class="divider"></div>
     {entry.data.extras && (
-      <ul class="mb-8 space-y-1 text-muted">
+      <ul class="mb-6 space-y-1 text-muted">
         {entry.data.extras.map((extra) => <li>{extra}</li>)}
       </ul>
     )}
+    <div class="divider"></div>
     <div class="flex justify-center gap-4">
       {links.map(({ href, label, icon, color }) => (
         <a

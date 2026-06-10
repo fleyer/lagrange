@@ -87,7 +87,7 @@ const site = defineCollection({
     links: z.array(
       z.object({
         icon: z.string(),
-        type: z.enum(["facebook", "email", "phone", "whatsapp"]),
+        type: z.enum(["facebook", "email", "phone", "whatsapp", "maps"]),
         href: z.string(),
         label: z.string(),
         color: z.string().nullable().optional(),
