@@ -92,3 +92,13 @@ const jsonLd = {
 
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+
+<!-- Cloudflare Web Analytics -->
+{import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN && (
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon={`{"token": "${import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}"}`}
+    is:inline
+  />
+)}
