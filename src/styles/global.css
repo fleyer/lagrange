@@ -4,6 +4,7 @@
 @layer base {
   :root {
     --header-height: 4rem;
+    --color-base-100: #1d232a;
   }
 
   html {
