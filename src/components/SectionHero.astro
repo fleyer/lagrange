@@ -5,37 +5,40 @@ import heroImage from "../assets/lagrange.png";
 
 interface Props {
   locale: string;
+  class?: string;
 }
 
-const { locale } = Astro.props;
+const { locale, class: className } = Astro.props;
 const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 ---
 
-<section id="hero" class="hero">
-  <Image
-    src={heroImage}
-    alt=""
-    class="relative h-full object-cover dark:opacity-70"
-    widths={[800, 1200, 1920]}
-    sizes="100vw"
-    loading="eager"
-    fetchpriority="high"
-  />
+<section id="hero" class:list={["",className]}>
+  <div class="hero h-full">
+    <Image
+      src={heroImage}
+      alt=""
+      class="relative h-full object-cover opacity-80"
+      widths={[800, 1200, 1920]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
 
-  <div class="hero-content text-center">
-    <div>
-      <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
-      <p class="text-lg text-white/80 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
-      <a href="#contact" class="btn btn-outline mt-8 border-white/60 text-white hover:border-white hover:bg-white/10 hover:text-white">
-        {entry.data.cta}
-      </a>
+    <div class="hero-content text-center">
+      <div>
+        <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl">{entry.data.title}</h1>
+        <p class="text-lg text-white/85 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
+        <a href="#contact" class="btn hover:bg-black/30 text-white/85 btn-outline mt-8 border-white/60 bg-black/30 shadow-none">
+          {entry.data.cta}
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  #hero {
+  #hero div.hero{
     min-height: calc(100dvh - var(--header-height));
     position: relative;
   }
