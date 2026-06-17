@@ -17,6 +17,8 @@ const refuge = defineCollection({
     title: z.string(),
     discover: z.string(),
     gettingThere: z.string(),
+    highlightsTitle: z.string().optional(),
+    highlights: z.array(z.string()).optional(),
   }),
 });
 

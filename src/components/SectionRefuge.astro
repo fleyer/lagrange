@@ -1,7 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import { getEntry, render } from "astro:content";
+import {
+  Bus,
+  Luggage,
+  MapPin,
+  Volume2,
+  WashingMachine,
+  Wind,
+} from "@lucide/astro";
 import laGrangeLogo from "../assets/lagrange-logo.png";
+
+const highlightIcons = [MapPin, Volume2, Wind, Bus, Luggage, WashingMachine];
 
 interface Props {
   locale: string;
@@ -34,7 +44,27 @@ const { Content } = await render(entry);
           <a href="#contact" class="btn">{entry.data.gettingThere}</a>
         </div>
       </div>  
-    </div>    
-    
+    </div>
+  <div class="mx-auto max-w-2xl">
+    <div class="p-6 text-start">
+      {entry.data.highlights && (
+        <>
+          {entry.data.highlightsTitle && <h3 class="mt-6 mb-2 text-head">{entry.data.highlightsTitle}</h3>}
+          <div class="flex flex-wrap gap-2">
+            {entry.data.highlights.map((item, i) => {
+              const Icon = highlightIcons[i] ?? MapPin;
+              return (
+                <div class="flex items-center text-sm text-body p-2 border border-solid rounded-sm">
+                  <Icon class="h-4 w-4 shrink-0 text-sub m-2" />
+                  <span class="list-col-grow">{item}</span>
+                </div>
+              );
+            })}
+          </div>
+          
+        </>
+      )}
+    </div>
+  </div>
   </div>
 </section>
