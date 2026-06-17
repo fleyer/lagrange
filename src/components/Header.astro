@@ -2,11 +2,13 @@
 import { ChevronDown, Menu, X } from "@lucide/astro";
 import * as m from "../paraglide/messages.js";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const locales = [
-  { code: "fr", label: "FR", href: "/" },
-  { code: "en", label: "EN", href: "/en/" },
-  { code: "de", label: "DE", href: "/de/" },
-  { code: "es", label: "ES", href: "/es/" },
+  { code: "fr", label: "FR", href: base + "/" },
+  { code: "en", label: "EN", href: base + "/en/" },
+  { code: "de", label: "DE", href: base + "/de/" },
+  { code: "es", label: "ES", href: base + "/es/" },
 ];
 const currentLocale = Astro.currentLocale ?? "fr";
 ---
