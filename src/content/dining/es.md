@@ -3,7 +3,7 @@ title: Restauración
 meals:
   - name: Desayuno
     note: libre servicio
-    image: ../../assets/dining/breakfast.avif
+    image: ../../assets/dining/breakfast.png
     items:
       - Pan
       - mantequilla
@@ -14,7 +14,7 @@ meals:
       - plátano
   - name: Media pensión
     note: 55 €/pers.
-    image: ../../assets/dining/halfboard.avif
+    image: ../../assets/dining/halfboard.png
     items:
       - Aperitivo local
       - Entrante (sopa o ensalada)

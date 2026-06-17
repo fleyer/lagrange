@@ -3,7 +3,7 @@ title: Verpflegung
 meals:
   - name: Frühstück
     note: Selbstbedienung
-    image: ../../assets/dining/breakfast.avif
+    image: ../../assets/dining/breakfast.png
     items:
       - Brot
       - Butter
@@ -14,7 +14,7 @@ meals:
       - Banane
   - name: Halbpension
     note: 55 €/Pers.
-    image: ../../assets/dining/halfboard.avif
+    image: ../../assets/dining/halfboard.png
     items:
       - Lokaler Aperitif
       - Vorspeise (Suppe oder Salat)

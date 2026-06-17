@@ -3,7 +3,7 @@ title: À Table
 meals:
   - name: Petit déjeuner
     note: en libre service
-    image: ../../assets/dining/breakfast.avif
+    image: ../../assets/dining/breakfast.png
     items:
       - Pain
       - beurre
@@ -14,7 +14,7 @@ meals:
       - banane
   - name: Demi-pension
     note: 55 €/pers.
-    image: ../../assets/dining/halfboard.avif
+    image: ../../assets/dining/halfboard.png
     items:
       - Apéritif local
       - Entrée (potage ou salade)

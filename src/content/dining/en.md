@@ -3,7 +3,7 @@ title: Dining
 meals:
   - name: Breakfast
     note: self-service
-    image: ../../assets/dining/breakfast.avif
+    image: ../../assets/dining/breakfast.png
     items:
       - Bread
       - butter
@@ -14,7 +14,7 @@ meals:
       - banana
   - name: Half-board
     note: "€55/person"
-    image: ../../assets/dining/halfboard.avif
+    image: ../../assets/dining/halfboard.png
     items:
       - Local apéritif
       - Starter (soup or salad)
