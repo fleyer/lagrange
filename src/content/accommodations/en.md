@@ -1,15 +1,34 @@
 ---
 title: Accommodations
 units:
-  - name: Les Cépages
+  - id: cepages
+    name: Les Cépages
     capacity: 6–7 people
-    description: "2 rooms (140 + 90 cm bed / 2×90 cm beds) and 1 additional room. Equipped kitchen, lounge, TV, covered balcony. Shared bathroom."
-  - name: L'Alambic
+    description: |
+      Room 1: 140 cm bed + 90 cm bed</br>
+      Room 2: 2× 90 cm beds</br>
+      </br>
+      Equipped kitchen, lounge, TV, covered balcony. Shared bathroom.</br>
+      Top sheet +€3</br>
+      Air conditioning optional: €3/split
+  - id: alambic
+    name: L'Alambic
     capacity: 5–6 people
-    description: "2 rooms (3×90 cm beds / 140 + 90 cm beds). Equipped kitchen, covered balcony. Shared bathroom."
-  - name: Le Tonneau PMR
+    description: |
+      Room 1: 3× 90 cm beds</br>
+      Room 2: 140 cm bed + 90 cm bed</br>
+      </br>
+      Equipped kitchen, covered balcony. Shared bathroom.</br>
+      Top sheet +€3</br>
+      Air conditioning optional: €3/split
+  - id: tonneau
+    name: Le Tonneau PMR
     capacity: 4 people
-    description: "2 rooms with private en-suite shower. Wheelchair accessible. Mechanical ventilation."
+    description: |
+      2 rooms</br>
+      </br>
+      Private en-suite shower. Wheelchair accessible. Mechanical ventilation.</br>
+      Air conditioning optional: €3/split
 pricing:
   - label: Night + breakfast
     price: €35/person

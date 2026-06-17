@@ -1,6 +1,7 @@
 ---
 units:
-  - id: cepage
+  - id: cepages
+    color: "#5d8261"
     images:
       - ../../assets/accommodations/cepage1.jpg
       - ../../assets/accommodations/cepage2.jpg
@@ -9,6 +10,7 @@ units:
       - ../../assets/accommodations/cepage5.jpg
       - ../../assets/accommodations/cepage6.jpg
   - id: alambic
+    color: "#2d6880"
     images:
       - ../../assets/accommodations/alambic1.jpg
       - ../../assets/accommodations/alambic2.jpg

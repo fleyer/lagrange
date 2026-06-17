@@ -24,11 +24,14 @@ const unitImages = imagesEntry.data.units;
 
     <div class="mb-12 grid gap-6 sm:grid-cols-3">
       {entry.data.units.map((unit, i) => {
-        const images = unitImages[i]?.images ?? [];
+        const unitConfig = unitImages.find(unitImage => unitImage.id === unit.id);
+        const images = unitConfig?.images ?? []
+        const color = unitImages[i]?.color;
+
         return (
-          <div class="card shadow-sm overflow-hidden">
+          <div class={`card shadow-sm overflow-hidden ${color ? "border-solid border-2" : ""}`} style={`border-color: ${color ?? 'transparent'}`}>
             {images.length > 0 && (
-              <figure class="relative h-48 overflow-hidden">
+              <figure class="relative h-48 overflow-visible">
                 <div class="carousel h-full w-full">
                   {images.map((img, j) => (
                     <div class="carousel-item h-full w-full">
@@ -54,9 +57,9 @@ const unitImages = imagesEntry.data.units;
               </figure>
             )}
             <div class="card-body bg-white">
-              <h3 class="card-title text-head">{unit.name}</h3>
+              <h3 class="card-title text-head" style={{color: color }}>{unit.name}</h3>
               <p class="text-sub text-sm">{unit.capacity}</p>
-              <p class="text-body">{unit.description}</p>
+              <p class="text-body" set:html={unit.description}></p>
             </div>
           </div>
         );

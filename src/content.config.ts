@@ -26,6 +26,7 @@ const accommodations = defineCollection({
     title: z.string(),
     units: z.array(
       z.object({
+        id: z.string(),
         name: z.string(),
         capacity: z.string(),
         description: z.string(),
@@ -47,6 +48,7 @@ const accommodationsImages = defineCollection({
       units: z.array(
         z.object({
           id: z.string(),
+          color: z.string().optional(),
           images: z.array(image()),
         }),
       ),

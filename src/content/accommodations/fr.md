@@ -1,15 +1,34 @@
 ---
 title: Hébergements
 units:
-  - name: Les Cépages
+  - id: cepages
+    name: Les Cépages
     capacity: 6–7 personnes
-    description: "2 chambres (lit 140 + lit 90 / 2 lits 90) et 1 chambre supplémentaire. Cuisine équipée, salon, TV, balcon couvert. Sanitaires partagés."
-  - name: L'Alambic
+    description: |
+      chambre 1: lit 140 + lit 90</br>
+      chambre 2: 2 lits 90</br>
+      </br>
+      Cuisine équipée, salon, TV, balcon couvert. Sanitaires partagés</br>
+      Draps dessus +3€</br>
+      Climatisation en option : 3€/split
+  - id: alambic
+    name: L'Alambic
     capacity: 5–6 personnes
-    description: "2 chambres (3 lits 90 / lit 140 + lit 90). Cuisine équipée, balcon couvert. Sanitaires partagés."
-  - name: Le Tonneau PMR
+    description: |
+      chambre 1 : 3 lits 90</br>
+      chambre 2 : lit 140 + lit 90 </br>
+      </br>
+      Cuisine équipée, balcon couvert. Sanitaires partagés.</br>
+      Draps dessus +3€</br>
+      Climatisation en option : 3€/split
+  - id: tonneau
+    name: Le Tonneau PMR
     capacity: 4 personnes
-    description: "2 chambres avec salle d'eau privative. Accessible en fauteuil roulant. Ventilation mécanique."
+    description: |
+      2 chambres</br>
+      </br>
+      Salle d'eau privative. Accessible en fauteuil roulant. Ventilation mécanique.</br>
+      Climatisation en option : 3€/split
 pricing:
   - label: Nuit + petit déjeuner
     price: 35 €/pers.
