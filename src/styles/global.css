@@ -51,6 +51,12 @@
   background-color: var(--section-bg);
 }
 
+@media (prefers-color-scheme: dark) {
+  .btn {
+    --btn-color: var(--color-stone-700);
+  }
+}
+
 :root[data-consent-set] #rgpd-banner {
   display: none;
 }
@@ -61,5 +67,7 @@
   --color-stone-100: #f0ece6;
   --color-stone-400: #a39890;
   --color-stone-500: #6b6560;
+  --color-stone-700: color-mix(in oklab, var(--color-stone-900) 40%, var(--color-stone-500));
+  --color-stone-800: color-mix(in oklab, var(--color-stone-900) 60%, var(--color-stone-500));
   --color-stone-900: #1a1a1a;
 }
