@@ -1,0 +1,39 @@
+---
+import GdprBanner from "../components/GdprBanner.astro";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import SectionAccommodations from "../components/SectionAccommodations.astro";
+import SectionContact from "../components/SectionContact.astro";
+import SectionDining from "../components/SectionDining.astro";
+import SectionGallery from "../components/SectionGallery.astro";
+import SectionHero from "../components/SectionHero.astro";
+import SectionRefuge from "../components/SectionRefuge.astro";
+import { languageTag } from "../paraglide/runtime.js";
+import "../styles/global.css";
+
+const locale = Astro.currentLocale ?? "fr";
+---
+
+<!doctype html>
+<html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
+  <head>
+    <Head locale={locale} />
+    <script is:inline>
+      if (localStorage.getItem("rgpd-consent")) {
+        document.documentElement.setAttribute("data-consent-set", "");
+      }
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <SectionHero locale={locale} />
+      <SectionRefuge locale={locale} class="theme-white" />
+      <SectionAccommodations locale={locale} class="theme-stone" />
+      <SectionDining locale={locale} class="theme-white" />
+      <SectionGallery class="theme-stone" />
+      <SectionContact locale={locale} class="theme-white" />
+    </main>
+    <GdprBanner locale={locale} />
+  </body>
+</html>

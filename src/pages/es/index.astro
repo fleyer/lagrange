@@ -1,32 +1,5 @@
 ---
-import Head from "../../components/Head.astro";
-import Header from "../../components/Header.astro";
-import SectionAccommodations from "../../components/SectionAccommodations.astro";
-import SectionContact from "../../components/SectionContact.astro";
-import SectionDining from "../../components/SectionDining.astro";
-import SectionGallery from "../../components/SectionGallery.astro";
-import SectionHero from "../../components/SectionHero.astro";
-import SectionRefuge from "../../components/SectionRefuge.astro";
-import { languageTag } from "../../paraglide/runtime.js";
-import "../../styles/global.css";
-
-const locale = Astro.currentLocale ?? "es";
+import PageLayout from "../../layouts/PageLayout.astro";
 ---
 
-<!doctype html>
-<html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
-  <head>
-    <Head locale={locale} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <SectionHero locale={locale} />
-      <SectionRefuge locale={locale} />
-      <SectionAccommodations locale={locale} />
-      <SectionDining locale={locale} />
-      <SectionGallery />
-      <SectionContact locale={locale} />
-    </main>
-  </body>
-</html>
+<PageLayout />
