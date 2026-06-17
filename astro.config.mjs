@@ -5,9 +5,14 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
+import { loadEnv } from "vite"
+
+const env = loadEnv("",process.cwd(),"")
+
+
 export default defineConfig({
   site: "https://fleyer.github.io",
-  base: "/lagrange",
+  base: env.BASE_URL,
   i18n: {
     defaultLocale: "fr",
     locales: ["fr", "en", "de", "es"],
