@@ -29,7 +29,7 @@ const unitImages = imagesEntry.data.units;
         const color = unitImages[i]?.color;
 
         return (
-          <div class={`card shadow-sm overflow-hidden ${color ? "border-solid border-2" : ""}`} style={`border-color: ${color ?? 'transparent'}`}>
+          <div class={`card shadow-sm overflow-hidden ${color ? "border-solid border-2" : ""}`} style={ color ? {"border-color": color} : {}}}>
             {images.length > 0 && (
               <figure class="relative h-48 overflow-visible">
                 <div class="carousel h-full w-full">
@@ -56,7 +56,7 @@ const unitImages = imagesEntry.data.units;
                 )}
               </figure>
             )}
-            <div class="card-body bg-white">
+            <div class="card-body">
               <h3 class="card-title text-head" style={{color: color }}>{unit.name}</h3>
               <p class="text-sub text-sm">{unit.capacity}</p>
               <p class="text-body" set:html={unit.description}></p>

@@ -13,7 +13,7 @@ const locales = [
 const currentLocale = Astro.currentLocale ?? "fr";
 ---
 
-<header class="sticky top-0 z-50 border-b border-stone-100 bg-stone-50">
+<header class="sticky top-0 z-50 border-b bg-base border-base">
   <!-- Hidden checkbox drives the mobile menu open/close state -->
   <input type="checkbox" id="mobile-menu-toggle" class="peer sr-only" />
 
@@ -22,73 +22,73 @@ const currentLocale = Astro.currentLocale ?? "fr";
 
     <!-- Brand -->
     <div class="navbar-start">
-      <a href="#hero" class="text-xl font-bold tracking-widest text-stone-900 no-underline">Lagrange</a>
+      <a href="#hero" class="text-xl font-bold tracking-widest no-underline text-ui">Lagrange</a>
     </div>
 
     <!-- Desktop centered nav -->
     <nav class="navbar-center hidden gap-6 md:inline-flex lg:gap-8">
-      <a href="#hero" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navHome()}</a>
-      <a href="#the-refuge" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navRefuge()}</a>
-      <a href="#accommodations" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navAccommodations()}</a>
-      <a href="#dining" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
-      <a href="#gallery" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
-      <a href="#contact" class="text-sm tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
+      <a href="#hero" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navHome()}</a>
+      <a href="#the-refuge" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navRefuge()}</a>
+      <a href="#accommodations" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navAccommodations()}</a>
+      <a href="#dining" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navDining()}</a>
+      <a href="#gallery" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navGallery()}</a>
+      <a href="#contact" class="text-sm tracking-wide no-underline hover:underline text-ui">{m.navContact()}</a>
     </nav>
 
     <!-- Right: language dropdown (desktop) + hamburger (mobile) -->
     <div class="navbar-end gap-4">
       <details class="dropdown dropdown-end hidden md:block">
-        <summary class="flex cursor-pointer list-none items-center gap-1 rounded px-2 py-1 text-sm font-semibold tracking-widest text-stone-900 hover:bg-stone-100">
+        <summary class="flex cursor-pointer list-none items-center gap-1 rounded px-2 py-1 text-sm font-semibold tracking-widest text-ui hover-bg-ui">
           {locales.find(l => l.code === currentLocale)?.label}
           <ChevronDown class="h-3 w-3" stroke-width={2.5} />
         </summary>
-        <ul class="menu dropdown-content z-50 mt-1 w-24 rounded-box border border-stone-100 bg-stone-50 p-1 shadow">
+        <ul class="menu dropdown-content z-50 mt-1 w-24 rounded-box border p-1 shadow bg-section border-base">
           {locales.map(({ code, label, href }) => (
             <li>
               {code === currentLocale ? (
-                <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
+                <span class="text-sm font-semibold tracking-widest text-ui">{label}</span>
               ) : (
-                <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
+                <a href={href} class="text-sm font-semibold tracking-widest no-underline text-ui-muted hover:text-ui">{label}</a>
               )}
             </li>
           ))}
         </ul>
       </details>
-      <label for="mobile-menu-toggle" class="btn btn-ghost btn-square btn-sm text-stone-900 md:hidden">
+      <label for="mobile-menu-toggle" class="btn btn-ghost btn-square btn-sm md:hidden text-ui">
         <Menu class="h-5 w-5" />
       </label>
     </div>
   </div>
 
   <!-- Full-screen mobile menu overlay (visible when checkbox is checked) -->
-  <div class="fixed inset-0 z-50 hidden flex-col bg-stone-50 peer-checked:flex md:hidden">
+  <div class="fixed inset-0 z-50 hidden flex-col peer-checked:flex md:hidden bg-base">
 
     <!-- Overlay top bar with close button -->
-    <div class="flex items-center justify-between border-b border-stone-100 px-4 py-4 sm:px-8">
-      <span class="text-xl font-bold tracking-widest text-stone-900">Lagrange</span>
-      <label for="mobile-menu-toggle" class="btn btn-ghost btn-square btn-sm text-stone-900">
+    <div class="flex items-center justify-between border-b px-4 py-4 sm:px-8 border-base">
+      <span class="text-xl font-bold tracking-widest text-ui">Lagrange</span>
+      <label for="mobile-menu-toggle" class="btn btn-ghost btn-square btn-sm text-ui">
         <X class="h-5 w-5" />
       </label>
     </div>
 
     <!-- Nav links -->
     <nav class="flex flex-1 flex-col items-center justify-center gap-8">
-      <a href="#hero" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navHome()}</a>
-      <a href="#the-refuge" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navRefuge()}</a>
-      <a href="#accommodations" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navAccommodations()}</a>
-      <a href="#dining" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navDining()}</a>
-      <a href="#gallery" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navGallery()}</a>
-      <a href="#contact" class="text-lg tracking-wide text-stone-900 no-underline hover:underline">{m.navContact()}</a>
+      <a href="#hero" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navHome()}</a>
+      <a href="#the-refuge" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navRefuge()}</a>
+      <a href="#accommodations" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navAccommodations()}</a>
+      <a href="#dining" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navDining()}</a>
+      <a href="#gallery" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navGallery()}</a>
+      <a href="#contact" class="text-lg tracking-wide no-underline hover:underline text-ui">{m.navContact()}</a>
     </nav>
 
     <!-- Language switcher -->
-    <div class="border-t border-stone-100 px-8 py-6">
+    <div class="border-t px-8 py-6 border-base">
       <div class="flex justify-center gap-6">
         {locales.map(({ code, label, href }) =>
           code === currentLocale ? (
-            <span class="text-sm font-semibold tracking-widest text-stone-900">{label}</span>
+            <span class="text-sm font-semibold tracking-widest text-ui">{label}</span>
           ) : (
-            <a href={href} class="text-sm font-semibold tracking-widest text-stone-400 no-underline hover:text-stone-900">{label}</a>
+            <a href={href} class="text-sm font-semibold tracking-widest no-underline text-ui-muted hover:text-ui">{label}</a>
           )
         )}
       </div>
