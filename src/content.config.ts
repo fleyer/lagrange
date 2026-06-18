@@ -118,6 +118,19 @@ const meta = defineCollection({
   }),
 });
 
+const gallery = defineCollection({
+  loader: glob({ pattern: "index.md", base: "./src/content/gallery" }),
+  schema: ({ image }) =>
+    z.object({
+      images: z.array(
+        z.object({
+          src: image(),
+          alt: z.string(),
+        }),
+      ),
+    }),
+});
+
 export const collections = {
   hero,
   refuge,
@@ -128,4 +141,5 @@ export const collections = {
   site,
   gdpr,
   meta,
+  gallery,
 };

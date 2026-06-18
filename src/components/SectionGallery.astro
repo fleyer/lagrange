@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
 import * as m from "../paraglide/messages.js";
 
 interface Props {
@@ -6,11 +8,30 @@ interface Props {
 }
 
 const { class: className } = Astro.props;
+
+const entry = await getEntry("gallery", "index");
+if (!entry) throw new Error("Missing gallery content");
+
+const { images } = entry.data;
 ---
 
-<section id="gallery" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
-  <div class="mx-auto max-w-2xl">
-    <h2 class="mb-6 font-normal text-head sm:text-5xl lg:text-6xl">{m.galleryTitle()}</h2>
-    <p class="text-lg leading-relaxed text-body">{m.galleryPlaceholder()}</p>
+<section id="gallery" class:list={["bg-section px-4 py-16", className]}>
+  <div class="mx-auto max-w-5xl">
+    <h2 class="mb-10 text-center text-4xl font-normal text-head sm:text-5xl lg:text-6xl">
+      {m.galleryTitle()}
+    </h2>
+    <div class="columns-2 gap-4 md:columns-3">
+      {images.map((img, i) => (
+        <div class="mb-4 break-inside-avoid">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            width={600}
+            class="w-full rounded-xl"
+            loading={i < 2 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+    </div>
   </div>
 </section>
