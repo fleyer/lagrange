@@ -28,20 +28,22 @@ const { Content } = await render(entry);
   <div class="mx-auto max-w-2xl">
     <div class="hero">
       
-      <div class="hero-content flex flex-col sm:flex-row">
-        <figure class="p-4">
+      <div class="hero-content flex flex-col sm:flex-row items-stretch ">
+        <figure class="flex justify-center p-4 px-10 rounded-sm dark:bg-(--color-stone-100)/95">
           <Image
             src={laGrangeLogo}
             alt="walking man" 
             class="max-h-48 sm:max-h-none h-full w-auto"/>
         </figure>
-        <div class="p-6">
+        <div class="px-6 flex flex-col">
           <h2 class="mb-6 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
           <div class="leading-relaxed text-sub my-6">
             <Content />
+          </div>
+          <div class="flex-1 flex justify-center items-end">
+            <a href="#accommodations" class="btn">{entry.data.discover}</a>
+            <a href="#contact" class="btn">{entry.data.gettingThere}</a>
           </div>  
-          <a href="#accommodations" class="btn">{entry.data.discover}</a>
-          <a href="#contact" class="btn">{entry.data.gettingThere}</a>
         </div>
       </div>  
     </div>

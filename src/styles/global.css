@@ -4,7 +4,9 @@
 @layer base {
   :root {
     /* layout */
+    --root-bg: white;
     --header-height: 4rem;
+    --bg-base: white;
     --color-base-100: #1d232a;
 
     /* section tokens — light defaults */
@@ -62,6 +64,7 @@
 }
 
 @media (prefers-color-scheme: light) {
+
   .theme-stone {
     --bg-base: var(--color-stone-100);
     --section-bg: var(--color-stone-100);
@@ -71,15 +74,20 @@
     --text-muted: var(--color-stone-500);
     --color-base-content: var(--color-stone-900);
     --divider-color: black;
+
+    background: var(--bg-base);
   }
 
   .theme-white {
+    --bg-base: white;
     --section-bg: white;
     --text-head: var(--color-stone-900);
     --text-body: var(--color-stone-700);
     --text-sub: var(--color-stone-600);
     --text-muted: var(--color-stone-500);
     --divider-color: black;
+
+    background: var(--bg-base);
   }
 
   .card-body {
@@ -90,6 +98,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* section tokens */
+    --root-bg: #111;
     --bg-base: #111;
     --section-bg: #111;
     --text-head: var(--color-stone-50);
