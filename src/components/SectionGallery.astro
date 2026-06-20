@@ -15,9 +15,9 @@ if (!entry) throw new Error("Missing gallery content");
 const { images } = entry.data;
 ---
 
-<section id="gallery" class:list={["bg-section px-4 py-16", className]}>
+<section id="gallery" class:list={["bg-base-200 px-4 py-16", className]}>
   <div class="mx-auto max-w-5xl">
-    <h2 class="mb-10 text-center text-4xl font-normal text-head sm:text-5xl lg:text-6xl">
+    <h2 class="mb-10 text-center text-4xl font-normal text-base-content sm:text-5xl lg:text-6xl">
       {m.galleryTitle()}
     </h2>
     <div class="columns-2 gap-4 md:columns-3">

@@ -19,16 +19,16 @@ if (!socialsEntry) throw new Error("Missing site/socials content");
 const links = socialsEntry.data.links;
 ---
 
-<section id="contact" class:list={["flex min-h-[80svh] items-center bg-section px-4 py-16", className]}>
+<section id="contact" class:list={["flex min-h-[80svh] items-center bg-base-100 px-4 py-16", className]}>
   <div class="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-8 lg:flex-row lg:items-stretch">
-    <div class="w-full max-w-md rounded-lg border-none sm:border-solid border-1 border-stone-300 p-10 sm:p-20 text-center lg:shrink-0">
+    <div class="w-full max-w-md rounded-lg border-none sm:border-solid border-1 border-base-300 p-10 sm:p-20 text-center lg:shrink-0">
       <div class="avatar mb-6">
-        <div class="w-40 rounded-full ring ring-stone-300 ring-offset-2 ring-offset-stone-100">
+        <div class="w-40 rounded-full ring ring-base-300 ring-offset-2 ring-offset-base-100">
           <Image src={avatarImage} alt="Marie France" />
         </div>
       </div>
-      <h2 class="mb-8 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
-      <address class="mb-6 not-italic text-sub">
+      <h2 class="mb-8 font-normal text-base-content text-xl sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+      <address class="mb-6 not-italic text-sm text-base-content/60">
         <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon class="ml-2" name="lucide:external-link"/></Icon></a></p>
         {entry.data.phone && (
           <p class="mb-1">
@@ -41,7 +41,7 @@ const links = socialsEntry.data.links;
       </address>
       <div class="divider"></div>
       {entry.data.extras && (
-        <ul class="mb-6 space-y-1 text-muted">
+        <ul class="mb-6 space-y-1 text-sm text-base-content/40">
           {entry.data.extras.map((extra) => <li>{extra}</li>)}
         </ul>
       )}

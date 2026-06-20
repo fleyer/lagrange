@@ -1,143 +1,17 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@import "./theme.css";
+
+@plugin "daisyui" {
+  themes: lagrange --default, lagrange-dark --prefersdark;
+}
 
 @layer base {
   :root {
-    /* layout */
-    --root-bg: white;
     --header-height: 4rem;
-    --bg-base: white;
-    --color-base-100: #1d232a;
-
-    /* section tokens — light defaults */
-    --section-bg: var(--color-stone-50);
-    --text-head: var(--color-stone-900);
-    --text-body: var(--color-stone-700);
-    --text-sub: var(--color-stone-600);
-    --text-muted: var(--color-stone-500);
-    --divider-color: black;
-    --color-base-content: var(--color-stone-900);
-
-    /* ui/interaction tokens — light defaults */
-    --base-border: var(--color-stone-100);
-    --ui-text: var(--color-stone-900);
-    --ui-text-muted: var(--color-stone-400);
-    --ui-hover-bg: var(--color-stone-100);
   }
 
   html {
     scroll-behavior: smooth;
-  }
-}
-
-@utility text-head {
-  @apply text-xl;
-  color: var(--text-head);
-}
-@utility text-body {
-  color: var(--text-body);
-}
-@utility text-sub {
-  @apply text-sm;
-  color: var(--text-sub);
-}
-@utility text-muted {
-  @apply text-sm;
-  color: var(--text-muted);
-}
-@utility bg-base {
-  background-color: var(--bg-base);
-}
-@utility text-ui {
-  color: var(--ui-text);
-}
-@utility text-ui-muted {
-  color: var(--ui-text-muted);
-}
-@utility border-base {
-  border-color: var(--base-border);
-}
-@utility hover-bg-ui {
-  &:hover {
-    background-color: var(--ui-hover-bg);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-
-  .theme-stone {
-    --bg-base: var(--color-stone-100);
-    --section-bg: var(--color-stone-100);
-    --text-head: var(--color-stone-900);
-    --text-body: var(--color-stone-700);
-    --text-sub: var(--color-stone-600);
-    --text-muted: var(--color-stone-500);
-    --color-base-content: var(--color-stone-900);
-    --divider-color: black;
-
-    background: var(--bg-base);
-  }
-
-  .theme-white {
-    --bg-base: white;
-    --section-bg: white;
-    --text-head: var(--color-stone-900);
-    --text-body: var(--color-stone-700);
-    --text-sub: var(--color-stone-600);
-    --text-muted: var(--color-stone-500);
-    --divider-color: black;
-
-    background: var(--bg-base);
-  }
-
-  .card-body {
-      background: white;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* section tokens */
-    --root-bg: #111;
-    --bg-base: #111;
-    --section-bg: #111;
-    --text-head: var(--color-stone-50);
-    --text-body: var(--color-stone-100);
-    --text-sub: var(--color-stone-400);
-    --text-muted: var(--color-stone-400);
-    --divider-color: var(--color-stone-700);
-    --color-base-content: var(--color-stone-50);
-
-    /* ui/interaction tokens */
-    --base-border: var(--color-stone-700);
-    --ui-text: var(--color-stone-50);
-    --ui-text-muted: var(--color-stone-400);
-    --ui-hover-bg: var(--color-stone-900);
-  }
-
-  .theme-stone {
-    --section-bg: #111;
-    --color-base-content: var(--color-stone-50);
-    --text-head: var(--color-stone-50)
-  }
-
-  .theme-white {
-    --section-bg: #111;
-    --color-base-content: var(--color-stone-50);
-    --text-head: var(--color-stone-50)
-  }
-
-  body {
-    background-color: var(--section-bg);
-    color: var(--color-stone-50);
-  }
-
-  .btn {
-    --btn-color: var(--color-stone-700);
-  }
-
-  .card {
-    border: 1px solid var(--base-border);
   }
 }
 

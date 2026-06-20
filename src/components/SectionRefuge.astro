@@ -24,7 +24,7 @@ if (!entry) throw new Error(`Missing refuge content for locale: ${locale}`);
 const { Content } = await render(entry);
 ---
 
-<section id="the-refuge" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-section px-4 py-16 text-center", className]}>
+<section id="the-refuge" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-base-100 px-4 py-16 text-center", className]}>
   <div class="mx-auto max-w-2xl">
     <div class="hero">
       
@@ -36,8 +36,8 @@ const { Content } = await render(entry);
             class="max-h-48 sm:max-h-none h-full w-auto"/>
         </figure>
         <div class="px-6 flex flex-col">
-          <h2 class="mb-6 font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
-          <div class="leading-relaxed text-sub my-6">
+          <h2 class="mb-6 font-normal text-base-content text-xl sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+          <div class="leading-relaxed text-sm text-base-content/60 my-6">
             <Content />
           </div>
           <div class="flex-1 flex justify-center gap-2">
@@ -51,13 +51,13 @@ const { Content } = await render(entry);
     <div class="p-6 text-start">
       {entry.data.highlights && (
         <>
-          {entry.data.highlightsTitle && <h3 class="mt-6 mb-2 text-muted text-lg">{entry.data.highlightsTitle}</h3>}
+          {entry.data.highlightsTitle && <h3 class="mt-6 mb-2 text-base-content/40 text-lg">{entry.data.highlightsTitle}</h3>}
           <div class="flex flex-wrap gap-2">
             {entry.data.highlights.map((item, i) => {
               const Icon = highlightIcons[i] ?? MapPin;
               return (
-                <div class="flex items-center text-sm text-body p-2 border border-solid rounded-sm">
-                  <Icon class="h-4 w-4 shrink-0 text-sub m-2" />
+                <div class="flex items-center text-sm text-base-content p-2 border border-solid rounded-sm">
+                  <Icon class="h-4 w-4 shrink-0 text-base-content/60 m-2" />
                   <span class="list-col-grow">{item}</span>
                 </div>
               );

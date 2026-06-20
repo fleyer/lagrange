@@ -18,9 +18,9 @@ if (!imagesEntry) throw new Error("Missing accommodations images");
 const unitImages = imagesEntry.data.units;
 ---
 
-<section id="accommodations" class:list={["min-h-[80svh] bg-section px-4 py-16", className]}>
+<section id="accommodations" class:list={["min-h-[80svh] bg-base-200 px-4 py-16", className]}>
   <div class="mx-auto max-w-4xl">
-    <h2 class="mb-10 text-center text-4xl font-normal text-head sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+    <h2 class="mb-10 text-center text-4xl font-normal text-base-content sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
 
     <div class="mb-12 grid gap-6 sm:grid-cols-3">
       {entry.data.units.map((unit, i) => {
@@ -57,9 +57,9 @@ const unitImages = imagesEntry.data.units;
               </figure>
             )}
             <div class="card-body">
-              <h3 class="card-title text-head" style={{color: color }}>{unit.name}</h3>
-              <p class="text-sub text-sm">{unit.capacity}</p>
-              <p class="text-body" set:html={unit.description}></p>
+              <h3 class="card-title text-base-content" style={{color: color }}>{unit.name}</h3>
+              <p class="text-sm text-base-content/60">{unit.capacity}</p>
+              <p class="text-base-content" set:html={unit.description}></p>
             </div>
           </div>
         );
@@ -68,7 +68,7 @@ const unitImages = imagesEntry.data.units;
 
     <div class="list shadow-sm rounded-box mx-auto max-w-sm">
       {entry.data.pricing.map((row) => (
-        <div class="list-row flex justify-between py-2 text-body">
+        <div class="list-row flex justify-between py-2 text-base-content">
           <span>{row.label}</span>
           <span class="font-medium">{row.price}</span>
         </div>
