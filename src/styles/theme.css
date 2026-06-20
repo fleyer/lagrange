@@ -50,11 +50,11 @@
   --color-base-content: #f0e6d8;
 
   --color-primary: #d4796a;
-  --color-primary-content: #1e1b18;
+  --color-primary-content: #f7ede0;
   --color-secondary: #b89a82;
   --color-secondary-content: #1e1b18;
   --color-accent: #d4796a;
-  --color-accent-content: #1e1b18;
+  --color-accent-content: #f7ede0;
   --color-neutral: #f0e6d8;
   --color-neutral-content: #1e1b18;
   --color-info: oklch(70% 0.2 220);
