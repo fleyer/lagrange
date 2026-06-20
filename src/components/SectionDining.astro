@@ -13,7 +13,7 @@ if (!entry) throw new Error(`Missing dining content for locale: ${locale}`);
 ---
 
 <section id="dining" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-base-100 px-4 py-16", className]}>
-  <div class="mx-auto w-full max-w-4xl">
+  <div class="mx-auto w-full max-w-4xl py-4">
     <h2 class="mb-12 text-center font-normal text-base-content text-xl sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
 
     {entry.data.meals.map((meal, i) => (
