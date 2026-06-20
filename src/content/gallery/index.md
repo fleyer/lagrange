@@ -4,7 +4,7 @@ images:
     alt: Le refuge de Lagrange
   - src: ../../assets/refuge-2.jpg
     alt: Vue sur le refuge
-  - src: ../../assets/pilgrims-1.jpg
+  - src: ../../assets/pilgrims-1.png
     alt: Pèlerins sur le Chemin
   - src: ../../assets/pilgrims-2.jpg
     alt: Marcheurs en chemin
@@ -12,6 +12,8 @@ images:
     alt: Sur le Chemin de Saint-Jacques
   - src: ../../assets/pilgrims-4.png
     alt: Pèlerins à l'étape
+  - src: ../../assets/pilgrims-7.png
+    alt: Pèlerins à table
   - src: ../../assets/accommodations/cepage1.jpg
     alt: Chambre dans Les Cépages
   - src: ../../assets/accommodations/alambic1.jpg

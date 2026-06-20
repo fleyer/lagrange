@@ -21,11 +21,11 @@
 
 @theme {
   --font-sans: Georgia, "Times New Roman", serif;
-  --color-stone-50: #faf9f7;
-  --color-stone-100: #f0ece6;
-  --color-stone-400: #a39890;
-  --color-stone-500: #6b6560;
+  --color-stone-50: #f7ede0;
+  --color-stone-100: #ecdcc8;
+  --color-stone-400: #d5b492;
+  --color-stone-500: #9a8070;
   --color-stone-700: color-mix(in oklab, var(--color-stone-900) 40%, var(--color-stone-500));
   --color-stone-800: color-mix(in oklab, var(--color-stone-900) 60%, var(--color-stone-500));
-  --color-stone-900: #1a1a1a;
+  --color-stone-900: #2e2b28;
 }
