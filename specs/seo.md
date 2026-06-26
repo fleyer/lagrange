@@ -11,27 +11,24 @@ The site must appear on Google when someone searches for (all languages matter e
 | DE | `pilgerherberge éauze` · `jakobsweg éauze` · `unterkunft éauze` · `herberge éauze` |
 | ES | `albergue éauze` · `peregrino éauze` · `camino de santiago éauze` · `alojamiento éauze` |
 
-## Audit: what is missing today
+---
 
-| Signal | Current state | Gap |
-|---|---|---|
-| `<title>` | Generic, no location | Must include **Éauze**, **gîte**, **refuge** |
-| `<meta description>` | Vague, no keywords | Must include target keywords |
-| Open Graph | None | Needed for social sharing & link previews |
-| Structured data | None | `LodgingBusiness` JSON-LD is critical for local search |
-| Sitemap | None | Needed for Google to index all 4 locales |
-| `robots.txt` | None | Explicit allow-all needed |
-| `<link rel="canonical">` | None | Prevents duplicate content between locales |
-| `hreflang` | None | Needed for multilingual signal to Google |
-| Google Business Profile | Unknown | Not a code task — must be done separately |
+## v1 — Initial implementation (done)
 
-## Advice on each point
+### What was built
 
-### 1. Title & meta description (highest impact)
+| Signal | Status |
+|---|---|
+| `<title>` + `<meta name="description">` — localised, keyword-rich, from content layer | ✅ done |
+| `LodgingBusiness` JSON-LD in `<head>` | ✅ done |
+| Open Graph tags (type, url, title, description, image w/ dimensions, locale, alternate locales) | ✅ done |
+| `hreflang` (fr/en/de/es + x-default) + `canonical` | ✅ done |
+| `@astrojs/sitemap` integration, configured for all 4 locales | ✅ done |
+| `/public/robots.txt` | ✅ done |
+| OG image generation via `astro-og-canvas` at `/open-graph/{locale}.png` | ✅ done |
+| Content collection `meta` (title, description, ogLocale per locale) | ✅ done |
 
-Each locale must have a keyword-rich title and description in its own language — not a translation of the French one, but a version optimised for the local search terms used by pilgrims of that nationality.
-
-The formula: **`{proper name} — {accommodation type in local language} à/in/en Éauze · {trail name in local language}`**
+### Localised meta copy
 
 | Locale | Title | Description |
 |---|---|---|
@@ -40,112 +37,111 @@ The formula: **`{proper name} — {accommodation type in local language} à/in/e
 | DE | `La Grange de Marie France — Pilgerherberge in Éauze · Jakobsweg` | `Herzliche Herberge und Unterkunft für Jakobspilger in Éauze (Gers), auf dem Jakobsweg. Warme Aufnahme, Mahlzeiten, WLAN. Kontakt: Marie France.` |
 | ES | `La Grange de Marie France — Albergue de peregrinos en Éauze · Camino de Santiago` | `Albergue y refugio para peregrinos en Éauze (Gers), en el Camino de Santiago. Acogida cálida, comidas, WiFi. Contacta con Marie France.` |
 
-These must be stored in the content layer (new `site/meta` Markdown files per locale), not hard-coded in `.astro` files.
+### v1 acceptance criteria
 
-> **Key principle:** each language version targets the vocabulary native speakers actually type, not a word-for-word translation. "Hostel" ranks in English; "Herberge" and "Pilgerherberge" rank in German; "Albergue" ranks in Spanish.
+- [x] Each locale page has a keyword-rich, localised `<title>` and `<meta name="description">` from the content layer
+- [x] `LodgingBusiness` JSON-LD is present in `<head>` on all pages
+- [x] Open Graph tags are present, pointing to a real OG image
+- [x] `hreflang` and `canonical` tags are correct on all 4 locale pages
+- [x] `/sitemap-index.xml` is generated at build time
+- [x] `/robots.txt` exists
+- [ ] Google Business Profile is created/claimed (out of code scope — tracked separately)
 
-### 2. Structured data — `LodgingBusiness` JSON-LD (high impact for local search)
+---
 
-A JSON-LD block in `<head>` tells Google exactly what this place is. For a gîte/hostel the right schema type is `LodgingBusiness` (or `Hostel`). The `description` field should be in the current page locale so it matches what Google shows in international results.
+## v2 — Fixes and enhancements
+
+### Domain migration — deferred (blocks all SEO until done)
+
+`astro.config.mjs` currently has `site: "https://fleyer.github.io"` — the developer's GitHub Pages staging URL. Every SEO-critical URL generated from it (sitemap entries, canonical, hreflang, OG image) will be wrong once the site goes live on the real domain.
+
+`lagrangedemariefrance.fr` is currently in use by an existing Wix website. The domain switch to this Astro site is a separate migration step, not a code change to make now. Until the domain is cut over, the staging URL is intentional.
+
+**When the domain is ready to switch:**
+- `astro.config.mjs` — change `site` to `"https://lagrangedemariefrance.fr"`
+- `public/robots.txt` — update sitemap URL to `https://lagrangedemariefrance.fr/sitemap-index.xml`
+- Point the DNS / GitHub Pages custom domain setting to the new domain
+
+### P1 — Twitter / X Card tags
+
+Pilgrims share on WhatsApp (reads OG) but also on X/Facebook (reads Twitter Card). Both sets of tags should be present. WhatsApp already works via OG; Twitter Card is missing.
+
+Add to `src/components/Head.astro` after the Open Graph block:
+
+```html
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+```
+
+### P1 — `og:site_name`
+
+Standard property expected by most link-preview renderers. Prevents the site name from being inferred (sometimes wrongly) from the URL.
+
+Add to `src/components/Head.astro` inside the Open Graph block:
+
+```html
+<meta property="og:site_name" content="La Grange de Marie France" />
+```
+
+### P1 — `og:image:alt`
+
+Image alt text for the OG image improves accessibility and is used by some platforms. Requires a new field in the content layer so each locale can provide a translated alt string.
+
+- `src/content.config.ts` — add `ogImageAlt: z.string()` to the `meta` schema
+- `src/content/meta/{fr,en,de,es}.md` — add localised `ogImageAlt` value
+- `src/components/Head.astro` — add `<meta property="og:image:alt" content={ogImageAlt} />` after `og:image:height`
+
+Suggested alt values:
+
+| Locale | `ogImageAlt` |
+|---|---|
+| FR | `La Grange de Marie France — Gîte pèlerin à Éauze` |
+| EN | `La Grange de Marie France — Pilgrim Hostel in Éauze` |
+| DE | `La Grange de Marie France — Pilgerherberge in Éauze` |
+| ES | `La Grange de Marie France — Albergue de peregrinos en Éauze` |
+
+### P1 — `amenityFeature` completeness in JSON-LD
+
+The current `amenityFeature` array in `Head.astro` uses bare strings (`["WiFi", "Garage vélos et motos", "Arrêt de bus"]`). The correct schema.org pattern is `LocationFeatureSpecification` objects, and several amenities from the spec are missing.
+
+Replace with:
 
 ```json
-{
-  "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "La Grange de Marie France",
-  "description": "Pilgrim hostel on the Camino de Santiago in Éauze",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "4 avenue de la Ténarèze",
-    "addressLocality": "Éauze",
-    "postalCode": "32800",
-    "addressCountry": "FR"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": 43.8610716, "longitude": 0.1033391 },
-  "telephone": "+33661244804",
-  "email": "lagrangedemariefrance@gmail.com",
-  "amenityFeature": ["WiFi", "Garage vélos et motos", "Arrêt de bus","bicycle","moto", "parking", "food"],
-  "url": "https://lagrangedemariefrance.fr"
-}
+"amenityFeature": [
+  { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+  { "@type": "LocationFeatureSpecification", "name": "Bicycle storage", "value": true },
+  { "@type": "LocationFeatureSpecification", "name": "Motorcycle storage", "value": true },
+  { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+  { "@type": "LocationFeatureSpecification", "name": "Meals", "value": true },
+  { "@type": "LocationFeatureSpecification", "name": "Bus stop", "value": true }
+]
 ```
 
-This is rendered as an inline `<script type="application/ld+json">` in `<head>`.
+### P2 — Apple touch icon
 
-### 3. Open Graph tags (medium impact)
+Improves appearance when a pilgrim bookmarks the site to their iOS home screen. Low effort: add a 180×180px PNG to `/public/` and reference it in `Head.astro`.
 
-Required for proper link previews on WhatsApp, Facebook, etc. (pilgrims share on social):
+- `/public/apple-touch-icon.png` — 180×180px image (crop or reuse an existing asset)
+- `src/components/Head.astro` — add `<link rel="apple-touch-icon" sizes="180x180" href={...} />`
 
-```html
-<meta property="og:title" content="..." />
-<meta property="og:description" content="..." />
-<meta property="og:image" content="/og-image.jpg" />  <!-- 1200×630px photo of the gîte -->
-<meta property="og:url" content="https://lagrangedemariefrance.fr" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="fr_FR" />
-```
+### Out of scope for v2
 
-The `og:locale` tag must reflect the current page's language (`fr_FR`, `en_US`, `de_DE`, `es_ES`), and `og:locale:alternate` should list the others. The `og:title` and `og:description` must use the same locale-specific copy as the `<title>` and `<meta name="description">`.
+- Google Business Profile — register/claim at business.google.com with the property details from the JSON-LD block. Highest local impact; not a code change.
+- Performance / Core Web Vitals — separate concern.
 
-A dedicated OG image (photo of the exterior or a welcoming interior shot) should be added to `/public/`.
+---
 
-### 4. Sitemap + `robots.txt` (medium impact)
+## v2 acceptance criteria
 
-Add the official `@astrojs/sitemap` integration. It requires `site` to be set in `astro.config.mjs`:
-
-```js
-export default defineConfig({
-  site: "https://lagrangedemariefrance.fr",
-  // ...
-})
-```
-
-`robots.txt` in `/public/`:
-```
-User-agent: *
-Allow: /
-Sitemap: https://lagrangedemariefrance.fr/sitemap-index.xml
-```
-
-### 5. `hreflang` + canonical (medium impact)
-
-With 4 locales (fr, en, de, es), Google needs `<link rel="alternate" hreflang="...">` tags in each page's `<head>` pointing to the other locale URLs. This avoids duplicate-content penalties and routes the right language to the right user.
-
-```html
-<link rel="alternate" hreflang="fr" href="https://lagrangedemariefrance.fr/" />
-<link rel="alternate" hreflang="en" href="https://lagrangedemariefrance.fr/en/" />
-<link rel="alternate" hreflang="de" href="https://lagrangedemariefrance.fr/de/" />
-<link rel="alternate" hreflang="es" href="https://lagrangedemariefrance.fr/es/" />
-<link rel="alternate" hreflang="x-default" href="https://lagrangedemariefrance.fr/" />
-<link rel="canonical" href="https://lagrangedemariefrance.fr{currentPath}" />
-```
-
-### 6. Google Business Profile (highest local impact — not a code task)
-
-This is arguably the most impactful action for local searches like "gîte éauze". Register or claim the listing at **business.google.com** with:
-- Name: La Grange de Marie France
-- Category: Hostel / Gîte
-- Address: 4 avenue de la Ténarèze, 32800 Éauze
-- Website, phone, email
-- Photos of the property
-- Opening hours / check-in hours
-
-Once verified, the listing appears in the Google Maps "local pack" at the top of results.
-
-## Implementation scope (code changes)
-
-1. Add `site/meta` content collection with localised title, description, og:image alt
-2. Inject `<title>`, `<meta name="description">`, Open Graph, `hreflang`, `canonical`, and JSON-LD into each locale's `<head>` — preferably via a shared `<Head>` component
-3. Add `@astrojs/sitemap` integration and set `site` in `astro.config.mjs`
-4. Add `/public/robots.txt`
-5. Add an OG image to `/public/` (1200×630 px)
-
-## Acceptance criteria
-
-- [ ] Each locale page has a keyword-rich, localised `<title>` and `<meta name="description">` from the content layer
-- [ ] `LodgingBusiness` JSON-LD is present in `<head>` on all pages
-- [ ] Open Graph tags are present, pointing to a real OG image
-- [ ] `hreflang` and `canonical` tags are correct on all 4 locale pages
-- [ ] `/sitemap-index.xml` is generated at build time and lists all 4 locales
-- [ ] `/robots.txt` exists and references the sitemap
+- [ ] Twitter Card tags present on all locale pages
+- [ ] `og:site_name` present on all locale pages
+- [ ] `og:image:alt` present on all locale pages, localised
+- [ ] `amenityFeature` uses `LocationFeatureSpecification` objects and covers all 6 amenities
+- [ ] Apple touch icon present and linked in `<head>`
 - [ ] `bun astro check` passes with no new errors
-- [ ] Google Business Profile is created/claimed (out of code scope — tracked separately)
+- [ ] Domain cutover done: `site` in `astro.config.mjs` and `robots.txt` updated to `lagrangedemariefrance.fr`
+- [ ] Sitemap validated post-cutover: all 4 locale URLs use `lagrangedemariefrance.fr`
+- [ ] JSON-LD validated at validator.schema.org
+- [ ] OG preview validated at opengraph.xyz per locale
