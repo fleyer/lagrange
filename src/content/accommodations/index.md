@@ -4,7 +4,6 @@ units:
     color: "#5d8261"
     images:
       - ../../assets/accommodations/cepage1.jpg
-      - ../../assets/accommodations/cepage2.jpg
       - ../../assets/accommodations/cepage3.jpg
       - ../../assets/accommodations/cepage4.jpg
       - ../../assets/accommodations/cepage5.jpg
@@ -15,6 +14,7 @@ units:
       - ../../assets/accommodations/alambic1.jpg
       - ../../assets/accommodations/alambic2.jpg
       - ../../assets/accommodations/alambic3.jpg
+      - ../../assets/accommodations/alambic4.jpg
   - id: tonneau
     images:
       - ../../assets/accommodations/tonneau1.jpg

@@ -57,9 +57,11 @@ const unitImages = imagesEntry.data.units;
               </figure>
             )}
             <div class="card-body">
-              <h3 class="card-title text-base-content" style={{color: color }}>{unit.name}</h3>
-              <p class="text-sm text-base-content/60">{unit.capacity}</p>
-              <p class="text-base-content" set:html={unit.description}></p>
+              <h3 class="card-title text-base-content" style={{color: `oklch(from ${color} calc(l + 0.15) c h)` }}>{unit.name}</h3>
+              <div>
+                <p class="text-sm text-base-content/60">{unit.capacity}</p>
+                <p class="mt-4 text-base-content" set:html={unit.description}></p>
+              </div>
             </div>
           </div>
         );
