@@ -19,7 +19,7 @@ if (!socialsEntry) throw new Error("Missing site/socials content");
 const links = socialsEntry.data.links;
 ---
 
-<section id="contact" class:list={["flex min-h-[80svh] items-center bg-base-100 px-4 py-16", className]}>
+<section id="contact" class:list={["flex h-[calc(100svh-4rem)] items-center bg-base-100 px-4 scroll-mt-16", className]}>
   <div class="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-8 lg:flex-row lg:items-stretch">
     <div class="w-full max-w-md rounded-lg border-none sm:border-solid border-1 border-base-300 p-10 sm:p-20 text-center lg:shrink-0">
       <div class="avatar mb-6">
