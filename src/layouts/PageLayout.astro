@@ -1,14 +1,14 @@
 ---
+import AccommodationsSection from "../components/AccommodationsSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+import DiningSection from "../components/DiningSection.astro";
 import Footer from "../components/Footer.astro";
+import GallerySection from "../components/GallerySection.astro";
 import GdprBanner from "../components/GdprBanner.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
-import SectionAccommodations from "../components/SectionAccommodations.astro";
-import SectionContact from "../components/SectionContact.astro";
-import SectionDining from "../components/SectionDining.astro";
-import SectionGallery from "../components/SectionGallery.astro";
-import SectionHero from "../components/SectionHero.astro";
-import SectionRefuge from "../components/SectionRefuge.astro";
+import HeroSection from "../components/HeroSection.astro";
+import RefugeSection from "../components/RefugeSection.astro";
 import { languageTag } from "../paraglide/runtime.js";
 import "../styles/global.css";
 
@@ -28,12 +28,12 @@ const locale = Astro.currentLocale ?? "fr";
   <body>
     <Header />
     <main>
-      <SectionHero locale={locale} class="pb-16" />
-      <SectionRefuge locale={locale} />
-      <SectionAccommodations locale={locale} />
-      <SectionDining locale={locale} />
-      <SectionGallery />
-      <SectionContact locale={locale} />
+      <HeroSection locale={locale} class="pb-16" />
+      <RefugeSection locale={locale} />
+      <AccommodationsSection locale={locale} />
+      <DiningSection locale={locale} />
+      <GallerySection />
+      <ContactSection locale={locale} />
     </main>
     <Footer locale={locale} />
     <GdprBanner locale={locale} />

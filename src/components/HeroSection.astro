@@ -28,7 +28,10 @@ if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 
     <div class="hero-content text-center">
       <div>
-        <h1 class="mb-4 text-7xl font-normal tracking-[0.1em] text-white sm:text-8xl lg:text-9xl opacity-90">{entry.data.title}</h1>
+        <h1 class="mb-4 font-normal tracking-[0.1em] text-white opacity-90">
+          <span class="block text-7xl sm:text-8xl lg:text-9xl">La Grange</span>
+          <span class="block text-3xl sm:text-4xl lg:text-5xl">de Marie France</span>
+        </h1>
         <p class="text-lg text-white/90 sm:text-xl lg:text-2xl">{entry.data.tagline}</p>
         <a href="#contact" class="btn btn-primary mt-20">
           {entry.data.cta}
