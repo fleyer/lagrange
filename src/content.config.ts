@@ -22,6 +22,16 @@ const refuge = defineCollection({
   }),
 });
 
+const host = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/host" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    image: z.string(),
+    imageAlt: z.string(),
+  }),
+});
+
 const accommodations = defineCollection({
   loader: glob({ pattern: "??.md", base: "./src/content/accommodations" }),
   schema: z.object({
@@ -134,6 +144,7 @@ const gallery = defineCollection({
 export const collections = {
   hero,
   refuge,
+  host,
   accommodations,
   accommodationsImages,
   dining,

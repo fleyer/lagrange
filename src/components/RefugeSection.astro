@@ -10,6 +10,8 @@ import {
   Wind,
 } from "@lucide/astro";
 import laGrangeLogo from "../assets/lagrange-logo.png";
+import profilePicture from "../assets/marie-france-profile-picture.webp";
+import SocialLinks from "./SocialLinks.astro";
 
 const highlightIcons = [MapPin, Volume2, Wind, Bus, Luggage, WashingMachine];
 
@@ -19,9 +21,14 @@ interface Props {
 }
 
 const { locale, class: className } = Astro.props;
-const entry = await getEntry("refuge", locale);
-if (!entry) throw new Error(`Missing refuge content for locale: ${locale}`);
-const { Content } = await render(entry);
+const refugeEntry = await getEntry("refuge", locale);
+const hostEntry = await getEntry("host", locale);
+
+if (!refugeEntry)
+  throw new Error(`Missing refuge content for locale: ${locale}`);
+if (!hostEntry) throw new Error(`Missing host content for locale: ${locale}`);
+
+const { Content } = await render(hostEntry);
 ---
 
 <section
@@ -31,28 +38,28 @@ const { Content } = await render(entry);
     className,
   ]}
 >
-  <div class="mx-auto max-w-4xl">
-    <div class="hero">
-      <div class="hero-content flex flex-col lg:flex-row">
+  <div class="mx-auto max-w-4xl flex flex-col sm:flex-row">
+    <div class="hero flex-2">
+      <div class="hero-content flex flex-col">
         <figure class="flex justify-center items-center p-4 px-10 rounded-sm dark:bg-(--color-stone-100)/95 max-w-[60svw]">
           <Image
             src={laGrangeLogo}
             alt="walking man"
-            width={400}
+            height={400}
             class="h-auto"
           />
         </figure>
         <div>
           <h2 class="mb-6 font-normal text-base-content text-4xl sm:text-5xl lg:text-6xl">
-            {entry.data.title}
+            {refugeEntry.data.title}
           </h2>
           <div class="leading-relaxed text-sm text-base-content/60 my-6">
             <div class="p-6 text-start">
               {
-                entry.data.highlights && (
+                refugeEntry.data.highlights && (
                   <>
                     <div class="flex flex-wrap gap-2">
-                      {entry.data.highlights.map((item, i) => {
+                      {refugeEntry.data.highlights.map((item, i) => {
                         const Icon = highlightIcons[i] ?? MapPin;
                         return (
                           <div class="flex items-center text-sm text-base-content p-2 border border-solid rounded-sm">
@@ -68,14 +75,35 @@ const { Content } = await render(entry);
             </div>
           </div>
           <div class="flex-1 flex justify-center gap-2">
-            <a href="#accommodations" class="btn">{entry.data.discover}</a>
-            <a href="#contact" class="btn">{entry.data.gettingThere}</a>
+            <a href="#accommodations" class="btn">{refugeEntry.data.discover}</a>
+            <a href="#contact" class="btn">{refugeEntry.data.gettingThere}</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="mx-auto max-w-2xl">
-      <Content />
+
+    <div class="p-4 flex-1">
+      <div class="hero bg-base-200 rounded-md p-4">
+        <div class="hero-content flex-col">
+          <figure class="max-w-[60svw]">
+            <Image src={profilePicture} alt={hostEntry.data.imageAlt} width={400} class="rounded-full"/>
+          </figure>
+          <div>
+            <h2 class="mb-6 font-normal text-base-content text-4xl">
+              {hostEntry.data.title}
+            </h2>
+  
+            <Content />
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 broder border-1 rounded-md p-4">
+        <h2 class="text-lg mb-4">{hostEntry.data.subtitle}</h2>
+
+        <SocialLinks/>
+      </div>
     </div>
+
   </div>
 </section>
