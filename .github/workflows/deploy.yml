@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
@@ -25,7 +26,8 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run build
         env:
-          PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ secrets.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
+          SITE: ${{ vars.SITE }}
+          PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ vars.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
           BASE_URL: ${{ vars.BASE_URL }}
       - uses: actions/upload-pages-artifact@v5
         with:

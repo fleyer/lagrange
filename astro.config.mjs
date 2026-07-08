@@ -11,7 +11,7 @@ const env = loadEnv("",process.cwd(),"")
 
 
 export default defineConfig({
-  site: "https://fleyer.github.io",
+  site: env.SITE || undefined,
   base: env.BASE_URL,
   i18n: {
     defaultLocale: "fr",
