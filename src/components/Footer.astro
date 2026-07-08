@@ -1,0 +1,34 @@
+---
+import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const contactEntry = await getEntry("contact", locale);
+if (!contactEntry)
+  throw new Error(`Missing contact content for locale: ${locale}`);
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-base-200 text-base-content/60">
+  <div class="footer mx-auto max-w-5xl px-8 py-10">
+    <nav>
+      <p class="text-xl font-bold tracking-widest">Lagrange</p>
+      <address class="not-italic text-sm">
+        {contactEntry.data.address}
+      </address>
+    </nav>
+  </div>
+  <div class="flex flex-wrap items-center gap-4 justify-between mx-auto max-w-5xl border-t border-base-300 px-8 py-4">
+    <p class="text-sm text-base-content/50 shrink-0">© {year} La Grange de Marie-France</p>
+    <p class="text-sm text-base-content/50 items-center whitespace-nowrap justify-self-end">
+      Created by <a href="https://fleyer.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="inline hover:text-base-content">Romain Manchado <Icon class="inline" name="lucide:rocket"/></a>
+    </p>
+
+  </div>
+</footer>

@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import GdprBanner from "../components/GdprBanner.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
@@ -34,6 +35,7 @@ const locale = Astro.currentLocale ?? "fr";
       <SectionGallery />
       <SectionContact locale={locale} />
     </main>
+    <Footer locale={locale} />
     <GdprBanner locale={locale} />
   </body>
 </html>
