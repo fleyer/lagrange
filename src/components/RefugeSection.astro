@@ -24,46 +24,58 @@ if (!entry) throw new Error(`Missing refuge content for locale: ${locale}`);
 const { Content } = await render(entry);
 ---
 
-<section id="the-refuge" class:list={["flex min-h-[80svh] flex-col items-center justify-center bg-base-100 px-4 py-16 text-center", className]}>
-  <div class="mx-auto max-w-2xl">
+<section
+  id="the-refuge"
+  class:list={[
+    "flex min-h-[80svh] flex-col items-center justify-center bg-base-100 px-4 py-16 text-center",
+    className,
+  ]}
+>
+  <div class="mx-auto max-w-4xl">
     <div class="hero">
-      
-      <div class="hero-content flex flex-col sm:flex-row items-stretch ">
-        <figure class="flex justify-center p-4 px-10 rounded-sm dark:bg-(--color-stone-100)/95">
-          <Image src={laGrangeLogo} alt="walking man"/>
+      <div class="hero-content flex flex-col lg:flex-row">
+        <figure class="flex justify-center items-center p-4 px-10 rounded-sm dark:bg-(--color-stone-100)/95 max-w-[60svw]">
+          <Image
+            src={laGrangeLogo}
+            alt="walking man"
+            width={400}
+            class="h-auto"
+          />
         </figure>
-        <div class="px-6 flex flex-col">
-          <h2 class="mb-6 font-normal text-base-content text-xl sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+        <div>
+          <h2 class="mb-6 font-normal text-base-content text-4xl sm:text-5xl lg:text-6xl">
+            {entry.data.title}
+          </h2>
           <div class="leading-relaxed text-sm text-base-content/60 my-6">
-            <Content />
+            <div class="p-6 text-start">
+              {
+                entry.data.highlights && (
+                  <>
+                    <div class="flex flex-wrap gap-2">
+                      {entry.data.highlights.map((item, i) => {
+                        const Icon = highlightIcons[i] ?? MapPin;
+                        return (
+                          <div class="flex items-center text-sm text-base-content p-2 border border-solid rounded-sm">
+                            <Icon class="h-4 w-4 shrink-0 text-base-content/60 m-2" />
+                            <span class="list-col-grow">{item}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                )
+              }
+            </div>
           </div>
           <div class="flex-1 flex justify-center gap-2">
             <a href="#accommodations" class="btn">{entry.data.discover}</a>
             <a href="#contact" class="btn">{entry.data.gettingThere}</a>
-          </div>  
-        </div>
-      </div>  
-    </div>
-  <div class="mx-auto max-w-2xl">
-    <div class="p-6 text-start">
-      {entry.data.highlights && (
-        <>
-          {entry.data.highlightsTitle && <h3 class="mt-6 mb-2 text-base-content/40 text-lg">{entry.data.highlightsTitle}</h3>}
-          <div class="flex flex-wrap gap-2">
-            {entry.data.highlights.map((item, i) => {
-              const Icon = highlightIcons[i] ?? MapPin;
-              return (
-                <div class="flex items-center text-sm text-base-content p-2 border border-solid rounded-sm">
-                  <Icon class="h-4 w-4 shrink-0 text-base-content/60 m-2" />
-                  <span class="list-col-grow">{item}</span>
-                </div>
-              );
-            })}
           </div>
-          
-        </>
-      )}
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="mx-auto max-w-2xl">
+      <Content />
+    </div>
   </div>
 </section>
