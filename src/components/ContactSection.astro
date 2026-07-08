@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import avatarImage from "../assets/avatar.jpg";
+import SocialLinks from "./SocialLinks.astro";
 
 interface Props {
   locale: string;
@@ -12,11 +13,6 @@ interface Props {
 const { locale, class: className } = Astro.props;
 const entry = await getEntry("contact", locale);
 if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
-
-const socialsEntry = await getEntry("site", "socials");
-if (!socialsEntry) throw new Error("Missing site/socials content");
-
-const links = socialsEntry.data.links;
 ---
 
 <section id="contact" class:list={["flex h-[calc(100svh-4rem)] items-center bg-base-100 px-4 scroll-mt-16", className]}>
@@ -46,18 +42,7 @@ const links = socialsEntry.data.links;
         </ul>
       )}
       <div class="divider"></div>
-      <div class="flex justify-center gap-4">
-        {links.map(({ href, label, icon, color }) => (
-          <a
-            href={href}
-            class="scale-100 hover:scale-110 cursor-pointer"
-            aria-label={label}
-            style={{ color }}
-          >
-            <Icon name={icon} class="h-8 w-8" />
-          </a>
-        ))}
-      </div>
+      <SocialLinks />
     </div>
     <div class="hidden lg:flex flex-1 min-h-96">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5753.494068441923!2d0.1033391!3d43.861071599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aa03859272ed2f%3A0xa6a642e54e26d96!2sGite%20La%20Grange%20%22%20Au%20Pousse%20P%C3%A8lerins%22!5e0!3m2!1sfr!2sfr!4v1781070461488!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
