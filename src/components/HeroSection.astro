@@ -13,8 +13,8 @@ const entry = await getEntry("hero", locale);
 if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
 ---
 
-<section id="hero" class:list={["",className]}>
-  <div class="hero h-full">
+<section id="welcome" class:list={["",className]}>
+  <div class="hero min-h-[calc(100dvh-var(--header-height))]">
     <Image
       src={heroImage}
       alt=""
@@ -40,10 +40,3 @@ if (!entry) throw new Error(`Missing hero content for locale: ${locale}`);
     </div>
   </div>
 </section>
-
-<style>
-  #hero div.hero{
-    min-height: calc(100dvh - var(--header-height));
-    position: relative;
-  }
-</style>
