@@ -4,7 +4,7 @@ discover: Descubrir
 gettingThere: Cómo llegar
 highlightsTitle: "Los pequeños extras !"
 highlights:
-  - "A la entrada del centro (100m)"
+  - "A la entrada del centro de Éauze (100m)"
   - "Aislamiento acústico · triple acristalamiento «silencio»"
   - "Aire acondicionado"
   - "Parada de autobús a 3 min"

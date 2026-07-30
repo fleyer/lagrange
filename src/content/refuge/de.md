@@ -4,7 +4,7 @@ discover: Entdecken
 gettingThere: Anreise
 highlightsTitle: "Kleine Extras !"
 highlights:
-  - "Am Stadteingang (100m)"
+  - "Am Stadteingang von Éauze (100m)"
   - 'Schallschutz · Dreifachverglasung „Stille"'
   - "Klimaanlage"
   - "Bushaltestelle 3 Min. entfernt"

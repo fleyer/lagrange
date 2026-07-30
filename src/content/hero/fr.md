@@ -1,5 +1,5 @@
 ---
 title: La Grange de Marie France
-tagline: Au Pousse Pèlerins — un lieu de repos et de joie sur le Chemin de Saint-Jacques
+tagline: Gîte Au Pousse Pèlerins à Éauze — un lieu de repos et de joie sur le Chemin de Saint-Jacques
 cta: Nous rejoindre
 ---

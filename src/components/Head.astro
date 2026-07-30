@@ -41,7 +41,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
   name: "La Grange de Marie France",
+  alternateName: "Gîte La Grange de Marie France",
   description,
+  numberOfRooms: 7,
+  petsAllowed: false,
+  priceRange: "35€ – 65€",
   address: {
     "@type": "PostalAddress",
     streetAddress: "4 avenue de la Ténarèze",
@@ -56,7 +60,20 @@ const jsonLd = {
   },
   telephone: "+33661244804",
   email: "lagrangedemariefrance@gmail.com",
-  amenityFeature: ["WiFi", "Garage vélos et motos", "Arrêt de bus"],
+  amenityFeature: [
+    { "@type": "LocationFeatureSpecification", name: "WiFi", value: true },
+    { "@type": "LocationFeatureSpecification", name: "A/C", value: true },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Garage vélos et motos",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Arrêt de bus",
+      value: true,
+    },
+  ],
   url: siteBase,
 };
 ---

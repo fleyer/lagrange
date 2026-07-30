@@ -4,7 +4,7 @@ discover: Discover
 gettingThere: Getting there
 highlightsTitle: "Little extras !"
 highlights:
-  - "Town centre entrance (100m)"
+  - "Éauze town centre entrance (100m)"
   - "Soundproofing · triple glazing \"silence\""
   - "Air conditioning"
   - "Bus stop 3 min away"
