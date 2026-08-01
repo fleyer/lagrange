@@ -27,8 +27,8 @@ jobs:
       - run: bun run build
         env:
           SITE: ${{ vars.SITE }}
-          PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ vars.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
           BASE_URL: ${{ vars.BASE_URL }}
+          PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
       - uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
