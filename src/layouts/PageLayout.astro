@@ -13,19 +13,32 @@ import { languageTag } from "../paraglide/runtime.js";
 import "../styles/global.css";
 
 const locale = Astro.currentLocale ?? "fr";
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
 ---
 
 <!doctype html>
 <html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
   <head>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+    </script>
     <Head locale={locale} />
     <script is:inline>
       if (localStorage.getItem("rgpd-consent")) {
         document.documentElement.setAttribute("data-consent-set", "");
       }
+      if (localStorage.getItem("rgpd-consent") === "accepted") {
+        gtag("consent", "update", { analytics_storage: "granted", ad_storage: "granted" });
+      }
     </script>
   </head>
   <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
     <Header />
     <main>
       <HeroSection locale={locale} class="scroll-mt-16" />

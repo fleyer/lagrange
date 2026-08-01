@@ -37,6 +37,10 @@ const { message, accept, refuse } = entry.data;
     banner?.remove();
   }
 
-  document.getElementById("rgpd-accept")?.addEventListener("click", () => dismiss("accepted"));
+  document.getElementById("rgpd-accept")?.addEventListener("click", () => {
+    // @ts-ignore
+    gtag("consent", "update", { analytics_storage: "granted", ad_storage: "granted" });
+    dismiss("accepted");
+  });
   document.getElementById("rgpd-refuse")?.addEventListener("click", () => dismiss("refused"));
 </script>

@@ -12,6 +12,8 @@ if (!entry) throw new Error(`Missing meta content for locale: ${locale}`);
 
 const { title, description, ogLocale } = entry.data;
 
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+
 const siteOrigin = Astro.site?.toString().replace(/\/$/, "") ?? "";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const siteBase = `${siteOrigin}${base}`;
@@ -110,12 +112,10 @@ const jsonLd = {
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
-<!-- Cloudflare Web Analytics -->
-{import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN && (
-  <script
-    defer
-    src="https://static.cloudflareinsights.com/beacon.min.js"
-    data-cf-beacon={`{"token": "${import.meta.env.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}"}`}
-    is:inline
-  />
-)}
+<!-- Google Tag Manager -->
+<script is:inline define:vars={{ gtmId }}>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer',gtmId);</script>
+<!-- End Google Tag Manager -->
