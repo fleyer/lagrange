@@ -26,7 +26,7 @@ jobs:
       - run: bun run build
         env:
           SITE: ${{ vars.SITE }}
-          PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ vars.PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN }}
+          PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
           BASE_URL: ${{ vars.BASE_URL }}
       - uses: cloudflare/wrangler-action@v3
         with:
