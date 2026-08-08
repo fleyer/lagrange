@@ -25,7 +25,7 @@ if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
       </div>
       <h2 class="mb-8 font-normal text-base-content text-xl sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
       <address class="mb-6 not-italic text-sm text-base-content/60">
-        <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon class="ml-2" name="lucide:external-link"/></Icon></a></p>
+        <p class="mb-1"><a class="flex flex-wrap flex-row items-center hover:underline" href="https://maps.app.goo.gl/fsYUWM12849UADoC9" target="_blank">{entry.data.address}<Icon class="ml-2" name="lucide:external-link"/></a></p>
         {entry.data.phone && (
           <p class="mb-1">
             <a href={`tel:${entry.data.phone.replace(/\s/g, "")}`} class="hover:underline">{entry.data.phone}</a>
