@@ -1,5 +1,6 @@
 ---
 title: Accommodations
+description: "Three independent gîtes in a charming building, for 4 to 7 guests, in Éauze (Gers), on the Camino de Santiago. A restful stop for pilgrims, with a warm welcome, breakfast, and half-board. Rates from €35/night."
 units:
   - id: cepages
     name: Les Cépages

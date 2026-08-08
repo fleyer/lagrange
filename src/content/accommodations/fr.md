@@ -1,5 +1,6 @@
 ---
-title: Hébergements
+title: Les Gîtes
+description: "Trois gîtes indépendants dans une belle bâtisse, pour 4 à 7 personnes, à Éauze (Gers), sur le Chemin de Saint-Jacques-de-Compostelle. Une étape reposante pour pèlerins, petit déjeuner et demi-pension. Tarifs à partir de 35 €/nuit."
 units:
   - id: cepages
     name: Les Cépages

@@ -36,6 +36,7 @@ const accommodations = defineCollection({
   loader: glob({ pattern: "??.md", base: "./src/content/accommodations" }),
   schema: z.object({
     title: z.string(),
+    description: z.string().optional(),
     units: z.array(
       z.object({
         id: z.string(),

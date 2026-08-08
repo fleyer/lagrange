@@ -1,5 +1,6 @@
 ---
 title: Unterkünfte
+description: "Drei unabhängige Gîtes in einem schönen Gebäude, für 4 bis 7 Personen in Éauze (Gers), auf dem Jakobsweg. Eine erholsame Etappe für Pilger, mit herzlicher Aufnahme, Frühstück und Halbpension. Ab 35 €/Nacht."
 units:
   - id: cepages
     name: Les Cépages

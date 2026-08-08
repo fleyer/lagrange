@@ -1,5 +1,6 @@
 ---
 title: Alojamientos
+description: "Tres gîtes independientes en un edificio con encanto, para 4 a 7 personas, en Éauze (Gers), en el Camino de Santiago. Una etapa de descanso para peregrinos, con acogida cálida, desayuno y media pensión. Desde 35 €/noche."
 units:
   - id: cepages
     name: Les Cépages

@@ -20,7 +20,10 @@ const unitImages = imagesEntry.data.units;
 
 <section id="accommodations" class:list={["min-h-[80svh] bg-base-200 px-4 py-16", className]}>
   <div class="mx-auto max-w-4xl py-4">
-    <h2 class="mb-10 text-center text-4xl font-normal text-base-content sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+    <h2 class="mb-6 text-center text-4xl font-normal text-base-content sm:text-5xl lg:text-6xl">{entry.data.title}</h2>
+    {entry.data.description && (
+      <p class="mx-auto mb-10 max-w-2xl text-center text-base-content/70">{entry.data.description}</p>
+    )}
 
     <div class="mb-12 grid gap-6 sm:grid-cols-3">
       {entry.data.units.map((unit, i) => {
