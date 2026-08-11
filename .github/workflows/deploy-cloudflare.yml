@@ -19,7 +19,7 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v7.0.0
-      - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v2.2.0
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile
