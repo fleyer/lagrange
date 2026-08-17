@@ -3,14 +3,24 @@ import { getEntry } from "astro:content";
 
 interface Props {
   locale: string;
+  canonicalPath?: string;
+  hreflangSuffix?: string;
+  pageTitle?: string;
+  pageDescription?: string;
 }
 
-const { locale } = Astro.props;
+const {
+  locale,
+  canonicalPath,
+  hreflangSuffix = "",
+  pageTitle,
+  pageDescription,
+} = Astro.props;
 
 const entry = await getEntry("meta", locale);
 if (!entry) throw new Error(`Missing meta content for locale: ${locale}`);
 
-const { title, description, ogLocale } = entry.data;
+const { title: siteTitle, description: siteDescription, ogLocale } = entry.data;
 
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
 
@@ -32,7 +42,11 @@ const ogLocales: Record<string, string> = {
   es: "es_ES",
 };
 
-const canonicalUrl = `${siteBase}${localePaths[locale] ?? "/"}`;
+const title = pageTitle ?? siteTitle;
+const description = pageDescription ?? siteDescription;
+const canonicalUrl = canonicalPath
+  ? `${siteBase}${canonicalPath}`
+  : `${siteBase}${localePaths[locale] ?? "/"}`;
 const ogImageUrl = `${siteBase}/open-graph/${locale}.png`;
 
 const alternateOgLocales = Object.entries(ogLocales)
@@ -105,9 +119,9 @@ const jsonLd = {
 
 <!-- hreflang -->
 {Object.entries(localePaths).map(([lang, path]) => (
-  <link rel="alternate" hreflang={lang} href={`${siteBase}${path}`} />
+  <link rel="alternate" hreflang={lang} href={`${siteBase}${path}${hreflangSuffix}`} />
 ))}
-<link rel="alternate" hreflang="x-default" href={`${siteBase}/`} />
+<link rel="alternate" hreflang="x-default" href={`${siteBase}/${hreflangSuffix}`} />
 
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

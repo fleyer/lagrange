@@ -1,0 +1,122 @@
+---
+import { getEntry, render } from "astro:content";
+import Footer from "../components/Footer.astro";
+import GdprBanner from "../components/GdprBanner.astro";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import { languageTag } from "../paraglide/runtime.js";
+import "../styles/global.css";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const legalEntry = await getEntry("legal", locale);
+if (!legalEntry) throw new Error(`Missing legal content for locale: ${locale}`);
+
+const { title, description, resetConsentLabel, sections } = legalEntry.data;
+const { Content } = await render(legalEntry);
+
+const localeLegalPaths: Record<string, string> = {
+  fr: "/legal/",
+  en: "/en/legal/",
+  de: "/de/legal/",
+  es: "/es/legal/",
+};
+
+const canonicalPath = localeLegalPaths[locale] ?? "/legal/";
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+---
+
+<!doctype html>
+<html lang={languageTag()} dir={Astro.locals.paraglide.dir}>
+  <head>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+    </script>
+    <Head
+      locale={locale}
+      canonicalPath={canonicalPath}
+      hreflangSuffix="legal/"
+      pageTitle={title}
+      pageDescription={description}
+    />
+    <script is:inline>
+      if (localStorage.getItem("rgpd-consent")) {
+        document.documentElement.setAttribute("data-consent-set", "");
+      }
+      if (localStorage.getItem("rgpd-consent") === "accepted") {
+        gtag("consent", "update", { analytics_storage: "granted", ad_storage: "granted" });
+      }
+    </script>
+  </head>
+  <body>
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <Header />
+    <main class="mx-auto max-w-3xl px-6 py-16 sm:px-8">
+      <h1 class="text-2xl font-bold tracking-wide mb-8">{title}</h1>
+      <nav class="not-prose mb-12 flex flex-col gap-2 border-l-2 border-base-300 pl-4 sm:flex-row sm:flex-wrap sm:gap-4 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-4">
+        {sections.map(({ label, anchor }) => (
+          <a
+            href={`#${anchor}`}
+            class="text-sm text-base-content/60 hover:text-base-content no-underline transition-colors"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+      <article class="prose prose-stone max-w-none legal-content">
+        <Content />
+        <div class="not-prose mt-12 border-t border-base-300 pt-8">
+          <button
+            id="reset-consent"
+            class="btn btn-outline btn-sm"
+          >
+            {resetConsentLabel}
+          </button>
+        </div>
+      </article>
+    </main>
+    <Footer locale={locale} />
+    <GdprBanner locale={locale} />
+  </body>
+</html>
+
+<style>
+  .legal-content :global(h2) {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid var(--color-base-300, #e5e7eb);
+  }
+  .legal-content :global(h2:first-of-type) {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+  }
+  .legal-content :global(h3) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content :global(h2 + h3) {
+    margin-top: 0;
+  }
+</style>
+
+<script>
+  declare function gtag(...args: unknown[]): void;
+
+  document.getElementById("reset-consent")?.addEventListener("click", () => {
+    localStorage.removeItem("rgpd-consent");
+    document.documentElement.removeAttribute("data-consent-set");
+    if (typeof gtag !== "undefined") {
+      gtag("consent", "update", { analytics_storage: "denied", ad_storage: "denied" });
+    }
+  });
+</script>

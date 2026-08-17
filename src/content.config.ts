@@ -111,6 +111,16 @@ const site = defineCollection({
   }),
 });
 
+const legal = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/legal" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    resetConsentLabel: z.string(),
+    sections: z.array(z.object({ label: z.string(), anchor: z.string() })),
+  }),
+});
+
 const gdpr = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/gdpr" }),
   schema: z.object({
@@ -152,6 +162,7 @@ export const collections = {
   contact,
   site,
   gdpr,
+  legal,
   meta,
   gallery,
 };
