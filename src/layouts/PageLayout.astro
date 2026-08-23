@@ -1,6 +1,5 @@
 ---
 import AccommodationsSection from "../components/AccommodationsSection.astro";
-import ContactSection from "../components/ContactSection.astro";
 import DiningSection from "../components/DiningSection.astro";
 import Footer from "../components/Footer.astro";
 import GallerySection from "../components/GallerySection.astro";
@@ -9,6 +8,7 @@ import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
 import RefugeSection from "../components/RefugeSection.astro";
+import ReservationSection from "../components/ReservationSection.astro";
 import { languageTag } from "../paraglide/runtime.js";
 import "../styles/global.css";
 
@@ -46,7 +46,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID;
       <AccommodationsSection locale={locale} />
       <DiningSection locale={locale} />
       <GallerySection />
-      <ContactSection locale={locale} />
+      <ReservationSection locale={locale} />
     </main>
     <Footer locale={locale} />
     <GdprBanner locale={locale} />

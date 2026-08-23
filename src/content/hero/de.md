@@ -1,5 +1,5 @@
 ---
-title: La Grange de Marie France
-tagline: Gîte Au Pousse Pèlerins in Éauze — ein Ort der Ruhe und Freude auf dem Jakobsweg
+title: La Grange - Au Pousse Pèlerins
+tagline: Pilger-Gîte in Éauze — ein Ort der Ruhe und Freude auf dem Jakobsweg
 cta: Begleite uns
 ---

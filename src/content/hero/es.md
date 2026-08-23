@@ -1,5 +1,5 @@
 ---
-title: La Grange de Marie France
-tagline: Gîte Au Pousse Pèlerins en Éauze — un lugar de descanso y alegría en el Camino de Santiago
+title: La Grange - Au Pousse Pèlerins
+tagline: Gîte para peregrinos en Éauze — un lugar de descanso y alegría en el Camino de Santiago
 cta: Únete a nosotros
 ---

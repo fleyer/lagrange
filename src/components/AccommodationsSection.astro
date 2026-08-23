@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import * as m from "../paraglide/messages.js";
 
 interface Props {
   locale: string;
@@ -78,6 +79,10 @@ const unitImages = imagesEntry.data.units;
           <span class="font-medium">{row.price}</span>
         </div>
       ))}
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <a href="#reservation" class="btn btn-primary btn-lg">{m.accommodationsCta()}</a>
     </div>
   </div>
 </section>
