@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import avatarImage from "../assets/avatar.jpg";
+import * as m from "../paraglide/messages.js";
 import SocialLinks from "./SocialLinks.astro";
 
 interface Props {
@@ -36,12 +37,7 @@ if (!entry) throw new Error(`Missing contact content for locale: ${locale}`);
         </p>
       </address>
       <div class="divider"></div>
-      {entry.data.extras && (
-        <ul class="mb-6 space-y-1 text-sm text-base-content/40">
-          {entry.data.extras.map((extra) => <li>{extra}</li>)}
-        </ul>
-      )}
-      <div class="divider"></div>
+      <p class="mb-6 text-sm text-white text-base-content/60 underline decoration-primary decoration-2 underline-offset-4">{m.reservationCta()}</p>
       <SocialLinks />
     </div>
     <div class="hidden lg:flex flex-1 min-h-96">
