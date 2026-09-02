@@ -55,11 +55,11 @@ The site must appear on Google when someone searches for (all languages matter e
 
 `astro.config.mjs` currently has `site: "https://fleyer.github.io"` — the developer's GitHub Pages staging URL. Every SEO-critical URL generated from it (sitemap entries, canonical, hreflang, OG image) will be wrong once the site goes live on the real domain.
 
-`lagrangedemariefrance.fr` is currently in use by an existing Wix website. The domain switch to this Astro site is a separate migration step, not a code change to make now. Until the domain is cut over, the staging URL is intentional.
+`lagrangedemariefrance.com` is currently in use by an existing Wix website. The domain switch to this Astro site is a separate migration step, not a code change to make now. Until the domain is cut over, the staging URL is intentional.
 
 **When the domain is ready to switch:**
-- `astro.config.mjs` — change `site` to `"https://lagrangedemariefrance.fr"`
-- `public/robots.txt` — update sitemap URL to `https://lagrangedemariefrance.fr/sitemap-index.xml`
+- `astro.config.mjs` — change `site` to `"https://lagrangedemariefrance.com`
+- `public/robots.txt` — update sitemap URL to `https://lagrangedemariefrance.com/sitemap-index.xml`
 - Point the DNS / GitHub Pages custom domain setting to the new domain
 
 ### P1 — Twitter / X Card tags
@@ -141,7 +141,7 @@ Improves appearance when a pilgrim bookmarks the site to their iOS home screen. 
 - [ ] `amenityFeature` uses `LocationFeatureSpecification` objects and covers all 6 amenities
 - [ ] Apple touch icon present and linked in `<head>`
 - [ ] `bun astro check` passes with no new errors
-- [ ] Domain cutover done: `site` in `astro.config.mjs` and `robots.txt` updated to `lagrangedemariefrance.fr`
-- [ ] Sitemap validated post-cutover: all 4 locale URLs use `lagrangedemariefrance.fr`
+- [ ] Domain cutover done: `site` in `astro.config.mjs` and `robots.txt` updated to `lagrangedemariefrance.com`
+- [ ] Sitemap validated post-cutover: all 4 locale URLs use `lagrangedemariefrance.com`
 - [ ] JSON-LD validated at validator.schema.org
 - [ ] OG preview validated at opengraph.xyz per locale
