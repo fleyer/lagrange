@@ -1,5 +1,5 @@
 ---
-title: The Refuge
+title: The Refuges
 discover: Discover
 gettingThere: Getting there
 highlightsTitle: "Little extras !"

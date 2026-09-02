@@ -1,5 +1,5 @@
 ---
-title: Le Gîte
+title: Les Gîtes
 discover: Découvrir
 gettingThere: Y aller
 highlightsTitle: "Les petits plus !"

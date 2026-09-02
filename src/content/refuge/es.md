@@ -1,5 +1,5 @@
 ---
-title: El Refugio
+title: Los Refugios
 discover: Descubrir
 gettingThere: Cómo llegar
 highlightsTitle: "Los pequeños extras !"
