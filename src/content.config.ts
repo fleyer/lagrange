@@ -139,6 +139,14 @@ const meta = defineCollection({
   }),
 });
 
+const season = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/season" }),
+  schema: z.object({
+    message: z.string(),
+    cta: z.string(),
+  }),
+});
+
 const gallery = defineCollection({
   loader: glob({ pattern: "index.md", base: "./src/content/gallery" }),
   schema: ({ image }) =>
@@ -160,6 +168,7 @@ export const collections = {
   accommodationsImages,
   dining,
   contact,
+  season,
   site,
   gdpr,
   legal,

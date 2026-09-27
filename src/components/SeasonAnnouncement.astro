@@ -1,0 +1,20 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const entry = await getEntry("season", locale);
+if (!entry) throw new Error(`Missing season content for locale: ${locale}`);
+
+const { message, cta } = entry.data;
+---
+
+<div class="bg-primary px-4 py-3 text-primary-content">
+  <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center">
+    <p class="text-sm">{message}</p>
+    <a href="#reservation" class="text-sm font-semibold underline underline-offset-4 hover:no-underline">{cta}</a>
+  </div>
+</div>

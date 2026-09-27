@@ -9,6 +9,7 @@ import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
 import RefugeSection from "../components/RefugeSection.astro";
 import ReservationSection from "../components/ReservationSection.astro";
+import SeasonAnnouncement from "../components/SeasonAnnouncement.astro";
 import { languageTag } from "../paraglide/runtime.js";
 import "../styles/global.css";
 
@@ -40,6 +41,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID;
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
     <Header />
+    <SeasonAnnouncement locale={locale} />
     <main>
       <HeroSection locale={locale} class="scroll-mt-16" />
       <RefugeSection locale={locale} />
