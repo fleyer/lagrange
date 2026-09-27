@@ -30,6 +30,7 @@ units:
       Room 2: 1× 140 cm bed</br>
       </br>
       Private en-suite shower, mechanical ventilation.</br></br>
+      Night from €40 for 2 people, no meals included.
 pricing:
   - label: Night + breakfast
     price: €35/person

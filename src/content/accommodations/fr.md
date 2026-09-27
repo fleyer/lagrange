@@ -30,6 +30,7 @@ units:
       chambre 2 : 1 lit en 140</br>
       </br>
       Salle d'eau privative, ventilation mécanique.</br></br>
+      Nuit à partir de 40€ pour 2 personnes, sans service.
 pricing:
   - label: Nuit + petit déjeuner
     price: 35 €/pers.
