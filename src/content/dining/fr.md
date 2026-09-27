@@ -13,17 +13,16 @@ meals:
       - oeuf
       - banane
   - name: Demi-pension
-    note: 55 €/pers.
+    note: 58 €/pers.
     image: ../../assets/dining/halfboard.png
     items:
-      - Apéritif local
       - Entrée (potage ou salade)
       - Plat (viande et légumes)
       - Dessert
       - Vin
   - name: Demi-pension terroir
     description: Spécialités du terroir​ avec les explications et partage de Marie-France
-    note: 65 €/pers.
+    note: 68 €/pers.
     image: ../../assets/dining/terroir.avif
     items:
       - Pousse Rapière

@@ -13,17 +13,16 @@ meals:
       - egg
       - banana
   - name: Half-board
-    note: "€55/person"
+    note: "€58/person"
     image: ../../assets/dining/halfboard.png
     items:
-      - Local apéritif
       - Starter (soup or salad)
       - Main course (meat and vegetables)
       - Dessert
       - Wine
   - name: Regional half-board
     description: Regional specialties with explanations and sharing by Marie-France
-    note: "€65/person"
+    note: "€68/person"
     image: ../../assets/dining/terroir.avif
     items:
       - Pousse Rapière apéritif

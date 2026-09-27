@@ -13,17 +13,16 @@ meals:
       - huevo
       - plátano
   - name: Media pensión
-    note: 55 €/pers.
+    note: 58 €/pers.
     image: ../../assets/dining/halfboard.png
     items:
-      - Aperitivo local
       - Entrante (sopa o ensalada)
       - Plato principal (carne y verduras)
       - Postre
       - Vino
   - name: Media pensión terroir
     description: Especialidades del terroir con las explicaciones y el compartir de Marie-France
-    note: 65 €/pers.
+    note: 68 €/pers.
     image: ../../assets/dining/terroir.avif
     items:
       - Pousse Rapière
