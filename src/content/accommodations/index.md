@@ -19,7 +19,6 @@ units:
     images:
       - ../../assets/accommodations/tonneau1.jpg
       - ../../assets/accommodations/tonneau2.jpg
-      - ../../assets/accommodations/tonneau3.jpg
       - ../../assets/accommodations/tonneau4.jpg
       - ../../assets/accommodations/tonneau5.jpg
       - ../../assets/accommodations/tonneau6.jpg
