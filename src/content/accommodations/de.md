@@ -30,7 +30,7 @@ units:
       Zimmer 2: 1 Bett 140</br>
       </br>
       Privates Badezimmer, mechanische Lüftung.</br></br>
-      Übernachtung ab 40 € für 2 Personen, ohne Verpflegung.
+      Übernachtung ab 50 € für 2 Personen, ohne Verpflegung.
 pricing:
   - label: Übernachtung + Frühstück
     price: 35 €/Pers.

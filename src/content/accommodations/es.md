@@ -30,7 +30,7 @@ units:
       Habitación 2: 1 cama 140</br>
       </br>
       Baño privado, ventilación mecánica.</br></br>
-      Noche desde 40 € para 2 personas, sin servicio.
+      Noche desde 50 € para 2 personas, sin servicio.
 pricing:
   - label: Noche + desayuno
     price: 35 €/pers.
