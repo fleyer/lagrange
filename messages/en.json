@@ -10,5 +10,14 @@
   "reservationCta": "Contact Marie France directly",
   "galleryTitle": "Gallery",
   "galleryPlaceholder": "Photos coming soon.",
-  "footerLegal": "Legal Notice"
+  "footerLegal": "Legal Notice",
+  "skipToContent": "Skip to content",
+  "menuOpen": "Open menu",
+  "menuClose": "Close menu",
+  "navMain": "Main navigation",
+  "navMobile": "Mobile navigation",
+  "languageSwitcher": "Choose language",
+  "newTab": "(opens in a new tab)",
+  "mapTitle": "Google Maps: location of La Grange guesthouse",
+  "photoLabel": "Photo {n}"
 }

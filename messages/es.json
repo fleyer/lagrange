@@ -10,5 +10,14 @@
   "reservationCta": "Contacta directamente con Marie France",
   "galleryTitle": "Galería",
   "galleryPlaceholder": "Fotos próximamente.",
-  "footerLegal": "Aviso legal"
+  "footerLegal": "Aviso legal",
+  "skipToContent": "Saltar al contenido",
+  "menuOpen": "Abrir el menú",
+  "menuClose": "Cerrar el menú",
+  "navMain": "Navegación principal",
+  "navMobile": "Navegación móvil",
+  "languageSwitcher": "Elegir idioma",
+  "newTab": "(se abre en una pestaña nueva)",
+  "mapTitle": "Google Maps: ubicación del albergue La Grange",
+  "photoLabel": "Foto {n}"
 }

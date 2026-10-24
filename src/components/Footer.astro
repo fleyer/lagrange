@@ -24,7 +24,7 @@ const legalPaths: Record<string, string> = {
 const legalHref = legalPaths[locale] ?? "/legal/";
 ---
 
-<footer class="bg-base-200 text-base-content/60">
+<footer class="bg-base-200 text-base-content/70">
   <div class="footer mx-auto max-w-5xl px-8 py-10">
     <nav>
       <p class="text-xl font-bold tracking-widest">Lagrange</p>
@@ -34,12 +34,12 @@ const legalHref = legalPaths[locale] ?? "/legal/";
     </nav>
   </div>
   <div class="flex flex-wrap items-center gap-4 justify-between mx-auto max-w-5xl border-t border-base-300 px-8 py-4">
-    <p class="text-sm text-base-content/50 shrink-0">© {year} La Grange de Marie-France</p>
-    <a href={legalHref} class="text-sm text-base-content/50 hover:text-base-content no-underline">
+    <p class="text-sm text-base-content/70 shrink-0">© {year} La Grange de Marie-France</p>
+    <a href={legalHref} class="inline-block py-1 text-sm text-base-content/70 hover:text-base-content no-underline">
       {m.footerLegal()}
     </a>
-    <p class="text-sm text-base-content/50 items-center whitespace-nowrap justify-self-end">
-      Created by <a href="https://fleyer.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="inline hover:text-base-content">Romain Manchado <Icon class="inline" name="lucide:rocket"/></a>
+    <p class="text-sm text-base-content/70 items-center whitespace-nowrap justify-self-end">
+      Created by <a href="https://fleyer.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="inline-block py-1 hover:text-base-content">Romain Manchado <Icon class="inline" name="lucide:rocket" aria-hidden="true"/><span class="sr-only">{m.newTab()}</span></a>
     </p>
   </div>
 </footer>
