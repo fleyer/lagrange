@@ -6,6 +6,8 @@
   "navDining": "Restauration",
   "navGallery": "Galerie",
   "navReservation": "Réservation",
+  "navEauze": "Éauze",
+  "navCamino": "Le Chemin",
   "accommodationsCta": "Réserver",
   "reservationCta": "Contactez Marie France directement",
   "galleryTitle": "Galerie",
@@ -19,5 +21,7 @@
   "languageSwitcher": "Choisir la langue",
   "newTab": "(s'ouvre dans un nouvel onglet)",
   "mapTitle": "Carte Google Maps : emplacement du gîte La Grange",
-  "photoLabel": "Photo {n}"
+  "photoLabel": "Photo {n}",
+  "learnMoreEauze": "Découvrir Éauze",
+  "learnMoreCamino": "Le Chemin de Compostelle"
 }

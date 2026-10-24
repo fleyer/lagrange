@@ -5,6 +5,7 @@ interface Props {
   locale: string;
   canonicalPath?: string;
   hreflangSuffix?: string;
+  hreflangPaths?: Record<string, string>;
   pageTitle?: string;
   pageDescription?: string;
 }
@@ -13,6 +14,7 @@ const {
   locale,
   canonicalPath,
   hreflangSuffix = "",
+  hreflangPaths,
   pageTitle,
   pageDescription,
 } = Astro.props;
@@ -124,9 +126,9 @@ const jsonLd = {
 
 <!-- hreflang -->
 {Object.entries(localePaths).map(([lang, path]) => (
-  <link rel="alternate" hreflang={lang} href={`${siteBase}${path}${hreflangSuffix}`} />
+  <link rel="alternate" hreflang={lang} href={`${siteBase}${hreflangPaths?.[lang] ?? `${path}${hreflangSuffix}`}`} />
 ))}
-<link rel="alternate" hreflang="x-default" href={`${siteBase}/${hreflangSuffix}`} />
+<link rel="alternate" hreflang="x-default" href={`${siteBase}${hreflangPaths?.fr ?? `/${hreflangSuffix}`}`} />
 
 <!-- Structured data -->
 <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

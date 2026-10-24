@@ -6,6 +6,8 @@
   "navDining": "Verpflegung",
   "navGallery": "Galerie",
   "navReservation": "Reservierung",
+  "navEauze": "Éauze",
+  "navCamino": "Der Jakobsweg",
   "accommodationsCta": "Jetzt buchen",
   "reservationCta": "Kontaktieren Sie Marie France direkt",
   "galleryTitle": "Galerie",
@@ -19,5 +21,7 @@
   "languageSwitcher": "Sprache wählen",
   "newTab": "(öffnet in einem neuen Tab)",
   "mapTitle": "Google Maps: Lage der Unterkunft La Grange",
-  "photoLabel": "Foto {n}"
+  "photoLabel": "Foto {n}",
+  "learnMoreEauze": "Éauze entdecken",
+  "learnMoreCamino": "Der Jakobsweg"
 }

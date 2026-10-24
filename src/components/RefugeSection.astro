@@ -12,6 +12,8 @@ import {
 } from "@lucide/astro";
 import laGrangeLogo from "../assets/lagrange-logo.png";
 import profilePicture from "../assets/marie-france-profile-picture-2.webp";
+import { infoPageSlugs } from "../lib/infoPages";
+import * as m from "../paraglide/messages.js";
 import SocialLinks from "./SocialLinks.astro";
 
 const highlightIcons = [MapPin, Volume2, Wind, Bus, Luggage, WashingMachine];
@@ -30,6 +32,16 @@ if (!refugeEntry)
 if (!hostEntry) throw new Error(`Missing host content for locale: ${locale}`);
 
 const { Content } = await render(hostEntry);
+
+const basePaths: Record<string, string> = {
+  fr: "/",
+  en: "/en/",
+  de: "/de/",
+  es: "/es/",
+};
+const homeHref = basePaths[locale] ?? "/";
+const eauzeHref = `${homeHref}${infoPageSlugs.eauze[locale as keyof typeof infoPageSlugs.eauze] ?? infoPageSlugs.eauze.fr}/`;
+const caminoHref = `${homeHref}${infoPageSlugs.camino[locale as keyof typeof infoPageSlugs.camino] ?? infoPageSlugs.camino.fr}/`;
 ---
 
 <section
@@ -78,6 +90,10 @@ const { Content } = await render(hostEntry);
           <div class="flex-1 flex justify-center gap-2">
             <a href="#accommodations" class="btn">{refugeEntry.data.discover}</a>
             <a href="#reservation" class="btn btn-primary">{refugeEntry.data.gettingThere}</a>
+          </div>
+          <div class="flex-1 flex justify-center gap-4 mt-3 text-sm">
+            <a href={eauzeHref} class="link link-hover text-base-content/60">{m.learnMoreEauze()}</a>
+            <a href={caminoHref} class="link link-hover text-base-content/60">{m.learnMoreCamino()}</a>
           </div>
         </div>
       </div>

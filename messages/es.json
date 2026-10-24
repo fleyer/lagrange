@@ -6,6 +6,8 @@
   "navDining": "Restauración",
   "navGallery": "Galería",
   "navReservation": "Reserva",
+  "navEauze": "Éauze",
+  "navCamino": "El Camino",
   "accommodationsCta": "Reservar",
   "reservationCta": "Contacta directamente con Marie France",
   "galleryTitle": "Galería",
@@ -19,5 +21,7 @@
   "languageSwitcher": "Elegir idioma",
   "newTab": "(se abre en una pestaña nueva)",
   "mapTitle": "Google Maps: ubicación del albergue La Grange",
-  "photoLabel": "Foto {n}"
+  "photoLabel": "Foto {n}",
+  "learnMoreEauze": "Descubre Éauze",
+  "learnMoreCamino": "El Camino de Santiago"
 }

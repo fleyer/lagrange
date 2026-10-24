@@ -6,6 +6,8 @@
   "navDining": "Dining",
   "navGallery": "Gallery",
   "navReservation": "Reservation",
+  "navEauze": "Éauze",
+  "navCamino": "The Camino",
   "accommodationsCta": "Book now",
   "reservationCta": "Contact Marie France directly",
   "galleryTitle": "Gallery",
@@ -19,5 +21,7 @@
   "languageSwitcher": "Choose language",
   "newTab": "(opens in a new tab)",
   "mapTitle": "Google Maps: location of La Grange guesthouse",
-  "photoLabel": "Photo {n}"
+  "photoLabel": "Photo {n}",
+  "learnMoreEauze": "Discover Éauze",
+  "learnMoreCamino": "The Camino de Santiago"
 }

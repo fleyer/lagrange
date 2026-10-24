@@ -1,5 +1,6 @@
 ---
 import { ChevronDown, Menu, X } from "@lucide/astro";
+import { infoPageSlugs } from "../lib/infoPages";
 import * as m from "../paraglide/messages.js";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -12,6 +13,10 @@ const locales = [
 ];
 const currentLocale = Astro.currentLocale ?? "fr";
 const currentLabel = locales.find((l) => l.code === currentLocale)?.label;
+const homeHref =
+  locales.find((l) => l.code === currentLocale)?.href ?? `${base}/`;
+const eauzeHref = `${homeHref}${infoPageSlugs.eauze[currentLocale as keyof typeof infoPageSlugs.eauze] ?? infoPageSlugs.eauze.fr}/`;
+const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typeof infoPageSlugs.camino] ?? infoPageSlugs.camino.fr}/`;
 ---
 
 <header class="sticky top-0 z-50 border-b bg-base-100 border-base-300">
@@ -28,17 +33,19 @@ const currentLabel = locales.find((l) => l.code === currentLocale)?.label;
 
     <!-- Brand -->
     <div class="navbar-start">
-      <a href="/#hero" class="text-xl font-bold tracking-widest no-underline text-base-content">Lagrange</a>
+      <a href={`${homeHref}#welcome`} class="text-xl font-bold tracking-widest no-underline text-base-content">Lagrange</a>
     </div>
 
     <!-- Desktop centered nav -->
     <nav aria-label={m.navMain()} class="navbar-center hidden gap-6 md:inline-flex lg:gap-8">
-      <a href="#welcome" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
-      <a href="#the-refuge" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
-      <a href="#accommodations" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
-      <a href="#dining" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
-      <a href="#gallery" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
-      <a href="#reservation" class="inline-block py-2 text-sm tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
+      <a href={`${homeHref}#welcome`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
+      <a href={`${homeHref}#the-refuge`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
+      <a href={eauzeHref} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navEauze()}</a>
+      <a href={caminoHref} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navCamino()}</a>
+      <a href={`${homeHref}#accommodations`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
+      <a href={`${homeHref}#dining`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
+      <a href={`${homeHref}#gallery`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
+      <a href={`${homeHref}#reservation`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
     </nav>
 
     <!-- Right: language dropdown (desktop) + hamburger (mobile) -->
@@ -79,13 +86,15 @@ const currentLabel = locales.find((l) => l.code === currentLocale)?.label;
     </div>
 
     <!-- Nav links -->
-    <nav aria-label={m.navMobile()} class="flex flex-1 flex-col items-center justify-center gap-6">
-      <a href="#hero" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
-      <a href="#the-refuge" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
-      <a href="#accommodations" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
-      <a href="#dining" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
-      <a href="#gallery" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
-      <a href="#reservation" class="py-2 text-lg tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
+    <nav aria-label={m.navMobile()} class="flex flex-1 flex-col items-center justify-center gap-8">
+      <a href={`${homeHref}#welcome`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
+      <a href={`${homeHref}#the-refuge`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
+      <a href={eauzeHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navEauze()}</a>
+      <a href={caminoHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navCamino()}</a>
+      <a href={`${homeHref}#accommodations`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
+      <a href={`${homeHref}#dining`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
+      <a href={`${homeHref}#gallery`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
+      <a href={`${homeHref}#reservation`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
     </nav>
 
     <!-- Language switcher -->
@@ -115,7 +124,7 @@ const currentLabel = locales.find((l) => l.code === currentLocale)?.label;
   const close = document.getElementById("mobile-menu-close");
 
   if (toggle) {
-    document.querySelectorAll("a[href^='#']").forEach((a) => {
+    document.querySelectorAll("a[href*='#']").forEach((a) => {
       a.addEventListener("click", () => { toggle.checked = false; });
     });
     toggle.addEventListener("change", () => { if (toggle.checked) close?.focus(); });

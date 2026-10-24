@@ -121,6 +121,22 @@ const legal = defineCollection({
   }),
 });
 
+const infoPage = z.object({
+  title: z.string(),
+  description: z.string(),
+  sections: z.array(z.object({ label: z.string(), anchor: z.string() })),
+});
+
+const eauze = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/eauze" }),
+  schema: infoPage,
+});
+
+const camino = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/camino" }),
+  schema: infoPage,
+});
+
 const gdpr = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/gdpr" }),
   schema: z.object({
@@ -175,4 +191,6 @@ export const collections = {
   legal,
   meta,
   gallery,
+  eauze,
+  camino,
 };
