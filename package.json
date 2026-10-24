@@ -14,20 +14,21 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/sitemap": "3.7.4",
     "@iconify-json/lucide": "1.2.111",
     "@iconify-json/simple-icons": "1.2.86",
     "@lucide/astro": "1.17.0",
-    "astro": "7.2.0",
+    "astro": "7.4.2",
     "astro-icon": "1.1.5",
     "astro-og-canvas": "0.11.1",
     "canvaskit-wasm": "0.41.1",
     "daisyui": "5.5.23",
     "sharp": "0.34.5",
-    "simple-icons": "16.23.0"
+    "simple-icons": "16.23.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
+    "@astrojs/check": "0.9.12",
     "@biomejs/biome": "2.4.16",
     "@inlang/paraglide-astro": "0.4.1",
     "@tailwindcss/vite": "4.3.0",

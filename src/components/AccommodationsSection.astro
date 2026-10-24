@@ -33,7 +33,7 @@ const unitImages = imagesEntry.data.units;
         const color = unitImages[i]?.color;
 
         return (
-          <div class={`card overflow-hidden ${color ? "border-solid border-2" : "border-solid border-1 border-black/20"}`} style={ color ? {"border-color": color} : {}}}>
+          <div class={`card overflow-hidden ${color ? "border-solid border-2" : "border-solid border-1 border-black/20"}`} style={ color ? {"border-color": color} : {} }>
             {images.length > 0 && (
               <figure class="relative h-48 overflow-visible">
                 <div class="carousel h-full w-full">
