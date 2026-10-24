@@ -1,6 +1,6 @@
 ---
 title: Les Gîtes - saison 2027
-description: "Trois gîtes indépendants aux chambres confortables pour 4 à 7 personnes, à 100 m du centre-ville d'Éauze (Gers), étape de la Via Podiensis (GR 65) sur le Chemin de Saint-Jacques-de-Compostelle. Petit déjeuner, demi-pension, tarifs dès 35 €/nuit."
+description: "Découvrez trois gîtes indépendants aux chambres confortables pour 4 à 7 personnes, à 100 m du centre-ville d'Éauze (Gers), étape de la Via Podiensis (GR 65) sur le Chemin de Saint-Jacques-de-Compostelle. Petit déjeuner, demi-pension, tarifs dès 35 €/nuit."
 units:
   - id: cepages
     name: Les Cépages
