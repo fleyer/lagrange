@@ -37,15 +37,23 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
     </div>
 
     <!-- Desktop centered nav -->
-    <nav aria-label={m.navMain()} class="navbar-center hidden gap-6 md:inline-flex lg:gap-8">
+    <nav aria-label={m.navMain()} class="navbar-center hidden items-center gap-6 md:inline-flex lg:gap-8">
       <a href={`${homeHref}#welcome`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
       <a href={`${homeHref}#the-refuge`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
-      <a href={eauzeHref} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navEauze()}</a>
-      <a href={caminoHref} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navCamino()}</a>
       <a href={`${homeHref}#accommodations`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
       <a href={`${homeHref}#dining`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
-      <a href={`${homeHref}#gallery`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
       <a href={`${homeHref}#reservation`} class="text-sm tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
+      <details class="dropdown nav-more">
+        <summary aria-label={m.navMore()} class="flex min-h-8 cursor-pointer list-none items-center gap-1 text-sm tracking-wide text-base-content">
+          {m.navMore()}
+          <ChevronDown class="nav-more-chevron h-3 w-3" stroke-width={2.5} />
+        </summary>
+        <nav aria-label={m.navMore()} class="dropdown-content z-50 mt-1 w-44 rounded-box border p-1 shadow bg-base-100 border-base-300">
+          <a href={`${homeHref}#gallery`} class="inline-flex min-h-11 w-full items-center rounded px-3 text-sm tracking-wide no-underline hover:bg-base-200 text-base-content">{m.navGallery()}</a>
+          <a href={eauzeHref} class="inline-flex min-h-11 w-full items-center rounded px-3 text-sm tracking-wide no-underline hover:bg-base-200 text-base-content">{m.navEauze()}</a>
+          <a href={caminoHref} class="inline-flex min-h-11 w-full items-center rounded px-3 text-sm tracking-wide no-underline hover:bg-base-200 text-base-content">{m.navCamino()}</a>
+        </nav>
+      </details>
     </nav>
 
     <!-- Right: language dropdown (desktop) + hamburger (mobile) -->
@@ -89,12 +97,13 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
     <nav aria-label={m.navMobile()} class="flex flex-1 flex-col items-center justify-center gap-8">
       <a href={`${homeHref}#welcome`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navHome()}</a>
       <a href={`${homeHref}#the-refuge`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navRefuge()}</a>
-      <a href={eauzeHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navEauze()}</a>
-      <a href={caminoHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navCamino()}</a>
       <a href={`${homeHref}#accommodations`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navAccommodations()}</a>
       <a href={`${homeHref}#dining`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navDining()}</a>
-      <a href={`${homeHref}#gallery`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
       <a href={`${homeHref}#reservation`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navReservation()}</a>
+      <span aria-hidden="true" class="text-xs font-semibold uppercase tracking-widest text-base-content/70">{m.navMoreGroup()}</span>
+      <a href={`${homeHref}#gallery`} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navGallery()}</a>
+      <a href={eauzeHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navEauze()}</a>
+      <a href={caminoHref} class="text-lg tracking-wide no-underline hover:underline text-base-content">{m.navCamino()}</a>
     </nav>
 
     <!-- Language switcher -->
@@ -117,6 +126,14 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
+
+  .nav-more-chevron {
+    transition: transform 0.15s ease;
+  }
+
+  .nav-more[open] .nav-more-chevron {
+    transform: rotate(180deg);
+  }
 </style>
 
 <script>
@@ -133,4 +150,22 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
       if (e.key === "Escape" && toggle.checked) { toggle.checked = false; toggle.focus(); }
     });
   }
+
+  const dropdowns = document.querySelectorAll<HTMLDetailsElement>("details.dropdown");
+
+  document.addEventListener("click", (e) => {
+    dropdowns.forEach((details) => {
+      if (details.open && !details.contains(e.target as Node)) details.open = false;
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    dropdowns.forEach((details) => {
+      if (details.open) {
+        details.open = false;
+        details.querySelector("summary")?.focus();
+      }
+    });
+  });
 </script>
