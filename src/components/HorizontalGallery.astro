@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  images: { src: ImageMetadata; alt: string; href?: string }[];
+  height?: string;
+}
+
+const { images, height = "h-40 sm:h-56" } = Astro.props;
+---
+
+<div class:list={["not-prose my-8 flex gap-2", height]}>
+  {images.map((img, i) => {
+    const Wrapper = img.href ? "a" : "div";
+    return (
+      <div class:list={["h-full flex-1 overflow-hidden rounded-lg", i >= 2 && "hidden sm:block"]}>
+        <Wrapper
+          href={img.href}
+          target={img.href ? "_blank" : undefined}
+          rel={img.href ? "noopener" : undefined}
+          class="block h-full w-full"
+        >
+          <Image src={img.src} alt={img.alt} class="h-full w-full object-cover" loading="lazy" />
+        </Wrapper>
+      </div>
+    );
+  })}
+</div>

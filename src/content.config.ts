@@ -128,8 +128,14 @@ const infoPage = z.object({
 });
 
 const eauze = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/eauze" }),
-  schema: infoPage,
+  loader: glob({ pattern: "*.mdx", base: "./src/content/eauze" }),
+  schema: ({ image }) =>
+    infoPage.extend({
+      heroImages: z
+        .array(z.object({ src: image(), alt: z.string() }))
+        .length(4)
+        .optional(),
+    }),
 });
 
 const camino = defineCollection({

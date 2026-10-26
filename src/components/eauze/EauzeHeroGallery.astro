@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  images: { src: ImageMetadata; alt: string }[];
+}
+
+const { images } = Astro.props;
+const [big, topRight, bottomLeft, bottomRight] = images;
+---
+
+<div class="grid h-80 grid-cols-4 grid-rows-4 gap-2 sm:h-96">
+  <div class="col-span-2 row-span-4 overflow-hidden">
+    <Image src={big.src} alt={big.alt} class="h-full w-full object-cover" loading="eager" />
+  </div>
+  <div class="col-span-2 col-start-3 row-span-2 overflow-hidden">
+    <Image src={topRight.src} alt={topRight.alt} class="h-full w-full object-cover" loading="lazy" />
+  </div>
+  <div class="col-start-3 row-span-2 row-start-3 overflow-hidden">
+    <Image src={bottomLeft.src} alt={bottomLeft.alt} class="h-full w-full object-cover" loading="lazy" />
+  </div>
+  <div class="col-start-4 row-span-2 row-start-3 overflow-hidden">
+    <Image src={bottomRight.src} alt={bottomRight.alt} class="h-full w-full object-cover" loading="lazy" />
+  </div>
+</div>

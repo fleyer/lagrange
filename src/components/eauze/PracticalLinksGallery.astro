@@ -1,0 +1,22 @@
+---
+import poolImage from "../../assets/refuge-2-resized.jpg";
+import marketImage from "../../assets/room-1-resized.jpg";
+import HorizontalGallery from "../HorizontalGallery.astro";
+
+interface Props {
+  marketAlt: string;
+  marketHref: string;
+  poolAlt: string;
+  poolHref: string;
+}
+
+const { marketAlt, marketHref, poolAlt, poolHref } = Astro.props;
+---
+
+<HorizontalGallery
+  height="h-28 sm:h-40"
+  images={[
+    { src: marketImage, alt: marketAlt, href: marketHref },
+    { src: poolImage, alt: poolAlt, href: poolHref },
+  ]}
+/>

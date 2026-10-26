@@ -1,5 +1,6 @@
 ---
 import { getEntry, render } from "astro:content";
+import EauzeHeroGallery from "../components/eauze/EauzeHeroGallery.astro";
 import Footer from "../components/Footer.astro";
 import GdprBanner from "../components/GdprBanner.astro";
 import Head from "../components/Head.astro";
@@ -71,6 +72,9 @@ const homeHref = basePaths[locale] ?? "/";
     <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Header />
+    {collection === "eauze" && "heroImages" in entry.data && entry.data.heroImages && (
+      <EauzeHeroGallery images={entry.data.heroImages} />
+    )}
     <main class="mx-auto max-w-3xl px-6 py-16 sm:px-8">
       <h1 class="text-2xl font-bold tracking-wide mb-8">{title}</h1>
       <nav class="not-prose mb-12 flex flex-col gap-2 border-l-2 border-base-300 pl-4 sm:flex-row sm:flex-wrap sm:gap-4 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-4">
@@ -87,8 +91,7 @@ const homeHref = basePaths[locale] ?? "/";
         <Content />
       </article>
       <div class="not-prose mt-12 border-t border-base-300 pt-8 flex flex-wrap gap-4">
-        <a href={`${homeHref}#accommodations`} class="btn">{m.accommodationsCta()}</a>
-        <a href={`${homeHref}#reservation`} class="btn btn-outline">{m.reservationCta()}</a>
+        <a href={`${homeHref}#reservation`} class="btn btn-primary">{m.reservationCta()}</a>
       </div>
     </main>
     <Footer locale={locale} />

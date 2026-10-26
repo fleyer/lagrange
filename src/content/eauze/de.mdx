@@ -10,7 +10,21 @@ sections:
     anchor: commodites
   - label: Übernachten in Éauze
     anchor: hebergement
+heroImages:
+  - src: ../../assets/lagrange-resized.jpg
+    alt: "La Grange, die Pilgerherberge"
+  - src: ../../assets/room-1-resized.jpg
+    alt: "Ein Zimmer der Herberge"
+  - src: ../../assets/alambic1-resized.jpg
+    alt: "Eine Armagnac-Brennblase"
+  - src: ../../assets/cepage5-resized.jpg
+    alt: "Weinberge rund um Éauze"
 ---
+
+import SideBySide from "../../components/SideBySide.astro";
+import ArmagnacGallery from "../../components/eauze/ArmagnacGallery.astro";
+import PracticalLinksGallery from "../../components/eauze/PracticalLinksGallery.astro";
+import treasureImage from "../../assets/room-2-resized.jpg";
 
 Éauze ist eine kleine gaskognische Stadt im Département Gers, die auf einem Bergrücken über dem Tal der Auzoue liegt. Als Etappenort der Via Podiensis — des Jakobswegs, der in Le Puy-en-Velay beginnt — empfängt die Stadt jedes Jahr Pilger aus ganz Europa. Lange bevor sie Pilgerort wurde, war sie eine der bedeutenden Städte des römischen Galliens.
 
@@ -18,15 +32,33 @@ sections:
 
 Unter ihrem antiken Namen Elusa war die Stadt Hauptstadt der Elusaten, eines aquitanischen Volkes, bevor sie zur Hauptstadt der römischen Provinz Novempopulanien wurde — einem Gebiet, das ungefähr der heutigen Gascogne entspricht. Die Stadt blühte über Jahrhunderte, mit öffentlichen Bauwerken, deren Spuren bei archäologischen Grabungen im Stadtzentrum immer wieder zum Vorschein kommen.
 
+<SideBySide src={treasureImage} alt="Münzschatz von Elusa">
 Am 18. Oktober 1985 wurde bei Bauarbeiten einer der größten römischen Münzschätze entdeckt, die je in Frankreich gefunden wurden: fast 28.000 Silber- und Bronzemünzen sowie etwa fünfzig Schmuckstücke, vergraben nach dem Jahr 261 während der Reichskrise des 3. Jahrhunderts. Der Schatz ist heute im Musée archéologique du Trésor im Herzen von Éauze ausgestellt, zusammen mit weiteren Funden der Stätte Elusa wie der Villa de Séviac mit ihren Mosaiken.
+</SideBySide>
 
 <h2 id="armagnac">Hauptstadt des Armagnac</h2>
+
+<ArmagnacGallery alts={[
+  "Eine Armagnac-Brennblase",
+  "Destillation des Armagnac",
+  "Weinberge rund um Éauze",
+  "Fässer zur Reifung des Armagnac",
+]} />
 
 Éauze bezeichnet sich auch als Hauptstadt des Bas-Armagnac, einer der drei Anbauzonen für Armagnac-Branntwein, den ältesten Weinbrand Frankreichs. Die umliegenden Hügel sind mit Weinbergen bedeckt, und mehrere Familienbetriebe bieten noch heute Kellerführungen und Verkostungen an — ein beliebter Zwischenstopp für Wanderer, die ihren Tag mit einer Kostprobe der Region abrunden möchten.
 
 <h2 id="commodites">Was Pilger hier vorfinden</h2>
 
 Wer nach einer langen Etappe zu Fuß ankommt, findet in Éauze das Nötigste: Bäckereien, einen Supermarkt, eine Apotheke, mehrere Restaurants und Bars, einen Geldautomaten und eine Bushaltestelle für regionale Verbindungen. Der zentrale Platz mit seiner überdachten Markthalle und den Fachwerkhäusern lädt zu einer Rast ein, bevor es weiter nach Nogaro oder zurück über Montréal-du-Gers nach Condom geht.
+
+Um sich im Sommer abzukühlen, ist das Gemeindeschwimmbad von Juni bis September geöffnet. Und jeden Donnerstagvormittag belebt der Wochenmarkt mit Ständen lokaler Erzeuger die Innenstadt.
+
+<PracticalLinksGallery
+  marketAlt="Wochenmarkt von Éauze"
+  marketHref="https://www.armagnac-dartagnan.com/de/fetes-manifestations/marche-hebdomadaire-eauze/"
+  poolAlt="Gemeindeschwimmbad von Éauze"
+  poolHref="https://www.tourisme-occitanie.com/fr/fiche/equipement/piscine-municipale-d-eauze-eauze_TFOSITRA2_LOI_6684169/"
+/>
 
 <h2 id="hebergement">Übernachten in Éauze</h2>
 

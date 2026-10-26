@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  side?: "left" | "right";
+}
+
+const { src, alt, side = "right" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "not-prose my-8 flex flex-col gap-6 sm:grid sm:grid-cols-2 sm:items-center",
+    side === "left" && "sm:[&>*:first-child]:order-2",
+  ]}
+>
+  <div class="overflow-hidden rounded-lg">
+    <Image src={src} alt={alt} class="aspect-[4/3] w-full object-cover" />
+  </div>
+  <div class="prose prose-stone max-w-none">
+    <slot />
+  </div>
+</div>
