@@ -64,9 +64,9 @@ const unitImages = imagesEntry.data.units;
               </figure>
             )}
             <div class="card-body">
-              <h3 class="card-title text-base-content" style={{color: `oklch(from ${color} calc(l + 0.15) c h)` }}>{unit.name}</h3>
+              <h3 class="card-title text-(--unit-color) dark:text-[oklch(from_var(--unit-color)_calc(l+0.15)_c_h)]" style={{"--unit-color": color}}>{unit.name}</h3>
               <div>
-                <p class="text-sm text-primary text-base-content/70">{unit.capacity}</p>
+                <p class="text-sm text-primary dark:text-[oklch(from_var(--color-primary)_calc(l+0.15)_c_h)]">{unit.capacity}</p>
                 <p class="mt-4 text-base-content" set:html={unit.description}></p>
               </div>
             </div>

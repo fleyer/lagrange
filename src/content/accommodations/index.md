@@ -1,7 +1,7 @@
 ---
 units:
   - id: cepages
-    color: "#5d8261"
+    color: "#4B684F"
     images:
       - ../../assets/accommodations/cepage1.jpg
       - ../../assets/accommodations/cepage3.jpg
