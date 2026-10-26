@@ -42,7 +42,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID;
   <!-- End Google Tag Manager (noscript) -->
     <Header />
     <SeasonAnnouncement locale={locale} />
-    <main>
+    <main id="main" tabindex="-1" class="focus:outline-none">
       <HeroSection locale={locale} class="scroll-mt-16" />
       <RefugeSection locale={locale} />
       <AccommodationsSection locale={locale} />

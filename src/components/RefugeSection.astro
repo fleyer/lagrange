@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getEntry, render } from "astro:content";
 import {
   Bus,
+  CornerRightDownIcon,
   Luggage,
   MapPin,
   Volume2,
@@ -10,7 +11,7 @@ import {
   Wind,
 } from "@lucide/astro";
 import laGrangeLogo from "../assets/lagrange-logo.png";
-import profilePicture from "../assets/marie-france-profile-picture.webp";
+import profilePicture from "../assets/marie-france-profile-picture-2.webp";
 import SocialLinks from "./SocialLinks.astro";
 
 const highlightIcons = [MapPin, Volume2, Wind, Bus, Luggage, WashingMachine];
@@ -76,7 +77,7 @@ const { Content } = await render(hostEntry);
           </div>
           <div class="flex-1 flex justify-center gap-2">
             <a href="#accommodations" class="btn">{refugeEntry.data.discover}</a>
-            <a href="#reservation" class="btn">{refugeEntry.data.gettingThere}</a>
+            <a href="#reservation" class="btn btn-primary">{refugeEntry.data.gettingThere}</a>
           </div>
         </div>
       </div>
@@ -86,7 +87,7 @@ const { Content } = await render(hostEntry);
       <div class="hero bg-base-200 rounded-md p-4">
         <div class="hero-content flex-col">
           <figure class="max-w-[60svw]">
-            <Image src={profilePicture} alt={hostEntry.data.imageAlt} width={400} class="rounded-full"/>
+            <Image src={profilePicture} alt={hostEntry.data.imageAlt} width={400} class="rounded-full border-4"/>
           </figure>
           <div>
             <h2 class="mb-6 font-normal text-base-content text-4xl">
@@ -98,8 +99,8 @@ const { Content } = await render(hostEntry);
         </div>
       </div>
 
-      <div class="mt-8 border-1 border-primary rounded-md p-4">
-        <h2 class="text-lg text-primary mb-4">{hostEntry.data.subtitle}</h2>
+      <div class="mt-8 dark:bg-(--color-stone-100)/95 dark:border-none border-1 border-stone-600 rounded-md p-4">
+        <h2 class="text-lg dark:text-base-200 text-stone-600 mb-4">{hostEntry.data.subtitle}<CornerRightDownIcon class="inline"/></h2>
 
         <SocialLinks/>
       </div>

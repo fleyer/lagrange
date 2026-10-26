@@ -8,11 +8,11 @@ if (!socialsEntry) throw new Error("Missing site/socials content");
 const links = socialsEntry.data.links;
 ---
 
-<div class="flex justify-center gap-4">
+<div class="flex justify-center gap-2">
   {links.map(({ href, label, icon, color }) => (
     <a
       href={href}
-      class="scale-100 hover:scale-110 cursor-pointer"
+      class="scale-100 p-2 hover:scale-110 cursor-pointer"
       aria-label={label}
       style={{ color }}
     >

@@ -10,5 +10,14 @@
   "reservationCta": "Contactez Marie France directement",
   "galleryTitle": "Galerie",
   "galleryPlaceholder": "Les photos arrivent bientôt.",
-  "footerLegal": "Mentions légales"
+  "footerLegal": "Mentions légales",
+  "skipToContent": "Aller au contenu",
+  "menuOpen": "Ouvrir le menu",
+  "menuClose": "Fermer le menu",
+  "navMain": "Navigation principale",
+  "navMobile": "Navigation mobile",
+  "languageSwitcher": "Choisir la langue",
+  "newTab": "(s'ouvre dans un nouvel onglet)",
+  "mapTitle": "Carte Google Maps : emplacement du gîte La Grange",
+  "photoLabel": "Photo {n}"
 }

@@ -10,5 +10,14 @@
   "reservationCta": "Kontaktieren Sie Marie France direkt",
   "galleryTitle": "Galerie",
   "galleryPlaceholder": "Fotos folgen in Kürze.",
-  "footerLegal": "Impressum"
+  "footerLegal": "Impressum",
+  "skipToContent": "Zum Inhalt springen",
+  "menuOpen": "Menü öffnen",
+  "menuClose": "Menü schließen",
+  "navMain": "Hauptnavigation",
+  "navMobile": "Mobile Navigation",
+  "languageSwitcher": "Sprache wählen",
+  "newTab": "(öffnet in einem neuen Tab)",
+  "mapTitle": "Google Maps: Lage der Unterkunft La Grange",
+  "photoLabel": "Foto {n}"
 }

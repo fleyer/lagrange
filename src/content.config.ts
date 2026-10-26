@@ -127,6 +127,7 @@ const gdpr = defineCollection({
     message: z.string(),
     accept: z.string(),
     refuse: z.string(),
+    label: z.string(),
   }),
 });
 
