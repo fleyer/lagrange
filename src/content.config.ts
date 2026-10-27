@@ -43,6 +43,7 @@ const accommodations = defineCollection({
         name: z.string(),
         capacity: z.string(),
         description: z.string(),
+        tags: z.array(z.string()),
       }),
     ),
     pricing: z.array(

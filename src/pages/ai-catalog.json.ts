@@ -37,6 +37,10 @@ export const GET: APIRoute = async ({ site }) => {
       name: unit.name,
       occupancy: unit.capacity,
       description: stripHtml(unit.description),
+      amenityFeature: unit.tags.map((tag) => ({
+        "@type": "LocationFeatureSpecification",
+        name: tag,
+      })),
     })),
     offers: accommodations.data.pricing.map((p) => ({
       "@type": "Offer",

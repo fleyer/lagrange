@@ -11,7 +11,14 @@ units:
       Room 2: 2× 90 cm beds</br>
       Room 3: 2× 90 cm beds</br>
       </br>
-      Equipped kitchen, lounge, TV, covered balcony, air conditioning. Shared bathroom.</br></br>
+      </br></br>
+    tags:
+      - Equipped kitchen
+      - Lounge
+      - TV
+      - Covered balcony
+      - Air conditioning
+      - Shared bathroom
   - id: alambic
     name: L'Alambic
     capacity: 5–6 people
@@ -19,8 +26,12 @@ units:
       2 rooms</br>
       Room 1: 3× 90 cm beds</br>
       Room 2: 140 cm bed + 90 cm bed</br>
-      </br>
-      Equipped kitchen, covered balcony, air conditioning. Shared bathroom.</br></br>
+      </br></br>
+    tags:
+      - Equipped kitchen
+      - Covered balcony
+      - Air conditioning
+      - Shared bathroom
   - id: tonneau
     name: Le Tonneau PMR
     capacity: 4 people
@@ -29,8 +40,10 @@ units:
       Room 1: 2× 90 cm beds</br>
       Room 2: 1× 140 cm bed</br>
       </br>
-      Private en-suite shower, mechanical ventilation.</br></br>
       Night from €50 for 2 people, no meals included.
+    tags:
+      - Private en-suite shower
+      - Mechanical ventilation
 pricing:
   - label: Night + breakfast
     price: €35/person

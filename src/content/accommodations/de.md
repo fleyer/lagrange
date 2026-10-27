@@ -11,7 +11,14 @@ units:
       Zimmer 2: 2 Betten 90</br>
       Zimmer 3: 2 Betten 90</br>
       </br>
-      Ausgestattete Küche, Wohnzimmer, TV, überdachter Balkon, Klimaanlage. Gemeinsame Sanitäranlagen.</br></br>
+      </br></br>
+    tags:
+      - Ausgestattete Küche
+      - Wohnzimmer
+      - TV
+      - Überdachter Balkon
+      - Klimaanlage
+      - Gemeinsame Sanitäranlagen
   - id: alambic
     name: L'Alambic
     capacity: 5–6 Personen
@@ -19,8 +26,12 @@ units:
       2 Zimmer</br>
       Zimmer 1: 3 Betten 90</br>
       Zimmer 2: Bett 140 + Bett 90</br>
-      </br>
-      Ausgestattete Küche, überdachter Balkon, Klimaanlage. Gemeinsame Sanitäranlagen.</br></br>
+      </br></br>
+    tags:
+      - Ausgestattete Küche
+      - Überdachter Balkon
+      - Klimaanlage
+      - Gemeinsame Sanitäranlagen
   - id: tonneau
     name: Le Tonneau PMR
     capacity: 4 Personen
@@ -29,8 +40,10 @@ units:
       Zimmer 1: 2 Betten 90</br>
       Zimmer 2: 1 Bett 140</br>
       </br>
-      Privates Badezimmer, mechanische Lüftung.</br></br>
       Übernachtung ab 50 € für 2 Personen, ohne Verpflegung.
+    tags:
+      - Privates Badezimmer
+      - Mechanische Lüftung
 pricing:
   - label: Übernachtung + Frühstück
     price: 35 €/Pers.

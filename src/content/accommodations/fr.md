@@ -10,8 +10,13 @@ units:
       chambre 1 : lit 140 + lit 90</br>
       chambre 2 : 2 lits 90</br>
       chambre 3 : 2 lits 90</br>
-      </br>
-      Cuisine équipée, salon, TV, balcon couvert, climatisation, sanitaires partagés.</br></br>
+    tags:
+      - Cuisine équipée
+      - Salon
+      - TV
+      - Balcon couvert
+      - Climatisation
+      - Sanitaires partagés
   - id: alambic
     name: L'Alambic
     capacity: 5–6 personnes
@@ -19,8 +24,11 @@ units:
       2 chambres</br>
       chambre 1 : 3 lits 90</br>
       chambre 2 : lit 140 + lit 90</br>
-      </br>
-      Cuisine équipée, balcon couvert, climatisation, sanitaires partagés.</br></br>
+    tags:
+      - Cuisine équipée
+      - Balcon couvert
+      - Climatisation
+      - Sanitaires partagés
   - id: tonneau
     name: Le Tonneau PMR
     capacity: 4 personnes
@@ -29,8 +37,10 @@ units:
       chambre 1 : 2 lits 90</br>
       chambre 2 : 1 lit en 140</br>
       </br>
-      Salle d'eau privative, ventilation mécanique.</br></br>
       Nuit à partir de 50€ pour 2 personnes, sans service.
+    tags:
+      - Salle d'eau privative
+      - Ventilation
 pricing:
   - label: Nuit + petit déjeuner
     price: 35 €/pers.
