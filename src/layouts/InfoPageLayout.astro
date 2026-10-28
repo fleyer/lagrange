@@ -76,23 +76,25 @@ const homeHref = basePaths[locale] ?? "/";
       <EauzeHeroGallery images={entry.data.heroImages} />
     )}
     <main class="mx-auto max-w-3xl px-6 py-16 sm:px-8">
-      <h1 class="text-2xl font-bold tracking-wide mb-8">{title}</h1>
-      <nav class="not-prose mb-12 flex flex-col gap-2 border-l-2 border-base-300 pl-4 sm:flex-row sm:flex-wrap sm:gap-4 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-4">
-        {sections.map(({ label, anchor }) => (
-          <a
-            href={`#${anchor}`}
-            class="text-sm text-base-content/60 hover:text-base-content no-underline transition-colors"
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
-      <article class="prose prose-stone max-w-none info-page-content">
-        <Content />
-      </article>
-      <div class="not-prose mt-12 border-t border-base-300 pt-8 flex flex-wrap gap-4">
-        <a href={`${homeHref}#reservation`} class="btn btn-primary">{m.reservationCta()}</a>
-      </div>
+      <slot>
+        <h1 class="text-2xl font-bold tracking-wide mb-8">{title}</h1>
+        <nav class="not-prose mb-12 flex flex-col gap-2 border-l-2 border-base-300 pl-4 sm:flex-row sm:flex-wrap sm:gap-4 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-4">
+          {sections.map(({ label, anchor }) => (
+            <a
+              href={`#${anchor}`}
+              class="text-sm text-base-content/60 hover:text-base-content no-underline transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <article class="prose prose-stone max-w-none info-page-content">
+          <Content />
+        </article>
+        <div class="not-prose mt-12 border-t border-base-300 pt-8 flex flex-wrap gap-4">
+          <a href={`${homeHref}#reservation`} class="btn btn-primary">{m.reservationCta()}</a>
+        </div>
+      </slot>
     </main>
     <Footer locale={locale} />
     <GdprBanner locale={locale} />
