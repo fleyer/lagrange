@@ -129,13 +129,18 @@ const infoPage = z.object({
 });
 
 const eauze = defineCollection({
-  loader: glob({ pattern: "*.mdx", base: "./src/content/eauze" }),
+  loader: glob({ pattern: "??.mdx", base: "./src/content/eauze" }),
+  schema: infoPage.extend({
+    heroImageAlts: z.array(z.string()).length(4).optional(),
+  }),
+});
+
+const eauzeImages = defineCollection({
+  loader: glob({ pattern: "index.mdx", base: "./src/content/eauze" }),
   schema: ({ image }) =>
-    infoPage.extend({
-      heroImages: z
-        .array(z.object({ src: image(), alt: z.string() }))
-        .length(4)
-        .optional(),
+    z.object({
+      heroImages: z.array(image()).length(4),
+      treasureImage: image(),
     }),
 });
 
@@ -199,5 +204,6 @@ export const collections = {
   meta,
   gallery,
   eauze,
+  eauzeImages,
   camino,
 };

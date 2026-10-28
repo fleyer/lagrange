@@ -24,6 +24,19 @@ if (!entry)
 const { title, sections } = entry.data;
 const { Content } = await render(entry);
 
+let heroImages: { src: ImageMetadata; alt: string }[] | undefined;
+if (
+  collection === "eauze" &&
+  "heroImageAlts" in entry.data &&
+  entry.data.heroImageAlts
+) {
+  const eauzeImagesEntry = await getEntry("eauzeImages", "index");
+  if (!eauzeImagesEntry) throw new Error("Missing eauze images");
+  const alts = entry.data.heroImageAlts;
+  const images = eauzeImagesEntry.data.heroImages;
+  heroImages = alts.map((alt, i) => ({ src: images[i], alt }));
+}
+
 const basePaths: Record<string, string> = {
   fr: "/",
   en: "/en/",
@@ -72,9 +85,7 @@ const homeHref = basePaths[locale] ?? "/";
     <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Header />
-    {collection === "eauze" && "heroImages" in entry.data && entry.data.heroImages && (
-      <EauzeHeroGallery images={entry.data.heroImages} />
-    )}
+    {heroImages && <EauzeHeroGallery images={heroImages} />}
     <main class="mx-auto max-w-3xl px-6 py-16 sm:px-8">
       <slot>
         <h1 class="text-2xl font-bold tracking-wide mb-8">{title}</h1>

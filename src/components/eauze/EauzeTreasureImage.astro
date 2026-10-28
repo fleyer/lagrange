@@ -1,0 +1,18 @@
+---
+import { getEntry } from "astro:content";
+import SideBySide from "../SideBySide.astro";
+
+interface Props {
+  alt: string;
+  side?: "left" | "right";
+}
+
+const { alt, side } = Astro.props;
+
+const imagesEntry = await getEntry("eauzeImages", "index");
+if (!imagesEntry) throw new Error("Missing eauze images");
+---
+
+<SideBySide src={imagesEntry.data.treasureImage} alt={alt} side={side}>
+  <slot />
+</SideBySide>

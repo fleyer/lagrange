@@ -1,7 +1,7 @@
 ---
-import alambic1 from "../../assets/alambic1-resized.jpg";
-import alambic3 from "../../assets/alambic3-resized.jpg";
 import cepage5 from "../../assets/cepage5-resized.jpg";
+import armagnac from "../../assets/eauze/eauze_armagnac.jpg";
+import wines from "../../assets/eauze/eauze_vines.jpg";
 import tonneau5 from "../../assets/tonneau5-resized.jpg";
 import HorizontalGallery from "../HorizontalGallery.astro";
 
@@ -14,9 +14,7 @@ const { alts } = Astro.props;
 
 <HorizontalGallery
   images={[
-    { src: alambic1, alt: alts[0] },
-    { src: alambic3, alt: alts[1] },
-    { src: cepage5, alt: alts[2] },
-    { src: tonneau5, alt: alts[3] },
+    { src: wines, alt: alts[0] },
+    { src: armagnac, alt: alts[1] },
   ]}
 />

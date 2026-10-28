@@ -10,21 +10,16 @@ sections:
     anchor: commodites
   - label: Se loger à Éauze
     anchor: hebergement
-heroImages:
-  - src: ../../assets/lagrange-resized.jpg
-    alt: "La Grange, le gîte d'étape"
-  - src: ../../assets/room-1-resized.jpg
-    alt: "Une chambre du gîte"
-  - src: ../../assets/alambic1-resized.jpg
-    alt: "Un alambic à Armagnac"
-  - src: ../../assets/cepage5-resized.jpg
-    alt: "Vignes autour d'Éauze"
+heroImageAlts:
+  - "Vue d'Éauze depuis le ciel"
+  - "Centre ville d'Éauze"
+  - "La cathédrale Saint-Luperc d'Éauze"
+  - "Logo région Occitanie"
 ---
 
-import SideBySide from "../../components/SideBySide.astro";
 import ArmagnacGallery from "../../components/eauze/ArmagnacGallery.astro";
+import EauzeTreasureImage from "../../components/eauze/EauzeTreasureImage.astro";
 import PracticalLinksGallery from "../../components/eauze/PracticalLinksGallery.astro";
-import treasureImage from "../../assets/room-2-resized.jpg";
 
 Éauze est une petite ville gasconne du Gers, bâtie sur un éperon au-dessus de la vallée de l'Auzoue. Étape de la Via Podiensis, le chemin de Saint-Jacques-de-Compostelle qui part du Puy-en-Velay, elle accueille chaque année des pèlerins venus de toute l'Europe — et bien avant eux, elle fut l'une des grandes cités de la Gaule romaine.
 
@@ -32,13 +27,13 @@ import treasureImage from "../../assets/room-2-resized.jpg";
 
 Sous son nom antique d'Elusa, la ville fut la capitale des Elusates, un peuple aquitain, avant de devenir la capitale de la province romaine de Novempopulanie — un territoire qui recouvrait à peu près l'actuelle Gascogne. La ville prospère pendant plusieurs siècles, dotée de monuments publics dont on retrouve aujourd'hui les traces lors des fouilles archéologiques menées dans le centre-ville.
 
-<SideBySide src={treasureImage} alt="Trésor monétaire d'Elusa">
+<EauzeTreasureImage alt="Trésor monétaire d'Elusa">
 Le 18 octobre 1985, un chantier de construction met au jour l'un des trésors monétaires romains les plus importants jamais découverts en France : près de 28 000 pièces d'argent et de bronze, ainsi qu'une cinquantaine de bijoux, enfouis après l'an 261, en pleine crise du IIIe siècle. 
 <br/>
 Ce trésor est aujourd'hui exposé au Musée archéologique du Trésor, au cœur d'Éauze, aux côtés d'autres vestiges du site Elusa comme la villa de Séviac et ses mosaïques.
 <br/>
 <a href="https://www.elusa.fr/le-musee-archeologique-le-tresor-d-eauze" target="_blank"><button class="btn btn-outline">Voir le Musée</button></a>
-</SideBySide>
+</EauzeTreasureImage>
 
 <h2 id="armagnac">Capitale de l'Armagnac</h2>
 
