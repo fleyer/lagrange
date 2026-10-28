@@ -28,6 +28,8 @@ Pilgrims searching for accommodation do not always know the local vocabulary (g�
 
 ## P1 — Add "hotel" as a secondary keyword in meta descriptions
 
+> **Superseded** by `specs/seo-title-meta-amendment.md`, which rewrites all meta descriptions and drops the "hotel" wording.
+
 The word "hotel" captures a distinct intent bucket (generic lodging search). Add it naturally as a soft synonym in the description for each locale without changing the positioning of the site.
 
 Suggested updated descriptions (delta only — additions in **bold**):
