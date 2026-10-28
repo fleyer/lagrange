@@ -1,9 +1,15 @@
 ---
 import { ChevronDown, Menu, X } from "@lucide/astro";
-import { infoPageSlugs } from "../lib/infoPages";
+import { type InfoPageCollection, infoPageSlugs } from "../lib/infoPages";
 import * as m from "../paraglide/messages.js";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+interface Props {
+  collection?: InfoPageCollection;
+}
+
+const { collection } = Astro.props;
 
 const locales = [
   { code: "fr", label: "FR", href: `${base}/` },
@@ -17,6 +23,13 @@ const homeHref =
   locales.find((l) => l.code === currentLocale)?.href ?? `${base}/`;
 const eauzeHref = `${homeHref}${infoPageSlugs.eauze[currentLocale as keyof typeof infoPageSlugs.eauze] ?? infoPageSlugs.eauze.fr}/`;
 const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typeof infoPageSlugs.camino] ?? infoPageSlugs.camino.fr}/`;
+
+function localeSwitchHref(href: string, code: string) {
+  if (!collection) return href;
+  const slugs = infoPageSlugs[collection];
+  const slug = slugs[code as keyof typeof slugs] ?? slugs.fr;
+  return `${href}${slug}/`;
+}
 ---
 
 <header class="sticky top-0 z-50 border-b bg-base-100 border-base-300">
@@ -69,7 +82,12 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
               {code === currentLocale ? (
                 <span lang={code} aria-current="true" class="text-sm font-semibold tracking-widest text-base-content">{label}</span>
               ) : (
-                <a href={href} lang={code} hreflang={code} class="text-sm font-semibold tracking-widest no-underline text-base-content/70 hover:text-base-content">{label}</a>
+                <a
+                  href={localeSwitchHref(href, code)}
+                  lang={code}
+                  hreflang={code}
+                  class="text-sm font-semibold tracking-widest no-underline text-base-content/70 hover:text-base-content"
+                >{label}</a>
               )}
             </li>
           ))}
@@ -113,7 +131,12 @@ const caminoHref = `${homeHref}${infoPageSlugs.camino[currentLocale as keyof typ
           code === currentLocale ? (
             <span lang={code} aria-current="true" class="inline-flex min-h-11 min-w-11 items-center justify-center text-sm font-semibold tracking-widest text-base-content">{label}</span>
           ) : (
-            <a href={href} lang={code} hreflang={code} class="inline-flex min-h-11 min-w-11 items-center justify-center text-sm font-semibold tracking-widest no-underline text-base-content/70 hover:text-base-content">{label}</a>
+            <a
+              href={localeSwitchHref(href, code)}
+              lang={code}
+              hreflang={code}
+              class="inline-flex min-h-11 min-w-11 items-center justify-center text-sm font-semibold tracking-widest no-underline text-base-content/70 hover:text-base-content"
+            >{label}</a>
           )
         )}
       </div>

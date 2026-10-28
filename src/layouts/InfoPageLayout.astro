@@ -84,7 +84,7 @@ const homeHref = basePaths[locale] ?? "/";
   <body>
     <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <Header />
+    <Header collection={collection} />
     {heroImages && <EauzeHeroGallery images={heroImages} />}
     <main class="mx-auto max-w-3xl px-6 py-16 sm:px-8">
       <slot>
